@@ -1,25 +1,70 @@
 // const setting = require("json!../../shared/setting.json")
 // console.log( setting );
 
-import LinkedIn from './LinkedInClass'
+import debug from '../debug/debug'
+import log from '../log/LogCtrl'
 
-const launchLinkedIn = () => {
+import LinkedInClass from './LinkedInClass'
+
+let iCountTest = 0;
+
+const getLinkedIn = () => {
+
+    debug(`Test call API LinkedIn n° : ${iCountTest}`)
+
+    if( window.appLinkedIn === undefined ) {
+
+        // Call launched too early, repeat call
+        repeatGetLinkedIn();
+    }
+    else {
     
-    let profil = new LinkedIn( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
+        let profil = new LinkedInClass( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
 
-    profil.setPromise()
+        profil.setPromise()
 
-    const promiseAPI = profil.promiseAPI
+        const promiseAPI = profil.promiseAPI
 
-    promiseAPI
-        .then( (result) => {
+        promiseAPI
+            .then( (result) => {
 
-            console.log( result )
-        })
-        .catch( (msg) => {
-            // TODO : afficher les erreurs
-            // console.log( `promesse rompue ${msg}` )
-        })
+                displayInfo( result )
+            })
+            .catch( (msg) => {
+
+                // TODO : afficher les erreurs
+                log( 'Erreur LinkedIn API', msg )
+            })
+    }
 }
 
-module.exports = launchLinkedIn;
+module.exports = getLinkedIn;
+
+const displayInfo = ( oInfo ) => {
+
+    let sText = `
+                <h1>${oInfo.formattedName}</h1>
+                <h2>${oInfo.headline}</h2>
+                <p><em>${oInfo.location.name}</em></p>
+                <p>${oInfo.summary}</p>
+                `;
+
+    const nContent = document.getElementById('content')
+
+    nContent.innerHTML = sText
+}
+
+const repeatGetLinkedIn = () => {
+
+    if( iCountTest >= 4  ) {
+
+        log('Call API LinkedIn', 'Not readay after 2 seconde, abort')
+    }
+    else {
+
+        setTimeout(function() {
+            getLinkedIn()
+        }, 500);
+        iCountTest++;
+    }
+}
