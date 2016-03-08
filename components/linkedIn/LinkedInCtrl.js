@@ -8,7 +8,7 @@ import LinkedInClass from './LinkedInClass'
 
 let iCountTest = 0;
 
-const getLinkedIn = () => {
+const linkedInCtrl = () => {
 
     debug(`Test call API LinkedIn n° : ${iCountTest}`)
 
@@ -38,8 +38,14 @@ const getLinkedIn = () => {
     }
 }
 
-module.exports = getLinkedIn;
+module.exports = linkedInCtrl;
 
+
+/**
+ * Display ui info
+ * ===============
+ * @param  {object} oInfo => result of linkedin
+ */
 const displayInfo = ( oInfo ) => {
 
     let sText = `
@@ -54,6 +60,10 @@ const displayInfo = ( oInfo ) => {
     nContent.innerHTML = sText
 }
 
+/**
+ * Repeat linkedin init call each half second
+ * ==========================================
+ */
 const repeatGetLinkedIn = () => {
 
     if( iCountTest >= 4  ) {
@@ -63,7 +73,7 @@ const repeatGetLinkedIn = () => {
     else {
 
         setTimeout(function() {
-            getLinkedIn()
+            linkedInCtrl()
         }, 500);
         iCountTest++;
     }
