@@ -1,5 +1,5 @@
 module.exports = {
-    entry: ['babel-polyfill', './app.js'],
+    entry: ['./app.js'],
     output: {
         filename: './app/appBundle.js'
     },
@@ -18,8 +18,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true, 
-                    presets: ['es2015'],
-                    plugins: ['transform-async-to-generator', 'syntax-async-functions']
+                    presets: ['es2015']
                 }
             }
         ]

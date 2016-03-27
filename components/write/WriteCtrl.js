@@ -1,9 +1,7 @@
 
-import writeChar from './writeChar'
+import writeChar from './writeChar';
 
-let Promise = require('bluebird');
-
-const WriteCtrl = (nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval) => {
+module.exports = function WriteCtrl(nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval) {
 
     // Write a character or multiple characters to the buffer.
     let chars = sNewText.slice(index, index + charsPerInterval);
@@ -66,15 +64,10 @@ const WriteCtrl = (nOutput, sNewText, index, interval, mirrorToStyle, charsPerIn
             console.log( '=> Lancer fonction writeTo' );
         }
 
-        do {
-            console.log( Promise );
-            // await Promise.delay(thisInterval);
-        } while(paused);
+        // Wait specific delay
+        setTimeout(function() {
 
-        console.log( nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval );
-
-        return WriteCtrl(nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval);
+            return WriteCtrl(nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval);
+        }, thisInterval);
     }
 }
-
-module.exports = WriteCtrl;
