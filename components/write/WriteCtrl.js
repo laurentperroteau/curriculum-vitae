@@ -10,7 +10,7 @@ module.exports = function WriteCtrl(nOutput, sNewText, index, interval, mirrorTo
     writeChar.simple(nOutput, chars);
 
     // TODO
-    // Prism.highlightAll();
+    Prism.highlightAll();
 
     let endOfSentence = /[\.\?\!]\s$/;
     let comma = /\D[\,]\s$/;

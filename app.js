@@ -7,6 +7,12 @@ import log from './components/log/LogCtrl'
 import linkedInCtrl from './components/linkedIn/LinkedInCtrl'
 import WriteCtrl from './components/write/WriteCtrl'
 
+// http://www.codefornow.com/2015/05/18/webpack-exposing-jquery-as-a-global-variable/
+require('expose?$!expose?jQuery!jquery');
+// console.log( $('#content') );
+
+// Exposes the exports for file.js to the global context on property "libraryName"
+require('expose?Prims!prims');
 
 
 // import writeChar from './components/write/writeChar'
@@ -31,6 +37,10 @@ else {
         // linkedInCtrl();
 
         startAnimation();
+
+        // let fileContent = require('!!prismjs?lang=javascript!./content/exemple.txt') 
+
+        // console.log( fileContent );
     })();
 }
 

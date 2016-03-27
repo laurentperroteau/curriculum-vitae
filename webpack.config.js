@@ -24,7 +24,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.json']
+        extensions: ['', '.js', '.json'],
+        alias: {
+            prims: './libs/prims/prism.js'
+        }
     },
     // more options in the optional jshint object
     jshint: {
