@@ -2,3 +2,4 @@ exemple/
 *.sublime-project
 *.sublime-workspace
 node_modules
+README.md
