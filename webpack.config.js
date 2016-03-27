@@ -1,7 +1,7 @@
 module.exports = {
-    entry: ["./app.js"],
+    entry: ['babel-polyfill', './app.js'],
     output: {
-        filename: "./app/appBundle.js"
+        filename: './app/appBundle.js'
     },
     module: {
     preLoaders: [
@@ -18,16 +18,14 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true, 
-                    presets: ['es2015'] 
+                    presets: ['es2015'],
+                    plugins: ['transform-async-to-generator', 'syntax-async-functions']
                 }
             }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.json'],
-        alias : {
-            jquery: './jquery/jquery-1.12.0.min.js'
-        }
+        extensions: ['', '.js', '.json']
     },
     // more options in the optional jshint object
     jshint: {
