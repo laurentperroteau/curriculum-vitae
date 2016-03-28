@@ -21,9 +21,7 @@ const linkedInCtrl = () => {
     
         let profil = new LinkedInClass( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
 
-        profil.setPromise()
-
-        const promiseAPI = profil.promiseAPI
+        const promiseAPI = profil.setPromise()
 
         promiseAPI
             .then( (result) => {

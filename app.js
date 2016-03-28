@@ -1,3 +1,7 @@
+
+// Globals
+require('expose?Prims!prims');
+
 // Functions
 import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
@@ -6,8 +10,10 @@ import log from './components/log/LogCtrl'
 // Controllers
 import linkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
-// Templates
-// TODO : pas besoin 
+import WriteClass from './components/write/WriteClass'
+// import WriteCtrl from './components/write/WriteCtrl'
+
+// import writeChar from './components/write/writeChar'
 
 
 //Start app
@@ -22,9 +28,40 @@ if( !supportPromise() ) {
 }
 else {
 
-    // Document ready
     (function() {
 
+        debug('Document ready')
+
         linkedInCtrl()
+
+        const nOutput = document.getElementById('style-text')
+
+        const exemple = require('raw!./content/exemple.txt')
+        const exemple2 = require('raw!./content/exemple2.txt')
+
+        const write = new WriteClass( nOutput )
+
+        const writingExemple = write.initWrite( exemple )
+
+        writingExemple.then( () => {
+
+            const writingExemple2 = write.initWrite( exemple2 )
+
+            writingExemple2.then( () => {
+
+                console.log( 'ok' );
+            })
+        })
+
+        /*
+            TODO: version simplifier
+         write.initWrite( exemple ).then( () => {
+
+            write.initWrite( exemple2 ).then( () => {
+
+                console.log( 'ok' );
+            })
+        })*/
+
     })();
 }

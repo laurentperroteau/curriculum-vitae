@@ -1,0 +1,14 @@
+(function() {
+
+    debug('Document ready')
+
+    const nOutput = document.getElementById('style-text')
+
+    // linkedInCtrl();
+    let result = {
+        name: 'Laurent',
+        status: 'Web developper'
+    }
+
+    startAnimation( nOutput, result );
+})();

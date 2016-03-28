@@ -1,7 +1,7 @@
 module.exports = {
-    entry: ["./app.js"],
+    entry: ['./app.js'],
     output: {
-        filename: "./app/appBundle.js"
+        filename: './app/appBundle.js'
     },
     module: {
     preLoaders: [
@@ -18,15 +18,15 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true, 
-                    presets: ['es2015'] 
+                    presets: ['es2015']
                 }
             }
         ]
     },
     resolve: {
         extensions: ['', '.js', '.json'],
-        alias : {
-            jquery: './jquery/jquery-1.12.0.min.js'
+        alias: {
+            prims: './libs/prims/prism.js'
         }
     },
     // more options in the optional jshint object
