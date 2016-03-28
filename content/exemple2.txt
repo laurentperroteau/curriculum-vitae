@@ -1,6 +1,38 @@
-let sText = `
-            <h1>${oInfo.formattedName}</h1>
-            <h2>${oInfo.headline}</h2>
-            <p><em>${oInfo.location.name}</em></p>
-            <p>${oInfo.summary}</p>
-            `;
+
+
+// LinkedInCtrl.js
+// ---------------
+
+import LinkedInClass from './LinkedInClass'
+
+// La fonction LinkedInCtrl
+const linkedInCtrl = () => {
+    
+    // Déclaration de la classe LinkedInClass
+    let profil = new LinkedInClass( window.appLinkedIn, sLinkedInUrl )
+
+    // Déclaration et récupération de la classe Promise
+    profil.setPromise().then( (result) => {
+
+        // Appel de la fonction displayInfo avec en paramètre le résultat de l'API LinkedIn
+        displayInfo( result )
+        
+        ...
+
+
+const displayInfo = ( oInfo ) => {
+
+    // Création du HTML avec
+    let sText = `
+                <h1>${oInfo.formattedName}</h1>
+                <h2>${oInfo.headline}</h2>
+                <p><em>${oInfo.location.name}</em></p>
+                <p>${oInfo.summary}</p>
+                `;
+
+    const nContent = document.getElementById('jsContent')
+
+    nContent.innerHTML = sText
+
+    // Bon, on va enfin pouvoir voir le résultat... 
+}

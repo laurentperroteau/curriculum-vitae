@@ -7,13 +7,11 @@ import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
 import log from './components/log/LogCtrl'
 
-// Controllers
-import linkedInCtrl from './components/linkedIn/LinkedInCtrl'
-
+// Classes
 import WriteClass from './components/write/WriteClass'
-// import WriteCtrl from './components/write/WriteCtrl'
 
-// import writeChar from './components/write/writeChar'
+// Controllers
+import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
 
 //Start app
@@ -32,12 +30,11 @@ else {
 
         debug('Document ready')
 
-        linkedInCtrl()
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
         const bIsTecnic = false;
 
-        const nOutput = document.getElementById('style-text')
+        const nOutput = document.getElementById('jsCodeContent')
 
         const exemple = require('raw!./content/exemple.txt')
         const exemple2 = require('raw!./content/exemple2.txt')
@@ -52,7 +49,7 @@ else {
 
             writingExemple2.then( () => {
 
-                console.log( 'ok' );
+                LinkedInCtrl()
             })
         })
 

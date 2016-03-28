@@ -7,7 +7,7 @@ class Write {
     constructor( nOutput, bSlow ) {
 
         this.nOutput = nOutput
-        this.iSpeed  = bSlow ? 10 : 1;
+        this.iSpeed  = bSlow ? 16 : 1;
     }
 
     initWrite( sText ) {

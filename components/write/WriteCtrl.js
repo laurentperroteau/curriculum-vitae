@@ -28,7 +28,7 @@ module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval,
 
         let thisInterval = interval;
         let thisSlice = sNewText.slice(index - 2, index + 1);
-        let thisWords = sNewText.slice(index - 10, index + 20);
+        // let thisWords = sNewText.slice(index - 10, index + 20);
 
         if (comma.test(thisSlice)) {
 
@@ -42,27 +42,28 @@ module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval,
             thisInterval = interval * 50;  
         } 
 
-        if (endOfLine.test(thisSlice)) {
+        // TODO: ne pas ralentir non plus quand html
+        if ( endOfLine.test(thisSlice) && !openMustache.test(thisSlice) ) {
 
             // console.log( 'si fin de ligne' );
             thisInterval = interval * 50;  
 
-              // Ensure we stay scrolled to the bottom.
-              window.scrollTo(0, document.body.scrollHeight);
+            // Ensure we stay scrolled to the bottom.
+            window.scrollTo(0, document.body.scrollHeight);
         } 
 
-        if (endOfSentence.test(thisSlice)) {
+        /*if (endOfSentence.test(thisSlice)) {
 
             // console.log( 'si point, fin d une phrase' );
             thisInterval = interval * 70;
-        }
+        }*/
 
         // console.log( thisWords );
-        if ( thisWords.indexOf('writeTo') !== -1 ) {
+        /*if ( thisWords.indexOf('writeTo') !== -1 ) {
 
             // Attention, la fonction est lancé 24 fois
             console.log( '=> Lancer fonction writeTo' );
-        }
+        }*/
 
         // Wait specific delay
         setTimeout(function() {
