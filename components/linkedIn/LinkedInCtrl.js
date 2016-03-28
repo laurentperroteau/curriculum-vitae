@@ -66,7 +66,7 @@ const repeatGetLinkedIn = () => {
 
     if( iCountTest >= 4  ) {
 
-        log('Call API LinkedIn', 'Not readay after 2 seconde, abort')
+        log('Call API LinkedIn', 'Not ready after 2 secondes, abort !')
     }
     else {
 
