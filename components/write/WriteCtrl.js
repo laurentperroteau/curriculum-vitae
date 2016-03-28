@@ -10,7 +10,6 @@ module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval,
 
     writeChar.simple(nOutput, chars);
 
-    // TODO
     Prism.highlightAll();
 
     let endOfSentence = /[\.\?\!]\s$/;

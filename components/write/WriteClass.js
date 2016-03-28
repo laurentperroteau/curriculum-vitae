@@ -4,26 +4,25 @@ import WriteCtrl from './WriteCtrl'
 
 class Write {
 
-    constructor(nOutput, sText) {
+    constructor(nOutput) {
 
         this.nOutput = nOutput
         this.iSpeed   = 1
-        this.sText    = sText
     }
 
-    setPromise() {
+    initWrite( sText ) {
 
         return new Promise( (resolve, reject) => {
 
-            this._writeText( resolve, reject )
+            this._writeText( resolve, sText )
         })
     }
 
-    _writeText( resolve, reject ) {
+    _writeText( resolve, sText ) {
 
         debug('=> write text ')
 
-        WriteCtrl(resolve, this.nOutput, this.sText, 0, this.iSpeed, true, 1)
+        WriteCtrl(resolve, this.nOutput, sText, 0, this.iSpeed, true, 1)
     }
 }
 export default Write

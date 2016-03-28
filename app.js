@@ -28,50 +28,40 @@ if( !supportPromise() ) {
 }
 else {
 
-    // Document ready
     (function() {
 
         debug('Document ready')
 
+        linkedInCtrl()
+
         const nOutput = document.getElementById('style-text')
+
         const exemple = require('raw!./content/exemple.txt')
+        const exemple2 = require('raw!./content/exemple2.txt')
 
-        let write = new WriteClass( nOutput, exemple )
+        const write = new WriteClass( nOutput )
 
-        const promiseText = write.setPromise()
+        const writingExemple = write.initWrite( exemple )
 
-        promiseText.then( (result) => {
+        writingExemple.then( () => {
 
-            console.log( 'ok' );
+            const writingExemple2 = write.initWrite( exemple2 )
+
+            writingExemple2.then( () => {
+
+                console.log( 'ok' );
+            })
         })
-        
+
+        /*
+            TODO: version simplifier
+         write.initWrite( exemple ).then( () => {
+
+            write.initWrite( exemple2 ).then( () => {
+
+                console.log( 'ok' );
+            })
+        })*/
+
     })();
-}
-
-
-function startAnimation( nOutput ) {
-
-    debug('Start animation')
-
-    let speed = 1;
-
-
-
-    // WriteCtrl(nOutput, '// text d introduction et apres recherche information\n', 0, speed, true, 1);
-    WriteCtrl(nOutput, exemple, 0, speed, true, 1);
-    // WriteCtrl(nOutput, './', 0, speed, true, 1);
-    // await resultObjectToString();
-    // await writeTo(nOutput, resultObjectToStringVar, 0, speed, true, 1);
-    // await writeTo(nOutput, styleText[0], 0, speed, true, 1);
-    // await setEndOfContenteditable(nOutput)
-    // await writeTo(workEl, workText, 0, speed, false, 1);
-    // await writeTo(nOutput, styleText[1], 0, speed, true, 1);
-    // createWorkBox();
-    // await Promise.delay(1000);
-    // await writeTo(nOutput, styleText[2], 0, speed, true, 1);
-    // await writeTo(pgpEl, pgpText, 0, speed, false, 32);
-    // await writeTo(nOutput, styleText[3], 0, speed, true, 1);
-    return function() {
-        console.log( "coucou" );
-    }
 }
