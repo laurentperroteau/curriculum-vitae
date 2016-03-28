@@ -7,12 +7,11 @@ class LinkedIn {
         this.oApp        = oApp
         this.sUrlProfil  = sUrlProfil
         this.oDataProfil = {}
-        this.promiseAPI  = null
     }
 
     setPromise() {
 
-        this.promiseAPI = new Promise( (resolve, reject) => {
+        return new Promise( (resolve, reject) => {
 
             this._callAPI( resolve, reject )
         })
