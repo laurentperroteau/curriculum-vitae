@@ -34,12 +34,15 @@ else {
 
         linkedInCtrl()
 
+        // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
+        const bIsTecnic = false;
+
         const nOutput = document.getElementById('style-text')
 
         const exemple = require('raw!./content/exemple.txt')
         const exemple2 = require('raw!./content/exemple2.txt')
 
-        const write = new WriteClass( nOutput )
+        const write = new WriteClass( nOutput, bIsTecnic )
 
         const writingExemple = write.initWrite( exemple )
 

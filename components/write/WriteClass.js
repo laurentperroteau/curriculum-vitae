@@ -4,10 +4,10 @@ import WriteCtrl from './WriteCtrl'
 
 class Write {
 
-    constructor(nOutput) {
+    constructor( nOutput, bSlow ) {
 
         this.nOutput = nOutput
-        this.iSpeed   = 1
+        this.iSpeed  = bSlow ? 10 : 1;
     }
 
     initWrite( sText ) {
