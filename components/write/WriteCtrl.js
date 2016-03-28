@@ -1,10 +1,11 @@
-
+import debug from '../debug/debug'
 import writeChar from './writeChar';
 
-module.exports = function WriteCtrl(nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval) {
+module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval) {
 
     // Write a character or multiple characters to the buffer.
     let chars = sNewText.slice(index, index + charsPerInterval);
+
     index += charsPerInterval;
 
     writeChar.simple(nOutput, chars);
@@ -67,7 +68,12 @@ module.exports = function WriteCtrl(nOutput, sNewText, index, interval, mirrorTo
         // Wait specific delay
         setTimeout(function() {
 
-            return WriteCtrl(nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval);
+            return WriteCtrl(resolve, nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval);
         }, thisInterval);
+    }
+    else {
+        debug('=> write end')
+
+        return resolve();
     }
 }

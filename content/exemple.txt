@@ -1,16 +1,14 @@
-import alert from './alert'
+(function() {
 
-/**
- * Display alert
- * =============
- * @param  {string} msg   => message to show
- * @return display alert
- */
-let LogCtrl = ( sLabel, sMsg ) => {
+    debug('Document ready')
 
-    // TODO : add log to file with times
+    const nOutput = document.getElementById('style-text')
 
-    alert( sLabel, sMsg )
-};
+    // linkedInCtrl();
+    let result = {
+        name: 'Laurent',
+        status: 'Web developper'
+    }
 
-module.exports = LogCtrl;
+    startAnimation( nOutput, result );
+})();

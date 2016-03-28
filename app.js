@@ -1,3 +1,7 @@
+
+// Globals
+require('expose?Prims!prims');
+
 // Functions
 import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
@@ -5,15 +9,9 @@ import log from './components/log/LogCtrl'
 
 // Controllers
 import linkedInCtrl from './components/linkedIn/LinkedInCtrl'
-import WriteCtrl from './components/write/WriteCtrl'
 
-// http://www.codefornow.com/2015/05/18/webpack-exposing-jquery-as-a-global-variable/
-require('expose?$!expose?jQuery!jquery');
-// console.log( $('#content') );
-
-// Exposes the exports for file.js to the global context on property "libraryName"
-require('expose?Prims!prims');
-
+import WriteClass from './components/write/WriteClass'
+// import WriteCtrl from './components/write/WriteCtrl'
 
 // import writeChar from './components/write/writeChar'
 
@@ -34,28 +32,32 @@ else {
     (function() {
 
         debug('Document ready')
-        // linkedInCtrl();
 
-        startAnimation();
+        const nOutput = document.getElementById('style-text')
+        const exemple = require('raw!./content/exemple.txt')
 
-        // let fileContent = require('!!prismjs?lang=javascript!./content/exemple.txt') 
+        let write = new WriteClass( nOutput, exemple )
 
-        // console.log( fileContent );
+        const promiseText = write.setPromise()
+
+        promiseText.then( (result) => {
+
+            console.log( 'ok' );
+        })
+        
     })();
 }
 
 
-function startAnimation() {
+function startAnimation( nOutput ) {
 
     debug('Start animation')
 
-    let speed = 16;
+    let speed = 1;
 
-    const nOutput = document.getElementById('style-text');
 
-    let exemple = require('raw!./content/exemple.txt')
 
-    WriteCtrl(nOutput, '// text d introduction et apres recherche information\n', 0, speed, true, 1);
+    // WriteCtrl(nOutput, '// text d introduction et apres recherche information\n', 0, speed, true, 1);
     WriteCtrl(nOutput, exemple, 0, speed, true, 1);
     // WriteCtrl(nOutput, './', 0, speed, true, 1);
     // await resultObjectToString();
@@ -69,4 +71,7 @@ function startAnimation() {
     // await writeTo(nOutput, styleText[2], 0, speed, true, 1);
     // await writeTo(pgpEl, pgpText, 0, speed, false, 32);
     // await writeTo(nOutput, styleText[3], 0, speed, true, 1);
+    return function() {
+        console.log( "coucou" );
+    }
 }
