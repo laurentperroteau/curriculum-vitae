@@ -14,8 +14,15 @@
     "webpack": "^1.12.13"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.5",
+    "css-loader": "^0.23.1",
+    "cssnext": "^1.8.4",
+    "cssnext-loader": "^1.0.1",
+    "postcss-loader": "^0.8.2",
+    "precss": "^1.4.0",
     "raw-loader": "^0.5.1",
-    "strip-loader": "^0.1.2"
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.13.1"
   },
   "scripts": {
     "start": "webpack-dev-server",

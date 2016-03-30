@@ -1,10 +1,15 @@
+// PostCSS plugin
+const autoprefixer = require('autoprefixer')
+const precss      = require('precss')
+const cssnext     = require('cssnext')
+
 module.exports = {
     entry: ['./app.js'],
     output: {
         filename: './app/appBundle.js'
     },
     module: {
-    preLoaders: [
+        preLoaders: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -20,6 +25,10 @@ module.exports = {
                     cacheDirectory: true, 
                     presets: ['es2015']
                 }
+            },
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
             }
         ]
     },
@@ -51,5 +60,14 @@ module.exports = {
 
             // console.log( errors );
         }
+    },
+    postcss: function () {
+
+        // List of postcss plugin (require above)
+        return [
+            precss, 
+            cssnext,
+            autoprefixer
+        ]
     }
 }

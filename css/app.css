@@ -1,0 +1,31 @@
+:root {
+    --body-color: #eee;
+    --font-base: 1rem;
+}
+
+@custom-media --viewport-medium (width <= 40rem);
+@custom-media --viewport-large (max-width: 50em);
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+@media (--viewport-medium) {
+
+    body { 
+        font-size: var(--font-base)
+    }
+}
+
+body {
+    background-color: var(--body-color);
+}
+.coucou {
+    display: block;
+
+    .hola {
+        display: flex;
+    }
+}
+
+:--heading {
+    margin-top: 0;
+}

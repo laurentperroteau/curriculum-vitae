@@ -13,6 +13,8 @@ import WriteClass from './components/write/WriteClass'
 // Controllers
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
+require('./css/app.css');
+
 
 //Start app
 debug('------------------------------------------------')
