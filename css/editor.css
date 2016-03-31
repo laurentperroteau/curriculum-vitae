@@ -169,13 +169,20 @@ body {
             flex-grow: 1;
             width: 1px;
             height: 100%;
+            background-color: var( --sublime-background );
+
         }
     }
 }
 
 
 .editor {
-
+    background-color: var( --sublime-background );
+    
+    pre {
+        background-color: var( --sublime-background );
+        border-radius: 0;
+    }
 }
 
 body {

@@ -14,6 +14,7 @@ import WriteClass from './components/write/WriteClass'
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
 require('./css/app.css');
+require('./css/editor.css');
 
 
 //Start app
@@ -46,9 +47,13 @@ else {
 
         const nBody = document.getElementById('jsBody')
 
-        var template = require('./screens/ui.html')
+        var template = require('./screens/app.html')
         var html = template( oMenu )
         nBody.innerHTML = html;
+
+        var template = require('./screens/editor.html')
+        var html = template( oMenu )
+        document.getElementById('jsEditor').innerHTML = html;
 
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');

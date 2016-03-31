@@ -1,0 +1,43 @@
+<img class="sublime" src="css/sublime.png" alt="">
+
+<div class="app">
+    <div class="app__bar">   
+        <div class="app__bar__top">   
+            /home/laurentperroteau/www/cv/web2/css/app.css
+        </div>
+        <div>   
+            <ul class="list list--inline">
+                <li>File</li>
+                <li>Edit</li>
+                <li>Selection</li>
+                <li>Find</li>
+                <li>View</li>
+                <li>Goto</li>
+                <li>Tools</li>
+                <li>Project</li>
+                <li>Preferences</li>
+                <li>Help</li>
+            </ul>
+        </div>
+    </div>
+    <div class="app__main">   
+        <div class="app__main__menu"> 
+            <ul>
+                <li class="app__main__menu__item">
+                    <strong>{{ title }}</strong>
+                    <ul>                
+                        {{#menu}}
+                        <li class="app__main__menu__item">
+                            <strong>{{name}}</strong>
+                        </li>
+                        {{/menu}}
+                        </li>
+                    </ul>
+                </li>
+            </ul> 
+        </div>
+        <div class="app__main__content">   
+            <div id="jsEditor" class="editor"></div>
+        </div>
+    </div>
+</div>
