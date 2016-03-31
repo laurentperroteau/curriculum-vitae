@@ -2,6 +2,7 @@
 const autoprefixer = require('autoprefixer')
 const precss      = require('precss')
 const cssnext     = require('cssnext')
+const normalize     = require('postcss-normalize')
 
 module.exports = {
     entry: ['./app.js'],
@@ -29,6 +30,13 @@ module.exports = {
             {
                 test:   /\.css$/,
                 loader: "style-loader!css-loader!postcss-loader"
+            },
+            {
+                test: /\.html$/,
+                loader: 'mustache'
+                // loader: 'mustache?minify'
+                // loader: 'mustache?{ minify: { removeComments: false } }'
+                // loader: 'mustache?noShortcut'
             }
         ]
     },
@@ -67,7 +75,8 @@ module.exports = {
         return [
             precss, 
             cssnext,
-            autoprefixer
+            autoprefixer,
+            normalize
         ]
     }
 }

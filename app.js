@@ -32,6 +32,12 @@ else {
 
         debug('Document ready')
 
+        const nBody = document.getElementById('jsBody')
+
+        var template = require('./screens/ui.html');
+        var html = template({ title: 'Curriculum vitae' });
+        nBody.innerHTML = html;
+
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
         const bIsTecnic = false;
@@ -41,7 +47,7 @@ else {
         const exemple = require('raw!./content/exemple.txt')
         const exemple2 = require('raw!./content/exemple2.txt')
 
-        const write = new WriteClass( nOutput, bIsTecnic )
+        /*const write = new WriteClass( nOutput, bIsTecnic )
 
         const writingExemple = write.initWrite( exemple )
 
@@ -53,7 +59,7 @@ else {
 
                 LinkedInCtrl()
             })
-        })
+        })*/
 
         /*
             TODO: version simplifier

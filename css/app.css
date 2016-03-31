@@ -1,22 +1,71 @@
 :root {
     --body-color: #eee;
     --font-base: 1rem;
+
+    --sublime-top-bar   : #2D2D2D;
+    --sublime-menu      : #E6E6E6;
+    --sublime-tab       : #565656;
+    --sublime-background: #141414;
 }
 
-@custom-media --viewport-medium (width <= 40rem);
+/*@custom-media --viewport-medium (width <= 40rem);
 @custom-media --viewport-large (max-width: 50em);
 
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;*/
 
-@media (--viewport-medium) {
+/*@media (--viewport-medium) {
 
     body { 
         font-size: var(--font-base)
     }
+}*/
+
+/* Test */
+.sublime {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.editor {
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    &__top-bar {
+        height: 48px;
+        background-color: var( --sublime-top-bar );
+    }
+
+    &__main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: stretch;
+        height: 100%;
+
+        &__menu {
+            width: 246px;
+            height: 100%;
+            background-color: var( --sublime-menu );
+        }
+
+        &__content {
+            flex-grow: 1;
+            width: 1px;
+            height: 100%;
+            background-color: var( --sublime-background );
+        }
+    }
 }
 
 body {
-    background-color: var(--body-color);
+    
 }
 .coucou {
     display: block;
@@ -24,8 +73,4 @@ body {
     .hola {
         display: flex;
     }
-}
-
-:--heading {
-    margin-top: 0;
 }
