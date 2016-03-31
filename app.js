@@ -13,8 +13,6 @@ import WriteClass from './components/write/WriteClass'
 // Controllers
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
-require('./css/app.css');
-require('./css/editor.css');
 
 
 //Start app
@@ -45,13 +43,17 @@ else {
             ]
         }        
 
-        const nBody = document.getElementById('jsBody')
-
-        var template = require('./screens/app.html')
+        // TODO : move in module app
+        // TODO : js in screens ? only templating js in screens ?
+        // TODO : test automatic require, template and innerHTML depend name
+        require('./screens/app/app.css');
+        var template = require('./screens/app/app.html')
         var html = template( oMenu )
-        nBody.innerHTML = html;
+        document.getElementById('jsApp').innerHTML = html;
 
-        var template = require('./screens/editor.html')
+        // TODO : move in module app
+        require('./screens/editor/editor.css');
+        var template = require('./screens/editor/editor.html')
         var html = template( oMenu )
         document.getElementById('jsEditor').innerHTML = html;
 
