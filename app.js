@@ -32,10 +32,22 @@ else {
 
         debug('Document ready')
 
+        let oMenu = {
+            "title": "Curriculum Vitae",
+            "menu": [
+                {
+                    name: "app"
+                },
+                {
+                    name: "components"
+                }
+            ]
+        }        
+
         const nBody = document.getElementById('jsBody')
 
-        var template = require('./screens/ui.html');
-        var html = template({ title: 'Curriculum vitae' });
+        var template = require('./screens/ui.html')
+        var html = template( oMenu )
         nBody.innerHTML = html;
 
 
@@ -47,7 +59,7 @@ else {
         const exemple = require('raw!./content/exemple.txt')
         const exemple2 = require('raw!./content/exemple2.txt')
 
-        /*const write = new WriteClass( nOutput, bIsTecnic )
+        const write = new WriteClass( nOutput, bIsTecnic )
 
         const writingExemple = write.initWrite( exemple )
 
@@ -59,7 +71,7 @@ else {
 
                 LinkedInCtrl()
             })
-        })*/
+        })
 
         /*
             TODO: version simplifier

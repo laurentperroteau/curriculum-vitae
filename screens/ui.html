@@ -1,26 +1,64 @@
 <img class="sublime" src="css/sublime.png" alt="">
 
-<div class="editor">
-    <div class="editor__top-bar">   
+<div class="app">
+    <div class="app__bar">   
+        <div class="app__bar__top">   
+            /home/laurentperroteau/www/cv/web2/css/app.css
+        </div>
+        <div>   
+            <ul class="list list--inline">
+                <li>File</li>
+                <li>Edit</li>
+                <li>Selection</li>
+                <li>Find</li>
+                <li>View</li>
+                <li>Goto</li>
+                <li>Tools</li>
+                <li>Project</li>
+                <li>Preferences</li>
+                <li>Help</li>
+            </ul>
+        </div>
     </div>
-    <div class="editor__main">   
-        <div class="editor__main__menu"> 
+    <div class="app__main">   
+        <div class="app__main__menu"> 
             <ul>
-                <li>
-                    {{ title }}
-                </li>
-                <li>
-                    app
+                <li class="app__main__menu__item">
+                    <strong>{{ title }}</strong>
+                    <ul>                
+                        {{#menu}}
+                        <li class="app__main__menu__item">
+                            <strong>{{name}}</strong>
+                        </li>
+                        {{/menu}}
+                        </li>
+                    </ul>
                 </li>
             </ul> 
         </div>
-        <div class="editor__main__content">   
-            <!--<pre style="cursor: text;">--><!--
-                --><!--<code id="jsCodeContent" class="language-js"></code>
-            </pre>-->
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit asperiores, eos, ipsam vitae, quis iure, commodi ratione nesciunt soluta eaque tenetur. Aperiam fugit nobis saepe a quas unde adipisci, error.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit asperiores, eos, ipsam vitae, quis iure, commodi ratione nesciunt soluta eaque tenetur. Aperiam fugit nobis saepe a quas unde adipisci, error.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit asperiores, eos, ipsam vitae, quis iure, commodi ratione nesciunt soluta eaque tenetur. Aperiam fugit nobis saepe a quas unde adipisci, error.
+        <div class="app__main__content">   
+            <div class="editor">
+                <pre style="cursor: text;"><!--
+                --><code id="jsCodeContent" class="language-js">
+                    
+<span class="token comment" spellcheck="true">// Import des classes et controlleurs</span>
+<span class="token keyword keyword-import">import</span> WriteClass <span class="token keyword keyword-from">from</span> <span class="token string">'./components/write/WriteClass'</span>
+<span class="token keyword keyword-import">import</span> LinkedInCtrl <span class="token keyword keyword-from">from</span> <span class="token string">'./components/linkedIn/LinkedInCtrl'</span>
+
+<span class="token comment" spellcheck="true">// Où sera écrit le code</span>
+<span class="token keyword keyword-const">const</span> nOutput <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'jsCodeContent'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Copie du code que vous êtes en train de lire</span>
+<span class="token keyword keyword-const">const</span> exemple <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'raw!./content/exemple.txt'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Déclaration de la classe WriteClass</span>
+<span class="token keyword keyword-const">const</span> write <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">WriteClass</span><span class="token punctuation">(</span> nOutput <span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// On écrit la pemière partie du code</span>
+<span class="token keyword keyword-const">const</span> writingExemple <span class="token operator">=</span> write<span class="token punctuation">.</span><span class="token function">initWrite</span><span class="token punctuation">(</span> exemple <span class="token punctuation">)</span>
+                    </code>
+                </pre>
+            </div>
         </div>
     </div>
 </div>

@@ -20,6 +20,47 @@
     }
 }*/
 
+/* Additional reset */
+/* ---------------- */
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after  {
+    box-sizing: border-box;
+}
+
+
+/* Object */
+/* ------ */
+
+/*.center-child {
+    text-align: center;
+
+    > * {
+        display: inline-block;
+    }
+}*/
+
+/*.block-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}*/
+
+.list {
+
+    &--inline li {
+        display: inline-block;
+        margin: 0 7px;
+    }
+}
+
 /* Test */
 .sublime {
     position: fixed;
@@ -28,7 +69,19 @@
     z-index: 0;
 }
 
-.editor {
+/* Style */
+/* ----- */
+
+body {
+    font: 14/16 arial, helvetica, sans-serif;
+    color: white;
+}
+
+
+/* Style */
+/* ----- */
+
+.app {
     opacity: 0.8;
     position: fixed;
     left: 0;
@@ -37,9 +90,18 @@
     width: 100%;
     height: 100%;
 
-    &__top-bar {
+    &__bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         height: 48px;
+        padding: 0 10px;
         background-color: var( --sublime-top-bar );
+        font-size: 14px;
+
+        &__top {
+            align-self: center;
+        }
     }
 
     &__main {
@@ -52,7 +114,55 @@
         &__menu {
             width: 246px;
             height: 100%;
+            padding: 20px 10px;
             background-color: var( --sublime-menu );
+            font-family: 'Inconsolata', courier;
+            font-weight: 400;
+            color: black;
+
+            strong {
+                font-weight: 700;
+            }
+
+            ul ul ul {
+                padding-left: 8px;
+                
+                ul {
+                    padding-left: 16px;
+                    
+                    ul {
+                        padding-left: 24px;
+                    }
+                }
+            }
+
+            &__item {
+                position: relative;
+                margin-bottom: 5px;
+                padding-left: 15px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 5px;
+                    display: block;
+                    width: 10px;
+                    height: 8px;
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: #666"></polygon></svg>');
+                    background-size: 10px 8px;
+                    background-position: center center;
+                    background-origin: content-box;
+                    background-repeat: no-repeat;
+                    transform: rotate(-90deg);
+                    transition: transform 100ms linear;
+                }
+
+                &.jsIsOpen::before {
+                    transform: rotate(0);
+                }
+            }
+
         }
 
         &__content {
@@ -60,8 +170,18 @@
             width: 1px;
             height: 100%;
             background-color: var( --sublime-background );
+
+            pre {
+                background-color: var( --sublime-background );
+                border-radius: 0;
+            }
         }
     }
+}
+
+
+.editor {
+
 }
 
 body {
