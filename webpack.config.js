@@ -1,14 +1,20 @@
+// PostCSS plugin
+const autoprefixer = require('autoprefixer')
+const precss      = require('precss')
+const cssnext     = require('cssnext')
+const normalize     = require('postcss-normalize')
+
 module.exports = {
     entry: ['./app.js'],
     output: {
         filename: './app/appBundle.js'
     },
     module: {
-    preLoaders: [
+        preLoaders: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'jshint-loader'
+                test: /\.js$/, 
+                loader: "eslint-loader", 
+                exclude: /node_modules|libs/
             }
         ],
         loaders: [
@@ -20,6 +26,17 @@ module.exports = {
                     cacheDirectory: true, 
                     presets: ['es2015']
                 }
+            },
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
+            },
+            {
+                test: /\.html$/,
+                loader: 'mustache'
+                // loader: 'mustache?minify'
+                // loader: 'mustache?{ minify: { removeComments: false } }'
+                // loader: 'mustache?noShortcut'
             }
         ]
     },
@@ -29,27 +46,17 @@ module.exports = {
             prims: './libs/prims/prism.js'
         }
     },
-    // more options in the optional jshint object
-    jshint: {
-        // any jshint option http://www.jshint.com/docs/options/
-        // i. e.
-        browser:   true,
-        esversion: 6,
-        asi:       true,
+    eslint: {
+        configFile: './.eslintrc'
+    },
+    postcss: function () {
 
-        // jshint errors are displayed by default as warnings
-        // set emitErrors to true to display them as errors
-        emitErrors: false,
-
-        // jshint to not interrupt the compilation
-        // if you want any file with jshint errors to fail
-        // set failOnHint to true
-        failOnHint: false,
-
-        // custom reporter function
-        reporter: function(errors) {
-
-            // console.log( errors );
-        }
+        // List of postcss plugin (require above)
+        return [
+            precss, 
+            cssnext,
+            autoprefixer,
+            normalize
+        ]
     }
 }

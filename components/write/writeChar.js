@@ -1,9 +1,9 @@
-var styleBuffer = '';
-var fullTextStorage = {};
+let styleBuffer = '';
+const fullTextStorage = {};
 
 module.exports = function writeChar(el, char, style){
   // Grab text. We buffer it in storage so we don't have to read from the DOM every iteration.
-  var fullText = fullTextStorage[el.id];
+  let fullText = fullTextStorage[el.id];
   if (!fullText) fullText = fullTextStorage[el.id] = el.innerHTML;
 
   fullText = module.exports.handleChar(fullText, char);
@@ -23,12 +23,12 @@ module.exports.simple = function writeSimpleChar(el, char) {
 };
 
 let openComment = false;
-let commentRegex = /(\/\*(?:[^](?!\/\*))*\*)$/;
-let keyRegex = /([a-zA-Z- ^\n]*)$/;
-let valueRegex = /([^:]*)$/;
-let selectorRegex = /(.*)$/;
-let pxRegex = /\dp/;
-let pxRegex2 = /p$/;
+const commentRegex = /(\/\*(?:[^](?!\/\*))*\*)$/;
+const keyRegex = /([a-zA-Z- ^\n]*)$/;
+const valueRegex = /([^:]*)$/;
+const selectorRegex = /(.*)$/;
+const pxRegex = /\dp/;
+const pxRegex2 = /p$/;
 
 module.exports.handleChar = function handleChar(fullText, char) {
   if (openComment && char !== '/') {

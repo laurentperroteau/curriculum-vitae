@@ -19,7 +19,7 @@ const linkedInCtrl = () => {
     }
     else {
     
-        let profil = new LinkedInClass( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
+        const profil = new LinkedInClass( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
 
         const promiseAPI = profil.setPromise()
 
@@ -46,7 +46,7 @@ module.exports = linkedInCtrl;
  */
 const displayInfo = ( oInfo ) => {
 
-    let sText = `
+    const sText = `
                 <h1>${oInfo.formattedName}</h1>
                 <h2>${oInfo.headline}</h2>
                 <p><em>${oInfo.location.name}</em></p>
@@ -72,7 +72,8 @@ const repeatGetLinkedIn = () => {
 
         setTimeout(function() {
             linkedInCtrl()
-        }, 500);
+        }, 500)
+
         iCountTest++;
     }
 }

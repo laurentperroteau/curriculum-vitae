@@ -3,17 +3,36 @@
 import WriteClass from './components/write/WriteClass'
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
-// Où sera écrit le code
-const nOutput = document.getElementById('jsCodeContent')
+// TODO : move in module app
+require('./screens/editor/editor.css');
+var template = require('./screens/editor/editor.html')
+var html = template( oTab )
+document.getElementById('jsEditor').innerHTML = html;
 
-// Copie du code que vous êtes en train de lire
-const exemple = require('raw!./content/exemple.txt')
+const nTabItem = document.querySelectorAll('.jsTabItem')
+nTabItem[0].classList.add('jsIsVisible','jsIsActive')
+nTabItem[1].classList.add('jsIsVisible')
 
-// Déclaration de la classe WriteClass
-const write = new WriteClass( nOutput )
+return false;
 
-// On écrit la pemière partie du code
-const writingExemple = write.initWrite( exemple )
+const nTabItemClose = document.querySelectorAll('.jsEventTabItemClose')
+
+for (var i = nTabItemClose.length - 1; i >= 0; i--) {
+    
+    nTabItemClose[i].addEventListener('click', this.sayHello); 
+}
+
+let oTab = {
+    "tab": [
+        {
+            name: "app.js"
+        }
+    ],
+    "line": aLine,
+    "iLine": function() {
+        return iLine++;
+    }
+} 
 
 writingExemple.then( () => {
 

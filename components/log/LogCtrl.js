@@ -6,7 +6,7 @@ import alert from './alert'
  * @param  {string} msg   => message to show
  * @return display alert
  */
-let LogCtrl = ( sLabel, sMsg ) => {
+const LogCtrl = ( sLabel, sMsg ) => {
 
     // TODO : add log to file with times
 
