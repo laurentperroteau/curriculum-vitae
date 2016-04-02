@@ -1,197 +1,107 @@
-:root {
-    --body-color: #eee;
-    --font-base: 1rem;
 
-    --sublime-top-bar   : #2D2D2D;
-    --sublime-menu      : #E6E6E6;
-    --sublime-tab       : #565656;
-    --sublime-background: #141414;
-}
-
-/*@custom-media --viewport-medium (width <= 40rem);
-@custom-media --viewport-large (max-width: 50em);
-
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;*/
-
-/*@media (--viewport-medium) {
-
-    body { 
-        font-size: var(--font-base)
-    }
-}*/
-
-/* Additional reset */
-/* ---------------- */
-ul,
-li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-*,
-*::before,
-*::after  {
-    box-sizing: border-box;
-}
-
-
-/* Object */
+/* Editor */
 /* ------ */
 
-/*.center-child {
-    text-align: center;
+/* TODO: solve scope var, in json ? bof */
+:root {
+    --sublime-background: #141414;
+    --sublime-tab       : #565656;
+    --sublime-tab-darken: #666;
 
-    > * {
-        display: inline-block;
-    }
-}*/
+    --editor-tab-height     : 33px;
+    --editor-tab-padding-top : 5px;
 
-/*.block-center {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}*/
-
-.list {
-
-    &--inline li {
-        display: inline-block;
-        margin: 0 7px;
-    }
+    --editor-height-line : 18px;
 }
 
-/* Test */
-.sublime {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 0;
-}
+.editor {
+    background-color: var( --sublime-background );
 
-/* Style */
-/* ----- */
-
-body {
-    font: 14/16 arial, helvetica, sans-serif;
-    color: white;
-}
-
-
-/* Style */
-/* ----- */
-
-.app {
-    opacity: 0.8;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-
-    &__bar {
+    &__tab {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 48px;
-        padding: 0 10px;
-        background-color: var( --sublime-top-bar );
-        font-size: 14px;
+        width: 100%;
+        height: var( --editor-tab-height );
+        padding: var( --editor-tab-padding-top ) 0 0 50px;
+        background-color: var( --sublime-tab );
+        
+        &__item {
+            display: none;
+            position: relative;
+            z-index: 1;
 
-        &__top {
-            align-self: center;
+            /* Sizes */
+            max-width: 175px;
+            flex-grow: 1;
+            margin-left: -12px;
+            padding: 0 10px;
+
+            /* Trapezoid */
+            height: 0;
+            line-height: calc( var( --editor-tab-height ) - var( --editor-tab-padding-top ) );
+            border-bottom: calc( var( --editor-tab-height ) - var( --editor-tab-padding-top ) ) solid var( --sublime-tab-darken );
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+
+            font-size: 13px;
+            cursor: default;
+
+            &.jsIsVisible {
+                display: block;
+            }
+
+            &.jsIsActive {
+                z-index: 2;
+                border-bottom-color: var( --sublime-background );
+            }
+
+            &__close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 30px;
+                height: calc( var( --editor-tab-height ) - var( --editor-tab-padding-top ) );
+                color: white;
+            }
         }
     }
 
-    &__main {
+    &__inner {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-content: stretch;
         height: 100%;
-
-        &__menu {
-            width: 246px;
+        padding: 5px 0;
+        
+        &__line {
+            width: 50px;
             height: 100%;
-            padding: 20px 10px;
-            background-color: var( --sublime-menu );
-            font-family: 'Inconsolata', courier;
-            font-weight: 400;
-            color: black;
-
-            strong {
-                font-weight: 700;
-            }
-
-            ul ul ul {
-                padding-left: 8px;
-                
-                ul {
-                    padding-left: 16px;
-                    
-                    ul {
-                        padding-left: 24px;
-                    }
-                }
-            }
+            padding: 0 20px 0 15px;
+            font-size: 13px;
+            color: #555;
+            text-align: right;
 
             &__item {
-                position: relative;
-                margin-bottom: 5px;
-                padding-left: 15px;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    top: 5px;
-                    display: block;
-                    width: 10px;
-                    height: 8px;
-                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: #666"></polygon></svg>');
-                    background-size: 10px 8px;
-                    background-position: center center;
-                    background-origin: content-box;
-                    background-repeat: no-repeat;
-                    transform: rotate(-90deg);
-                    transition: transform 100ms linear;
-                }
-
-                &.jsIsOpen::before {
-                    transform: rotate(0);
-                }
+                height: var( --editor-height-line );
+                line-height: var( --editor-height-line );
             }
-
         }
 
         &__content {
             flex-grow: 1;
-            width: 1px;
-            height: 100%;
-            background-color: var( --sublime-background );
 
+            pre {
+                margin: 0;
+                padding: 0;
+                background-color: var( --sublime-background );
+                border-radius: 0;
+            }
+
+            code[class*="language-"], 
+            pre[class*="language-"] {
+                line-height: var( --editor-height-line );
+            }
         }
     }
-}
-
-
-.editor {
-    background-color: var( --sublime-background );
     
-    pre {
-        background-color: var( --sublime-background );
-        border-radius: 0;
-    }
-}
-
-body {
-    
-}
-.coucou {
-    display: block;
-
-    .hola {
-        display: flex;
-    }
 }

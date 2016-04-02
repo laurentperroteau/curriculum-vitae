@@ -1,8 +1,34 @@
  <div class="editor">
-    <pre style="cursor: text;"><!--
-    --><code id="jsCodeContent" class="language-js">
-        
-<span class="token comment" spellcheck="true">// Import des classes et controlleurs</span>
+    <ul class="editor__tab">
+        {{#tab}}
+        <li 
+            class="
+                jsTabItem
+                jsEventTabItem
+                editor__tab__item">
+            {{name}}
+            <button
+                type="button"
+                class="
+                    jsEventTabItemClose
+                    btn-reset
+                    editor__tab__item__close">
+                x
+            </button>
+        </li>
+        {{/tab}}
+    </ul>
+    <div class="editor__inner">
+        <ul class="editor__inner__line">
+            {{#line}}
+            <li class="editor__inner__line__item">{{iLine}}</li>
+            {{/line}}
+        </ul>
+        <div class="editor__inner__content">
+            <pre style="cursor: text;"><!--
+            --><code id="jsCodeContent" class="language-js"><!--
+                  
+--><span class="token comment" spellcheck="true">// Import des classes et controlleurs</span>
 <span class="token keyword keyword-import">import</span> WriteClass <span class="token keyword keyword-from">from</span> <span class="token string">'./components/write/WriteClass'</span>
 <span class="token keyword keyword-import">import</span> LinkedInCtrl <span class="token keyword keyword-from">from</span> <span class="token string">'./components/linkedIn/LinkedInCtrl'</span>
 
@@ -16,7 +42,10 @@
 <span class="token keyword keyword-const">const</span> write <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">WriteClass</span><span class="token punctuation">(</span> nOutput <span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// On écrit la pemière partie du code</span>
-<span class="token keyword keyword-const">const</span> writingExemple <span class="token operator">=</span> write<span class="token punctuation">.</span><span class="token function">initWrite</span><span class="token punctuation">(</span> exemple <span class="token punctuation">)</span>
-        </code>
-    </pre>
+<span class="token keyword keyword-const">const</span> writingExemple <span class="token operator">=</span> write<span class="token punctuation">.</span><span class="token function">initWrite</span><span class="token punctuation">(</span> exemple <span class="token punctuation">)</span><!--
+
+                --></code>
+            </pre>
+        </div>
+    </div>
 </div>

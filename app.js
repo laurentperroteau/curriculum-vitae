@@ -51,12 +51,44 @@ else {
         var html = template( oMenu )
         document.getElementById('jsApp').innerHTML = html;
 
+
+        // Define how many line we want
+        let iQtyLine = 30; 
+
+        // Generate array
+        let aLine = Array.apply(null, {length: iQtyLine}).map(Number.call, Number);
+
+        // Prepare index of array of line
+        let iLine = 0;
+
+        let oTab = {
+            "tab": [
+                {
+                    name: "app.js"
+                },
+                {
+                    name: "test.css"
+                },
+                {
+                    name: "test.js"
+                }
+            ],
+            "line": aLine,
+            "iLine": function() {
+                return iLine++;
+            }
+        }        
+
+
         // TODO : move in module app
         require('./screens/editor/editor.css');
         var template = require('./screens/editor/editor.html')
-        var html = template( oMenu )
+        var html = template( oTab )
         document.getElementById('jsEditor').innerHTML = html;
 
+        const nTabItem = document.querySelectorAll('.jsTabItem')
+        nTabItem[0].classList.add('jsIsVisible','jsIsActive')
+        nTabItem[1].classList.add('jsIsVisible')
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
         const bIsTecnic = false;

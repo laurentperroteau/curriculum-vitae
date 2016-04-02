@@ -4,8 +4,6 @@
 
     --sublime-top-bar   : #2D2D2D;
     --sublime-menu      : #E6E6E6;
-    --sublime-tab       : #565656;
-    --sublime-background: #141414;
 }
 
 /*@custom-media --viewport-medium (width <= 40rem);
@@ -19,6 +17,20 @@
         font-size: var(--font-base)
     }
 }*/
+
+/* Helpers */
+/* ------- */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
 
 /* Additional reset */
 /* ---------------- */
@@ -61,6 +73,15 @@ li {
     }
 }
 
+.btn-reset {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Test */
 .sublime {
     position: fixed;
@@ -82,7 +103,7 @@ body {
 /* ----- */
 
 .app {
-    opacity: 0.8;
+    // opacity: 0.8;
     position: fixed;
     left: 0;
     top: 0;
@@ -170,21 +191,5 @@ body {
             width: 1px;
             height: 100%;
         }
-    }
-}
-
-
-.editor {
-
-}
-
-body {
-    
-}
-.coucou {
-    display: block;
-
-    .hola {
-        display: flex;
     }
 }
