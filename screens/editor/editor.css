@@ -71,7 +71,7 @@
         justify-content: space-between;
         align-content: stretch;
         height: 100%;
-        padding: 5px 0;
+        padding: 5px;
         
         &__line {
             width: 50px;
@@ -94,7 +94,9 @@
                 margin: 0;
                 padding: 0;
                 background-color: var( --sublime-background );
+                border: none;
                 border-radius: 0;
+                box-shadow: none;
             }
 
             code[class*="language-"], 
