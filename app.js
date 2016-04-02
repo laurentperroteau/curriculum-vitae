@@ -31,6 +31,14 @@ else {
 
         debug('Document ready')
 
+        // Extending Prims : add class .keyword-nameOfKeyword
+        Prism.hooks.add('wrap', function(env) {
+            if (env.type !== "keyword") {
+                return;
+            }
+            env.classes.push('keyword-' + env.content);
+        });
+
         let oMenu = {
             "title": "Curriculum Vitae",
             "menu": [
