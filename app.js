@@ -57,8 +57,8 @@ else {
         // TODO : test automatic require, template and innerHTML depend name
         require('./screens/app/app.css');
         const template1 = require('./screens/app/app.html')
-        const html1 = template( oMenu )
-        document.getElementById('jsApp').innerHTML = html;
+        const html1 = template1( oMenu )
+        document.getElementById('jsApp').innerHTML = html1;
 
 
         // Define how many line we want
@@ -92,7 +92,7 @@ else {
         // TODO : move in module app
         require('./screens/editor/editor.css')
         const template2 = require('./screens/editor/editor.html')
-        const html = template( oTab )
+        const html = template2( oTab )
         document.getElementById('jsEditor').innerHTML = html
 
         const nTabItem = document.querySelectorAll('.jsTabItem')
