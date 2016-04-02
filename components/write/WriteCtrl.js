@@ -4,7 +4,7 @@ import writeChar from './writeChar';
 module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval, mirrorToStyle, charsPerInterval) {
 
     // Write a character or multiple characters to the buffer.
-    let chars = sNewText.slice(index, index + charsPerInterval);
+    const chars = sNewText.slice(index, index + charsPerInterval);
 
     index += charsPerInterval;
 
@@ -12,22 +12,20 @@ module.exports = function WriteCtrl(resolve, nOutput, sNewText, index, interval,
 
     Prism.highlightAll();
 
-    let endOfSentence = /[\.\?\!]\s$/;
-    let comma = /\D[\,]\s$/;
-    let endOfBlock = /[^\/]\n\n$/;
-    let endOfLine = /[^\/]\n$/;
-    let openMustache = /[\{!]\s$/;
+    const endOfSentence = /[\.\?\!]\s$/;
+    const comma = /\D[\,]\s$/;
+    const endOfBlock = /[^\/]\n\n$/;
+    const endOfLine = /[^\/]\n$/;
+    const openMustache = /[\{!]\s$/;
 
     // TODO : mettre des repères, caché en CSS ??? si possible 
     // => quand détection, afficher info voulue, changer de tab etc...
     
-    let paused = false // pas utile pour moi
-
     // Schedule another write.
     if (index < sNewText.length) {
 
         let thisInterval = interval;
-        let thisSlice = sNewText.slice(index - 2, index + 1);
+        const thisSlice = sNewText.slice(index - 2, index + 1);
         // let thisWords = sNewText.slice(index - 10, index + 20);
 
         if (comma.test(thisSlice)) {

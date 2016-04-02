@@ -39,7 +39,8 @@ else {
             env.classes.push('keyword-' + env.content);
         });
 
-        let oMenu = {
+
+        const oMenu = {
             "title": "Curriculum Vitae",
             "menu": [
                 {
@@ -55,21 +56,21 @@ else {
         // TODO : js in screens ? only templating js in screens ?
         // TODO : test automatic require, template and innerHTML depend name
         require('./screens/app/app.css');
-        var template = require('./screens/app/app.html')
-        var html = template( oMenu )
+        const template1 = require('./screens/app/app.html')
+        const html1 = template( oMenu )
         document.getElementById('jsApp').innerHTML = html;
 
 
         // Define how many line we want
-        let iQtyLine = 30; 
+        const iQtyLine = 30
 
         // Generate array
-        let aLine = Array.apply(null, {length: iQtyLine}).map(Number.call, Number);
+        const aLine = Array.apply(null, {length: iQtyLine}).map(Number.call, Number);
 
         // Prepare index of array of line
-        let iLine = 0;
+        let iLine = 0
 
-        let oTab = {
+        const oTab = {
             "tab": [
                 {
                     name: "app.js"
@@ -82,17 +83,17 @@ else {
                 }
             ],
             "line": aLine,
-            "iLine": function() {
+            "iLine": () => {
                 return iLine++;
             }
         }        
 
 
         // TODO : move in module app
-        require('./screens/editor/editor.css');
-        var template = require('./screens/editor/editor.html')
-        var html = template( oTab )
-        document.getElementById('jsEditor').innerHTML = html;
+        require('./screens/editor/editor.css')
+        const template2 = require('./screens/editor/editor.html')
+        const html = template( oTab )
+        document.getElementById('jsEditor').innerHTML = html
 
         const nTabItem = document.querySelectorAll('.jsTabItem')
         nTabItem[0].classList.add('jsIsVisible','jsIsActive')
