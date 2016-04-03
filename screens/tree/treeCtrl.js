@@ -1,56 +1,36 @@
+import getAsyncJson from '../../components/async/getAsyncJson'
+
 let nElem
 
 const treeCtrl = () => {
 
-    const aTree =  [
-        {
-            isFile: false,
-            name: "components",
-            level1: [
-                {
-                    isFile: false,
-                    name: "debug",
-                    level2: [
-                        {
-                            isFile: true,
-                            "name": "debug.js"
-                        }
-                    ]
-                },
-                {
-                    isFile: false,
-                    name: "log",
-                    level2: [
-                        {
-                            isFile: true,
-                            "name": "log.js"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            name: "app"
-        }
-    ]       
+    function loadTree() {
+        getAsyncJson('content/tree.json').then( (data) => {
+            
+            const oTree = {
+                "title": "Curriculum Vitae",
+                "tree": data
+            } 
 
-    const oTree = {
-        "title": "Curriculum Vitae",
-        "tree": aTree
-    }        
-
-    console.log( oTree );
-
-    const template = require('./tree.html')
-
-    const html = template( oTree )
-
-    require('./tree.css')
-
-    if( nElem === undefined ) {
-        nElem = document.getElementById('jsTree')
+            setTree( oTree )
+        });
     }
 
-    nElem.innerHTML = html
+    function setTree( oTree ) {
+
+        const template = require('./tree.html')
+
+        const html = template( oTree )
+
+        require('./tree.css')
+
+        if( nElem === undefined ) {
+            nElem = document.getElementById('jsTree')
+        }
+
+        nElem.innerHTML = html
+    }
+
+    loadTree()
 }
 export default treeCtrl

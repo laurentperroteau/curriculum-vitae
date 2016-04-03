@@ -1,0 +1,32 @@
+[
+    {
+        "name": "components",
+        "isFile": false,
+        "level1": [
+            {
+                "name": "debug",
+                "isFile": false,
+                "level2": [
+                    {
+                        "name": "debug.js",
+                        "isFile": true
+                    }
+                ]
+            },
+            {
+                "name": "log",
+                "isFile": false,
+                "level2": [
+                    {
+                        "name": "log.js",
+                        "isFile": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "app",
+        "isFile": false
+    }
+]
