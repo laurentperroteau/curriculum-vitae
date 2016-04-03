@@ -1,36 +1,23 @@
 import getAsyncJson from '../../components/async/getAsyncJson'
 
+import TreeClass from '../../screens/tree/TreeClass'
+
 let nElem
 
 const treeCtrl = () => {
 
-    function loadTree() {
-        getAsyncJson('content/tree.json').then( (data) => {
+    const tree = new TreeClass('./content/tree.json')
+
+    tree.load().then( (data) => {
             
-            const oTree = {
-                "title": "Curriculum Vitae",
-                "tree": data
-            } 
+        const oTree = {
+            "title": "Curriculum Vitae",
+            "tree": data
+        } 
 
-            setTree( oTree )
-        });
-    }
+        tree.set( oTree )
 
-    function setTree( oTree ) {
-
-        const template = require('./tree.html')
-
-        const html = template( oTree )
-
-        require('./tree.css')
-
-        if( nElem === undefined ) {
-            nElem = document.getElementById('jsTree')
-        }
-
-        nElem.innerHTML = html
-    }
-
-    loadTree()
+        tree.initTemplate()
+    })
 }
 export default treeCtrl
