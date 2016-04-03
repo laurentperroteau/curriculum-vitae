@@ -17,7 +17,7 @@ import appCtrl from './screens/app/appCtrl'
 import editorCtrl from './screens/editor/editorCtrl'
 import gutterCtrl from './screens/gutter/gutterCtrl'
 
-
+import test from './exemple/export'
 
 //Start app
 debug('------------------------------------------------')
@@ -43,11 +43,9 @@ else {
             env.classes.push('keyword-' + env.content);
         });
 
-
         appCtrl()
         editorCtrl()
         gutterCtrl()
-
 
         return false;
 

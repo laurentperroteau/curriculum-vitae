@@ -1,4 +1,6 @@
-module.exports = ( msg, color = 'green' ) => {
+let nElem
+
+const appCtrl = () => {
 
     const oTree = {
         "title": "Curriculum Vitae",
@@ -18,5 +20,10 @@ module.exports = ( msg, color = 'green' ) => {
 
     require('./app.css')
 
-    document.getElementById('jsApp').innerHTML = html
+    if( nElem === undefined ) {
+        nElem = document.getElementById('jsApp')
+    }
+
+    nElem.innerHTML = html
 }
+export default appCtrl

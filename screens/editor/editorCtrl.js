@@ -1,4 +1,6 @@
-module.exports = ( msg, color = 'green' ) => {
+let nElem
+
+const editorCtrl = () => {
 
     const oTab = {
         "tab": [
@@ -19,10 +21,15 @@ module.exports = ( msg, color = 'green' ) => {
     const template = require('./editor.html')
 
     const html = template( oTab )
+
+    if( nElem === undefined ) {
+        nElem = document.getElementById('jsEditor')
+    }
     
-    document.getElementById('jsEditor').innerHTML = html
+    nElem.innerHTML = html
 
     const nTabItem = document.querySelectorAll('.jsTabItem')
     nTabItem[0].classList.add('jsIsVisible','jsIsActive')
     nTabItem[1].classList.add('jsIsVisible')
 }
+export default editorCtrl
