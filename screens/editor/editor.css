@@ -72,6 +72,8 @@
                 width: 30px;
                 height: calc( var( --editor-tab-height ) - var( --editor-tab-padding-top ) );
                 color: white;
+                cursor: default;
+                outline: none;
             }
         }
     }

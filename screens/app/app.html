@@ -21,24 +21,7 @@
         </div>
     </div>
     <div class="app__main">   
-        <div class="app__main__menu"> 
-            <ul>
-                <li class="app__main__menu__item">
-                    <strong>{{ title }}</strong>
-                    <ul>                
-                        {{#menu}}
-                        <li 
-                            class="
-                                jsEventMenuItem
-                                app__main__menu__item">
-                            <strong>{{name}}</strong>
-                        </li>
-                        {{/menu}}
-                        </li>
-                    </ul>
-                </li>
-            </ul> 
-        </div>
+        <div id="jsTree" class="tree"></div>
         <div class="app__main__content">   
             <div id="jsEditor" class="editor"></div>
         </div>

@@ -1,0 +1,57 @@
+
+/* Tree */
+/* ---- */
+
+.tree {
+    width: 246px;
+    height: 100%;
+    padding: 20px 10px;
+    background-color: var( --sublime-menu );
+    font-family: 'Inconsolata', courier;
+    font-weight: 400;
+    color: black;
+
+    strong {
+        font-weight: 700;
+    }
+
+    ul ul ul {
+        padding-left: 8px;
+        
+        ul {
+            padding-left: 16px;
+            
+            ul {
+                padding-left: 24px;
+            }
+        }
+    }
+
+    &__item {
+        position: relative;
+        margin-bottom: 5px;
+        padding-left: 15px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            display: block;
+            width: 10px;
+            height: 8px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: #666"></polygon></svg>');
+            background-size: 10px 8px;
+            background-position: center center;
+            background-origin: content-box;
+            background-repeat: no-repeat;
+            transform: rotate(-90deg);
+            transition: transform 100ms linear;
+        }
+
+        &.jsIsOpen::before {
+            transform: rotate(0);
+        }
+    }
+
+}

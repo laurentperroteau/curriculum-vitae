@@ -84,6 +84,7 @@ li {
 
 /* Test */
 .sublime {
+    display: none;
     position: fixed;
     left: 0;
     top: 0;

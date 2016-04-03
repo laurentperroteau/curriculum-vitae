@@ -14,6 +14,7 @@ import WriteClass from './components/write/WriteClass'
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
 import appCtrl from './screens/app/appCtrl'
+import treeCtrl from './screens/tree/treeCtrl'
 import editorCtrl from './screens/editor/editorCtrl'
 import gutterCtrl from './screens/gutter/gutterCtrl'
 
@@ -44,13 +45,14 @@ else {
         });
 
         appCtrl()
+        treeCtrl()
         editorCtrl()
         gutterCtrl()
 
         return false;
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-        const bIsTecnic = false;
+/*        const bIsTecnic = false;
 
         const nOutput = document.getElementById('jsCodeContent')
 
@@ -69,7 +71,7 @@ else {
 
                 LinkedInCtrl()
             })
-        })
+        })*/
 
         /*
             TODO: version simplifier

@@ -2,21 +2,13 @@ let nElem
 
 const appCtrl = () => {
 
-    const oTree = {
-        "title": "Curriculum Vitae",
-        "menu": [
-            {
-                name: "app"
-            },
-            {
-                name: "components"
-            }
-        ]
+    const oApp = {
+        "fileName": "/home/laurentperroteau/www/cv/web2/css/app.css"
     }        
 
     const template = require('./app.html')
 
-    const html = template( oTree )
+    const html = template( oApp )
 
     require('./app.css')
 
