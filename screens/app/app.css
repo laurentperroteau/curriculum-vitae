@@ -80,6 +80,10 @@ li {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 /* Test */
