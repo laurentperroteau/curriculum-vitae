@@ -18,6 +18,8 @@ const treeCtrl = () => {
         tree.set( oTree )
 
         tree.initTemplate()
+
+        tree.setClickEvent()
     })
 }
 export default treeCtrl

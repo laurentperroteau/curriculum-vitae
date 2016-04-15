@@ -8,7 +8,8 @@
                     type="button"
                     class="
                         jsEventMenuItem
-                        btn-reset">    
+                        btn-reset"
+                    data-name="{{name}}">    
                     <strong>
                         {{name}}
                     </strong>
@@ -20,7 +21,8 @@
                             type="button"
                             class="
                                 jsEventMenuItem
-                                btn-reset">    
+                                btn-reset"
+                            data-name="{{name}}">    
                             <strong>
                                 {{name}}
                             </strong>
@@ -33,8 +35,9 @@
                                     type="button"
                                     class="
                                         jsEventMenuItem
-                                        jsIsFile
-                                        btn-reset">    
+                                        btn-reset"
+                                    data-name="{{name}}"    
+                                    data-is-file="true">    
                                     {{name}}
                                 </button>
                                 {{/isFile}}
@@ -43,7 +46,8 @@
                                     type="button"
                                     class="
                                         jsEventMenuItem
-                                        btn-reset">    
+                                        btn-reset"
+                                    data-name="{{name}}">    
                                     <strong>
                                         {{name}}
                                     </strong>
