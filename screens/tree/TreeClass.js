@@ -18,6 +18,8 @@ class TreeClass {
     }
 
     // TODO: voir abstraction en pass "tree", resout html, css et get id
+    //    étendre une class parente pour init template
+    //    http://javascriptplayground.com/blog/2014/07/introduction-to-es6-classes-tutorial/
     initTemplate() {
 
         const template = require('./tree.html')
@@ -35,7 +37,7 @@ class TreeClass {
 
     setClickEvent() {
 
-        const nItemS = document.querySelectorAll('.jsEventMenuItem')
+        const nItemS = this.nElem.querySelectorAll('.jsEventMenuItem')
 
         Array.from( nItemS ).forEach( ( nItem ) => {
 
