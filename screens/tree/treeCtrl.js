@@ -1,12 +1,9 @@
-import getAsyncJson from '../../components/async/getAsyncJson'
-
-import TreeClass from '../../screens/tree/TreeClass'
-
-let nElem
+import getAsyncJson from 'myComponents/async/getAsyncJson'
+import TreeClass from 'myScreens/tree/TreeClass'
 
 const treeCtrl = () => {
 
-    const tree = new TreeClass('./content/tree.json')
+    const tree = new TreeClass('tree', './content/tree.json')
 
     tree.load().then( (data) => {
             
@@ -15,7 +12,7 @@ const treeCtrl = () => {
             "tree": data
         } 
 
-        tree.set( oTree )
+        tree.setData( oTree )
 
         tree.initTemplate()
 

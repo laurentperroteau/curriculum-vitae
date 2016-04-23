@@ -1,38 +1,19 @@
-import getAsyncJson from '../../components/async/getAsyncJson'
+import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import getAsyncJson from 'myComponents/async/getAsyncJson'
+    
+class TreeClass extends CreateComponentClass {
 
-class TreeClass {
+    constructor( sName, sUrl ) {
 
-    constructor( sUrl ) {
+        super( sName )
+
+        console.log( 'coucou' );
 
         this.sUrl = sUrl
-        this.nElem
-        this.oTree
     }
 
     load() {
         return getAsyncJson( this.sUrl )
-    }
-
-    set( oTree ) {
-        this.oTree = oTree
-    }
-
-    // TODO: voir abstraction en pass "tree", resout html, css et get id
-    //    étendre une class parente pour init template
-    //    http://javascriptplayground.com/blog/2014/07/introduction-to-es6-classes-tutorial/
-    initTemplate() {
-
-        const template = require('./tree.html')
-
-        const html = template( this.oTree )
-
-        require('./tree.css')
-
-        if( this.nElem === undefined ) {
-            this.nElem = document.getElementById('jsTree')
-        }
-
-        this.nElem.innerHTML = html
     }
 
     setClickEvent() {
