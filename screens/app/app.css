@@ -80,10 +80,15 @@ li {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 /* Test */
 .sublime {
+    display: none;
     position: fixed;
     left: 0;
     top: 0;

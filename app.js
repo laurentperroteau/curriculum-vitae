@@ -13,7 +13,12 @@ import WriteClass from './components/write/WriteClass'
 // Controllers
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
+import appCtrl from './screens/app/appCtrl'
+import treeCtrl from './screens/tree/treeCtrl'
+import editorCtrl from './screens/editor/editorCtrl'
+import gutterCtrl from './screens/gutter/gutterCtrl'
 
+import test from './exemple/export'
 
 //Start app
 debug('------------------------------------------------')
@@ -39,68 +44,15 @@ else {
             env.classes.push('keyword-' + env.content);
         });
 
+        appCtrl()
+        treeCtrl()
+        editorCtrl()
+        gutterCtrl()
 
-        const oMenu = {
-            "title": "Curriculum Vitae",
-            "menu": [
-                {
-                    name: "app"
-                },
-                {
-                    name: "components"
-                }
-            ]
-        }        
-
-        // TODO : move in module app
-        // TODO : js in screens ? only templating js in screens ?
-        // TODO : test automatic require, template and innerHTML depend name
-        require('./screens/app/app.css');
-        const template1 = require('./screens/app/app.html')
-        const html1 = template1( oMenu )
-        document.getElementById('jsApp').innerHTML = html1;
-
-
-        // Define how many line we want
-        const iQtyLine = 30
-
-        // Generate array
-        const aLine = Array.apply(null, {length: iQtyLine}).map(Number.call, Number);
-
-        // Prepare index of array of line
-        let iLine = 0
-
-        const oTab = {
-            "tab": [
-                {
-                    name: "app.js"
-                },
-                {
-                    name: "test.css"
-                },
-                {
-                    name: "test.js"
-                }
-            ],
-            "line": aLine,
-            "iLine": () => {
-                return iLine++;
-            }
-        }        
-
-
-        // TODO : move in module app
-        require('./screens/editor/editor.css')
-        const template2 = require('./screens/editor/editor.html')
-        const html = template2( oTab )
-        document.getElementById('jsEditor').innerHTML = html
-
-        const nTabItem = document.querySelectorAll('.jsTabItem')
-        nTabItem[0].classList.add('jsIsVisible','jsIsActive')
-        nTabItem[1].classList.add('jsIsVisible')
+        return false;
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-        const bIsTecnic = false;
+/*        const bIsTecnic = false;
 
         const nOutput = document.getElementById('jsCodeContent')
 
@@ -119,7 +71,7 @@ else {
 
                 LinkedInCtrl()
             })
-        })
+        })*/
 
         /*
             TODO: version simplifier

@@ -14,6 +14,17 @@
     --editor-height-line : 18px;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #222;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    border-radius: 10px;
+}
+
 .editor {
     background-color: var( --sublime-background );
 
@@ -25,7 +36,6 @@
         background-color: var( --sublime-tab );
         
         &__item {
-            display: none;
             position: relative;
             z-index: 1;
 
@@ -45,10 +55,6 @@
             font-size: 13px;
             cursor: default;
 
-            &.jsIsVisible {
-                display: block;
-            }
-
             &.jsIsActive {
                 z-index: 2;
                 border-bottom-color: var( --sublime-background );
@@ -61,33 +67,22 @@
                 width: 30px;
                 height: calc( var( --editor-tab-height ) - var( --editor-tab-padding-top ) );
                 color: white;
+                cursor: default;
+                outline: none;
             }
         }
     }
 
     &__inner {
         display: flex;
-        flex-wrap: wrap;
+        /*flex-wrap: wrap;
         justify-content: space-between;
-        align-content: stretch;
-        height: 100%;
+        align-content: stretch;*/
+        height: calc( 100% - var( --editor-tab-height ) -  48px ); /* TODO: top bar, get var*/
         padding: 5px;
         
-        &__line {
-            width: 50px;
-            height: 100%;
-            padding: 0 20px 0 15px;
-            font-size: 13px;
-            color: #555;
-            text-align: right;
-
-            &__item {
-                height: var( --editor-height-line );
-                line-height: var( --editor-height-line );
-            }
-        }
-
         &__content {
+            overflow: auto;
             flex-grow: 1;
 
             pre {

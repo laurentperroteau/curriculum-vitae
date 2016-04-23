@@ -1,4 +1,6 @@
-app/*
+app/
+tree/
+!screens/tree/
 exemple/
 *.sublime-project
 *.sublime-workspace

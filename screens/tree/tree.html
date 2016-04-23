@@ -1,0 +1,79 @@
+<ul>
+    <li class="app__main__menu__item">
+        <strong>{{ title }}</strong>
+        <ul>                
+        {{#tree}}
+            <li class="app__main__menu__item">
+                <button
+                    type="button"
+                    class="
+                        jsEventMenuItem
+                        btn-reset"
+                    data-name="{{name}}">    
+                    <strong>
+                        {{name}}
+                    </strong>
+                </button>
+                <ul>                
+                {{#level1}}
+                    <li class="app__main__menu__item">
+                        <button
+                            type="button"
+                            class="
+                                jsEventMenuItem
+                                btn-reset"
+                            data-name="{{name}}">    
+                            <strong>
+                                {{name}}
+                            </strong>
+                        </button>
+                        <ul>                
+                        {{#level2}}
+                            <li class="app__main__menu__item">
+                                {{#isFile}}
+                                <button
+                                    type="button"
+                                    class="
+                                        jsEventMenuItem
+                                        btn-reset"
+                                    data-name="{{name}}"    
+                                    data-is-file="true">    
+                                    {{name}}
+                                </button>
+                                {{/isFile}}
+                                {{^isFile}}
+                                <button
+                                    type="button"
+                                    class="
+                                        jsEventMenuItem
+                                        btn-reset"
+                                    data-name="{{name}}">    
+                                    <strong>
+                                        {{name}}
+                                    </strong>
+                                </button>
+                                {{/isFile}}                                
+                            </li>
+                        {{/level2}}
+                        </ul>
+                    </li>
+                {{/level1}}
+                </ul>
+            </li>
+        {{/tree}}
+        </ul>
+    </li>
+</ul> 
+
+<!--
+<ul>                
+    {{#level2}}
+    <li 
+        class="
+            jsEventMenuItem
+            app__main__menu__item">
+        <strong>{{name}}</strong>
+    </li>
+    {{/level2}}
+</ul>
+-->
