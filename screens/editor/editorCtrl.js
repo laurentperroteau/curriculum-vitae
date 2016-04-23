@@ -1,4 +1,4 @@
-let nElem
+import EditorClass from 'myScreens/editor/EditorClass'
 
 const editorCtrl = () => {
 
@@ -16,17 +16,11 @@ const editorCtrl = () => {
         ]
     }        
 
-    require('./editor.css')
+    const Editor = new EditorClass('editor')
 
-    const template = require('./editor.html')
+    Editor.setData( oTab )
 
-    const html = template( oTab )
-
-    if( nElem === undefined ) {
-        nElem = document.getElementById('jsEditor')
-    }
-    
-    nElem.innerHTML = html
+    Editor.initTemplate()
 
     const nTabItem = document.querySelectorAll('.jsTabItem')
     nTabItem[0].classList.add('jsIsVisible','jsIsActive')

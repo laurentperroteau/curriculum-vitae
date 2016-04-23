@@ -7,8 +7,6 @@ class TreeClass extends CreateComponentClass {
 
         super( sName )
 
-        console.log( 'coucou' );
-
         this.sUrl = sUrl
     }
 

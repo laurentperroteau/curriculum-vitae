@@ -30,6 +30,8 @@ class CreateComponentClass {
 
         // Insert HTML
         if( this.nElem === null ) {
+
+            // It's a screens, and should be once.. then use an ID
             this.nElem = document.getElementById( camelize(`js ${this.sName}` ) )
 
             if( html != '' ) this.nElem.innerHTML = html

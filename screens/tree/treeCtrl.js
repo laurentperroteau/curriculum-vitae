@@ -3,20 +3,20 @@ import TreeClass from 'myScreens/tree/TreeClass'
 
 const treeCtrl = () => {
 
-    const tree = new TreeClass('tree', './content/tree.json')
+    const Tree = new TreeClass('tree', './content/tree.json')
 
-    tree.load().then( (data) => {
+    Tree.load().then( (data) => {
             
         const oTree = {
             "title": "Curriculum Vitae",
             "tree": data
         } 
 
-        tree.setData( oTree )
+        Tree.setData( oTree )
 
-        tree.initTemplate()
+        Tree.initTemplate()
 
-        tree.setClickEvent()
+        Tree.setClickEvent()
     })
 }
 export default treeCtrl

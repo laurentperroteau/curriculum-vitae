@@ -1,3 +1,5 @@
+import GutterClass from 'myScreens/gutter/GutterClass'
+
 module.exports = () => {
 
     // Define how many line we want
@@ -16,11 +18,10 @@ module.exports = () => {
         }
     }        
 
-    const template = require('./gutter.html')
 
-    const html = template( oLine )
+    const Gutter = new GutterClass('gutter')
 
-    require('./gutter.css')
+    Gutter.setData( oLine )
 
-    document.getElementById('jsGutter').innerHTML = html
+    Gutter.initTemplate()
 }
