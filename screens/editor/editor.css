@@ -36,7 +36,6 @@
         background-color: var( --sublime-tab );
         
         &__item {
-            display: none;
             position: relative;
             z-index: 1;
 
@@ -55,10 +54,6 @@
 
             font-size: 13px;
             cursor: default;
-
-            &.jsIsVisible {
-                display: block;
-            }
 
             &.jsIsActive {
                 z-index: 2;

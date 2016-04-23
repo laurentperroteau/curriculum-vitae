@@ -52,7 +52,7 @@ module.exports = {
             // @use => require('myComponents/...')
             myComponents: path.resolve( __dirname, 'components'),
             myScreens: path.resolve( __dirname, 'screens'), 
-            prims: './libs/prims/prism.js'
+            Prims: './libs/prims/prism.js'
         }
     },
     eslint: {

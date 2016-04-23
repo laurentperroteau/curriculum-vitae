@@ -7,7 +7,7 @@ class CreateComponentClass {
 
         this.sName = sName
         this.oData = undefined
-        this.nElem = null
+        this.nComponent = null
     }
 
     setData( oData ) {
@@ -29,12 +29,12 @@ class CreateComponentClass {
         require( 'myScreens/'+ sPath + '.css' )
 
         // Insert HTML
-        if( this.nElem === null ) {
+        if( this.nComponent === null ) {
 
             // It's a screens, and should be once.. then use an ID
-            this.nElem = document.getElementById( camelize(`js ${this.sName}` ) )
+            this.nComponent = document.getElementById( camelize(`js ${this.sName}` ) )
 
-            if( html != '' ) this.nElem.innerHTML = html
+            if( html != '' ) this.nComponent.innerHTML = html
 
             debug( `Init template: ${this.sName}` )
         }

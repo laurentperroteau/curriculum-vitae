@@ -1,5 +1,7 @@
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
 import getAsyncJson from 'myComponents/async/getAsyncJson'
+
+const PubSub = require('pubsub-js')
     
 class TreeClass extends CreateComponentClass {
 
@@ -16,7 +18,7 @@ class TreeClass extends CreateComponentClass {
 
     setClickEvent() {
 
-        const nItemS = this.nElem.querySelectorAll('.jsEventMenuItem')
+        const nItemS = this.nComponent.querySelectorAll('.jsEventMenuItem')
 
         Array.from( nItemS ).forEach( ( nItem ) => {
 
@@ -32,24 +34,24 @@ class TreeClass extends CreateComponentClass {
 
             if( nElem.dataset.isFile !== undefined ) {
 
-                this.triggerFile( nElem )
+                this._triggerFile( nElem )
             }
             else {
-                this.triggerFolder( nElem )
+                this._triggerFolder( nElem )
             }
 
         }
     }
 
-    triggerFolder( nElem ) {
+    _triggerFolder( nElem ) {
 
-        console.log( `open folder ${nElem.dataset.name}` );
+        console.log( `open folder ${nElem.dataset.name}` )
     }
 
-    triggerFile( nElem ) {
+    _triggerFile( nElem ) {
 
         // TODO: si plusieurs folder on le même nom, il faudra ajouter une info
-        console.log( `open file ${nElem.dataset.name}` );
+        PubSub.publish('TAB', `${nElem.dataset.name}`)
     }
 }
 export default TreeClass

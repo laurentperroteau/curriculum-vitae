@@ -1,17 +1,22 @@
 import EditorClass from 'myScreens/editor/EditorClass'
 
+const PubSub = require('pubsub-js')
+
 const editorCtrl = () => {
 
     const oTab = {
         "tab": [
             {
-                name: "app.js"
+                name: "app.js",
+                class: "jsIsActive"
             },
             {
-                name: "test.css"
+                name: "test.css",
+                class: ""
             },
             {
-                name: "test.js"
+                name: "log.js",
+                class: ""
             }
         ]
     }        
@@ -22,8 +27,11 @@ const editorCtrl = () => {
 
     Editor.initTemplate()
 
-    const nTabItem = document.querySelectorAll('.jsTabItem')
-    nTabItem[0].classList.add('jsIsVisible','jsIsActive')
-    nTabItem[1].classList.add('jsIsVisible')
+    PubSub.subscribe('TAB', onTabPublish )
+
+    function onTabPublish( msg, data ) {
+
+        if( data !== undefined ) Editor.openFile( data )
+    }
 }
 export default editorCtrl
