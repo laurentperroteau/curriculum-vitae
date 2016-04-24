@@ -3,7 +3,7 @@ import GutterClass from 'myScreens/gutter/GutterClass'
 module.exports = () => {
 
     // Define how many line we want
-    const iQtyLine = 30
+    const iQtyLine = 1000
 
     // Generate array
     const aLine = Array.apply(null, {length: iQtyLine}).map(Number.call, Number);
