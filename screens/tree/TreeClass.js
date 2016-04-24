@@ -30,16 +30,12 @@ class TreeClass extends CreateComponentClass {
 
         const nElem = e.currentTarget
 
-        if( nElem.dataset.name !== undefined ) {
+        if( nElem.classList.contains('jsIsFolder') ) {
 
-            if( nElem.dataset.isFile !== undefined ) {
-
-                this._triggerFile( nElem )
-            }
-            else {
-                this._triggerFolder( nElem )
-            }
-
+            this._triggerFolder( nElem )
+        }
+        else {
+            this._triggerFile( nElem )
         }
     }
 
