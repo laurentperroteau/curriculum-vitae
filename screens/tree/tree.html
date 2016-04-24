@@ -1,79 +1,65 @@
 <ul>
-    <li class="app__main__menu__item">
-        <strong>{{ title }}</strong>
+    <li 
+        class="
+            tree__item
+            tree__item--arrow">
+        <span 
+            class="
+                btn-tree
+                btn-tree--folder">
+            {{ title }}
+        </span>
         <ul>                
-        {{#tree}}
-            <li class="app__main__menu__item">
+            <li 
+                my-each-root="tree"
+                class="
+                    tree__item
+                    tree__item--arrow">
                 <button
                     type="button"
                     class="
                         jsEventMenuItem
-                        btn-reset"
-                    data-name="{{name}}">    
-                    <strong>
-                        {{name}}
-                    </strong>
+                        btn-reset
+                        btn-tree"
+                        my-class-btn-tree--folder="root.isFolder"
+                    data-name="{{ root.name }}">    
+                    {{ root.name }}
                 </button>
                 <ul>                
-                {{#level1}}
-                    <li class="app__main__menu__item">
+                    <li 
+                        my-each-level1="root.level1"
+                        class="
+                            tree__item
+                            tree__item--arrow">
                         <button
                             type="button"
                             class="
                                 jsEventMenuItem
-                                btn-reset"
-                            data-name="{{name}}">    
-                            <strong>
-                                {{name}}
-                            </strong>
+                                btn-reset
+                                btn-tree"
+                            my-class-btn-tree--folder="level1.isFolder"
+                            data-name="{{ level1.name }}">    
+                            {{ level1.name }}
                         </button>
                         <ul>                
-                        {{#level2}}
-                            <li class="app__main__menu__item">
-                                {{#isFile}}
+                            <li 
+                                my-each-level2="level1.level2"
+                                class="tree__item">
                                 <button
                                     type="button"
                                     class="
                                         jsEventMenuItem
-                                        btn-reset"
-                                    data-name="{{name}}"    
-                                    data-is-file="true">    
-                                    {{name}}
+                                        btn-reset
+                                        btn-tree"
+                                    my-class-btn-tree--folder="level2.isFolder"
+                                    data-name="{{ level2.name }}">    
+                                    {{ level2.name }}
                                 </button>
-                                {{/isFile}}
-                                {{^isFile}}
-                                <button
-                                    type="button"
-                                    class="
-                                        jsEventMenuItem
-                                        btn-reset"
-                                    data-name="{{name}}">    
-                                    <strong>
-                                        {{name}}
-                                    </strong>
-                                </button>
-                                {{/isFile}}                                
                             </li>
-                        {{/level2}}
                         </ul>
                     </li>
-                {{/level1}}
                 </ul>
             </li>
-        {{/tree}}
         </ul>
     </li>
 </ul> 
-
-<!--
-<ul>                
-    {{#level2}}
-    <li 
-        class="
-            jsEventMenuItem
-            app__main__menu__item">
-        <strong>{{name}}</strong>
-    </li>
-    {{/level2}}
-</ul>
--->

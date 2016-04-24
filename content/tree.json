@@ -1,32 +1,36 @@
 [
     {
         "name": "components",
-        "isFile": false,
+        "isFolder": true,
         "level1": [
             {
                 "name": "debug",
-                "isFile": false,
+                "isFolder": true,
                 "level2": [
                     {
                         "name": "debug.js",
-                        "isFile": true
+                        "isFolder": false
                     }
                 ]
             },
             {
                 "name": "log",
-                "isFile": false,
+                "isFolder": true,
                 "level2": [
                     {
                         "name": "log.js",
-                        "isFile": true
+                        "isFolder": false
                     }
                 ]
+            },
+            {
+                "name": "test.js",
+                "isFolder": false
             }
         ]
     },
     {
-        "name": "app",
-        "isFile": false
+        "name": "app.js",
+        "isFolder": false
     }
 ]
