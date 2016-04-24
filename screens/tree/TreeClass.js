@@ -22,11 +22,11 @@ class TreeClass extends CreateComponentClass {
 
         Array.from( nItemS ).forEach( ( nItem ) => {
 
-            nItem.addEventListener('click', (e) => this.triggerItem(e), false )
+            nItem.addEventListener('click', (e) => this._triggerItem(e), false )
         });
     }
 
-    triggerItem( e ) {
+    _triggerItem( e ) {
 
         const nElem = e.currentTarget
 

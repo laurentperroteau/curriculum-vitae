@@ -27,6 +27,8 @@ const editorCtrl = () => {
 
     Editor.initTemplate()
 
+    Editor.initCloseEvent()
+
     PubSub.subscribe('TAB', onTabPublish )
 
     function onTabPublish( msg, data ) {
