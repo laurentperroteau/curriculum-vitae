@@ -1,12 +1,12 @@
 <ul class="editor__tab">
-    {{#tab}}
     <li 
+        my-each-tab="tab"
         class="
             jsTabItem
             jsEventTabItem
-            editor__tab__item
-            {{class}}">
-        {{name}}
+            editor__tab__item"
+        my-class-jsIsActive="tab.active">
+        {{ tab.name }}
         <button
             type="button"
             class="
@@ -16,7 +16,6 @@
             x
         </button>
     </li>
-    {{/tab}}
 </ul>
 <div class="editor__inner">
     <div id="jsGutter" class="gutter"></div>

@@ -1,6 +1,15 @@
-let nElem
+const rivets = require('rivets')
+
+rivets.configure({
+    prefix: 'my',
+    templateDelimiters: ['{{', '}}']
+})
 
 const appCtrl = () => {
+
+    const nElem = document.getElementById('jsApp')
+
+    if( nElem === null ) return false
 
     const oApp = {
         "fileName": "/home/laurentperroteau/www/cv/web2/css/app.css"
@@ -8,14 +17,10 @@ const appCtrl = () => {
 
     const template = require('./app.html')
 
-    const html = template( oApp )
-
     require('./app.css')
 
-    if( nElem === undefined ) {
-        nElem = document.getElementById('jsApp')
-    }
+    nElem.innerHTML = template
 
-    nElem.innerHTML = html
+    rivets.bind( nElem, oApp )
 }
 export default appCtrl

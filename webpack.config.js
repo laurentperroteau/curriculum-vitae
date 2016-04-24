@@ -37,10 +37,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'mustache'
-                // loader: 'mustache?minify'
-                // loader: 'mustache?{ minify: { removeComments: false } }'
-                // loader: 'mustache?noShortcut'
+                loader: 'html-loader'
             }
         ]
     },
@@ -52,7 +49,8 @@ module.exports = {
             // @use => require('myComponents/...')
             myComponents: path.resolve( __dirname, 'components'),
             myScreens: path.resolve( __dirname, 'screens'), 
-            Prims: './libs/prims/prism.js'
+            // Global lib
+            prims: './libs/prims/prism.js'
         }
     },
     eslint: {

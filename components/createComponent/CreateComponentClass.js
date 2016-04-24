@@ -1,6 +1,13 @@
 import debug from 'myComponents/debug/debug'
 import camelize from 'myComponents/debug/camelize'
 
+const rivets = require('rivets')
+
+rivets.configure({
+    prefix: 'my',
+    templateDelimiters: ['{{', '}}']
+})
+
 class CreateComponentClass {
 
     constructor( sName ) {
@@ -20,10 +27,7 @@ class CreateComponentClass {
         const sPath = `${this.sName}/${this.sName}`
 
         // Get template
-        const template = require( 'myScreens/'+ sPath + '.html' )
-
-        // Set template with json (using Mustache)
-        const html = template( this.oData )
+        const html = require( 'myScreens/'+ sPath + '.html' )
 
         // Add CSS
         require( 'myScreens/'+ sPath + '.css' )
@@ -34,9 +38,16 @@ class CreateComponentClass {
             // It's a screens, and should be once.. then use an ID
             this.nComponent = document.getElementById( camelize(`js ${this.sName}` ) )
 
-            if( html != '' ) this.nComponent.innerHTML = html
+            if( html != '' ) {
 
-            debug( `Init template: ${this.sName}` )
+                // Insert template
+                this.nComponent.innerHTML = html
+
+                // Add data and data binding
+                rivets.bind( this.nComponent, this.oData )
+
+                debug( `Init template: ${this.sName}` )
+            }
         }
     }
 }

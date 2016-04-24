@@ -8,15 +8,15 @@ const editorCtrl = () => {
         "tab": [
             {
                 name: "app.js",
-                class: "jsIsActive"
+                active: true
             },
             {
                 name: "test.css",
-                class: ""
+                active: false
             },
             {
                 name: "log.js",
-                class: ""
+                active: false
             }
         ]
     }        
