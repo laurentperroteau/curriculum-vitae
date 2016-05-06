@@ -1,3 +1,4 @@
+import debug from 'myComponents/debug/debug'
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
     
 class EditorClass extends CreateComponentClass {
@@ -25,10 +26,15 @@ class EditorClass extends CreateComponentClass {
                 if( !item.active && item.name == self.sFileName ) {
                     item.active = true
                     self._showFile()
+
+                    debug(`ACTIVE tab ${item.name}`)
                 }
                 else if( item.active && item.name != self.sFileName ) {
                     item.active = false
+                    
+                    debug(`ACTIVE tab ${item.name}`)
                 }
+
             })
         }
         // Tab doesn't exist :disable all and add it
@@ -70,12 +76,16 @@ class EditorClass extends CreateComponentClass {
 
         const sFileName = nElem.dataset.name
 
+        console.log( this.oData.tab );
+
         this.oData.tab.forEach( ( item, i, object ) => {
 
             if( item.name == sFileName ) {
 
                 bTabWasActive = item.active
                 iLastItem = i
+
+                debug(`DELETE tab ${item.name}`)
 
                 return object.splice(i, 1)
             }
@@ -84,18 +94,25 @@ class EditorClass extends CreateComponentClass {
         // If the tab was active, now activate the tab with the index of the closed
         if( bTabWasActive ) {
 
-            // TODO : a retester
-            this.oData.tab[ iLastItem ].active = true
+            // console.log( iLastItem );
+
+            if( this.oData.tab.length <= iLastItem ) {
+
+                this._activeOtherTab( this.oData.tab.length - 1 )
+            }
+            else {
+                this._activeOtherTab( iLastItem )
+            }
         }
     }
 
     _activeOtherTab( i ) {
 
-        let newIndex = 0
+        const newIndex = i == 0 ? 1 : i;
 
-        if( i == 0 ) newIndex = 1
+        console.log( newIndex );
 
-
+        // this.oData.tab[ newIndex ].active = true
     }
 
     _tabExist() {
@@ -114,7 +131,7 @@ class EditorClass extends CreateComponentClass {
 
     _showFile() {
 
-        console.log( 'show ' + this.sFileName );
+        debug( 'SHOW ' + this.sFileName );
     }
 }
 export default EditorClass
