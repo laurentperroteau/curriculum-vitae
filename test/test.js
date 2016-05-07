@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const _ = require('lodash');
 
-/*describe('Array', function() {
+/*describe('Array', () => {
     describe('#indexOf()', function () {
         it('should return -1 when the value is not present', function () {
             assert.equal(-1, [1,2,3].indexOf(5));
@@ -28,7 +28,7 @@ other active => ok ?
 etc... etc...
  */
 
-const aTab = [
+const aTabTemplate = [
     {
         name: "app.js",
         active: true
@@ -43,6 +43,10 @@ const aTab = [
     }
 ]
 
+console.log( aTabTemplate );
+
+let aTab = aTabTemplate
+
 function getIndexTabByName( sFileName ) {
 
     return _.findIndex(aTab, function(o) { return o.name == sFileName })
@@ -56,45 +60,43 @@ function getIndexActiveTab() {
 function deleteTabByIndex( i ) {
 
     aTab.splice(i, 1)
-
-    return aTab
 }
 
 function addTabWithName( sFileName ) {
-
-    unactiveTab()
 
     const oNewTab = {
         name: sFileName,
         active: true
     }
 
-    const aNewTab = aTab.push( oNewTab )
-
-    return aNewTab
+    aTab.push( oNewTab )
 }
 
-function unactiveTab( i ) {
+function unactiveTab() {
 
     const iCurrentActive = getIndexActiveTab()
 
-    aTab[ iCurrentActive ].active = false
+    if( iCurrentActive !== -1 ) {
+
+        aTab[ iCurrentActive ].active = false
+    }
+
+    /*aTab.map((x) => { 
+        x.active = false
+        return x
+    })*/
+}
+
+function activeTabByIndex( i ) {
+
+    aTab[ i ].active = true
 }
 
 describe('Array of tab :', () => {
 
-    let foo = false
-    
-    beforeEach( (done) => {
-        setTimeout( () => {
-
-            foo = true;
-            // complete the async beforeEach
-            done()
-        }, 500)
-    })
-
     describe('Function getIndexTabByName', () => {
+
+        aTab = aTabTemplate
 
         it('should return at least 1', () => {
             assert.isAtLeast( getIndexTabByName('test.css'), 1 )
@@ -107,6 +109,8 @@ describe('Array of tab :', () => {
 
     describe('Function getIndexActiveTab', () => {
 
+        aTab = aTabTemplate
+
         it('should return index 0', () => {
             assert.strictEqual( getIndexActiveTab(), 0 )
         })
@@ -114,6 +118,9 @@ describe('Array of tab :', () => {
 
     describe('Function deleteTabByIndex', () => {
         
+        aTab = aTabTemplate
+        
+        const iTabLength = aTab.length
         const iTab = getIndexTabByName('test.css')
 
         it('should return index 1 (function getIndexTabByName)', () => {
@@ -121,45 +128,68 @@ describe('Array of tab :', () => {
             assert.isAtLeast( iTab, 1 )
         })
 
-        it('delete tab and return object with length equal to 2', () => {
+        it('delete tab and return object with length equal to '+ (iTabLength - 1), () => {
 
-            const aNewTab = deleteTabByIndex( iTab )
+            deleteTabByIndex( iTab )
 
-            assert.lengthOf( aNewTab, 2 )
+            assert.lengthOf( aTab, iTabLength - 1 )
+        })
+    })
+
+    describe('Delete all tabs (function deleteTabByIndex)', () => {
+        
+        aTab = aTabTemplate
+        
+        const iTabLength = aTab.length
+
+        deleteTabByIndex( 2 )
+        deleteTabByIndex( 1 )
+        deleteTabByIndex( 0 )
+
+        it('and return length of 0', () => {
+
+            assert.lengthOf( aTab, 0 )
         })
     })
 
 
     describe('Function addTabWithName', () => {
-        setTimeout(function() {
 
-            console.log( addTabWithName( 'newTab.js' ) );
-        }, 5000);
+        aTab = aTabTemplate
+
+        console.log( aTabTemplate );
+        console.log( aTab );
         
-        /*const sNameNewTab = 'newTab.js';
+        const iTabLength = aTab.length
+        const sNameNewTab = 'newTab.js';
         const iTab = getIndexTabByName( sNameNewTab )
 
-        it('should add tab and length increment by 1', () => {
+        it('should add tab and length increment by '+ (iTabLength + 1), () => {
 
             if( iTab !== -1 ) {
 
                 const iTabLength = aTab.length
 
-                const aNewTab = addTabWithName( sNameNewTab )
+                unactiveTab()
 
-                console.log( aNewTab );
+                addTabWithName( sNameNewTab )
 
-                // assert.strictEqual( aNewTab, iTabLength + 1 )
+                assert.lengthOf( aTab, iTabLength + 1 )
             }
-        })    */        
-    })
-    // Problème...
-
-    /*describe('Function activeOtherTab', () => {
-
-        it('before calling, index of active should be 2', () => {
-
-            assert.strictEqual( getIndexActiveTab(), 2 )
         })            
-    })*/
+    })
+
+    describe('Function activeTabByIndex', () => {
+
+        aTab = aTabTemplate 
+
+        it('should return index 1', () => {
+
+            unactiveTab()
+
+            activeTabByIndex( 1 )
+
+            assert.strictEqual( getIndexActiveTab(), 1 )
+        })           
+    })
 })
