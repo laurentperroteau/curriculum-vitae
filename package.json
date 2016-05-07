@@ -15,11 +15,15 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "cssnext": "^1.8.4",
     "cssnext-loader": "^1.0.1",
     "eslint-config-airbnb": "^6.2.0",
     "html-loader": "^0.4.3",
+    "lodash": "^4.11.2",
+    "mocha": "^2.4.5",
+    "mocha-loader": "^0.7.1",
     "postcss-loader": "^0.8.2",
     "postcss-normalize": "^0.2.0",
     "precss": "^1.4.0",
@@ -29,7 +33,7 @@
     "style-loader": "^0.13.1"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
