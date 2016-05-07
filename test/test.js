@@ -69,8 +69,9 @@ function addTabWithName( sFileName ) {
         active: true
     }
 
+    const aNewTab = aTab.push( oNewTab )
 
-    return aTab.push( oNewTab )
+    return aNewTab
 }
 
 function unactiveTab( i ) {
@@ -84,7 +85,7 @@ describe('Array of tab :', () => {
 
     let foo = false
     
-    beforeEach( () => {
+    beforeEach( (done) => {
         setTimeout( () => {
 
             foo = true;
