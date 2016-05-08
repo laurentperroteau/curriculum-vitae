@@ -133,5 +133,51 @@ class EditorClass extends CreateComponentClass {
 
         debug( 'SHOW ' + this.sFileName );
     }
+
+
+    getIndexTabByName( sFileName ) {
+
+        return _.findIndex(this.oData.tab, function(o) { return o.name == sFileName })
+    }
+
+    getIndexActiveTab() {
+
+        return _.findIndex(this.oData.tab, function(o) { return o.active == true })
+    }
+
+    deleteTabByIndex( i ) {
+
+        this.oData.tab.splice(i, 1)
+    }
+
+    addTabWithName( sFileName ) {
+
+        const oNewTab = {
+            name: sFileName,
+            active: true
+        }
+
+        this.oData.tab.push( oNewTab )
+    }
+
+    unactiveTab() {
+
+        const iCurrentActive = getIndexActiveTab()
+
+        if( iCurrentActive !== -1 ) {
+
+            this.oData.tab[ iCurrentActive ].active = false
+        }
+
+        /*this.oData.tab.map((x) => { 
+            x.active = false
+            return x
+        })*/
+    }
+
+    activeTabByIndex( i ) {
+
+        this.oData.tab[ i ].active = true
+    }
 }
 export default EditorClass

@@ -3,51 +3,30 @@
 const assert = require('chai').assert;
 const _ = require('lodash');
 
-/*describe('Array', () => {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal(-1, [1,2,3].indexOf(5));
-            assert.equal(-1, [1,2,3].indexOf(0));
-        });
-    });
-});*/
+import EditorClass from 'myScreens/editor/EditorClass'
 
-/*
-rand object of tab
-active one
-count
-delete one
-count => ok ?
-is delete => ok ?
-is empty => ?
-add one
-count =>
-is added => ok ?
-close active 
-other active => ok ?
-etc... etc...
- */
+const oTab = {
+    "tab": [
+        {
+            name: "app.js",
+            active: true
+        },
+        {
+            name: "test.css",
+            active: false
+        },
+        {
+            name: "log.js",
+            active: false
+        }
+    ]
+}
 
-const aTabTemplate = [
-    {
-        name: "app.js",
-        active: true
-    },
-    {
-        name: "test.css",
-        active: false
-    },
-    {
-        name: "log.js",
-        active: false
-    }
-]
+/*console.log( aTab );
 
-console.log( aTabTemplate );
+let Editor.setData( oTab )*/
 
-let aTab = aTabTemplate
-
-function getIndexTabByName( sFileName ) {
+/*function getIndexTabByName( sFileName ) {
 
     return _.findIndex(aTab, function(o) { return o.name == sFileName })
 }
@@ -85,43 +64,49 @@ function unactiveTab() {
         x.active = false
         return x
     })*/
-}
+/*}*/
 
-function activeTabByIndex( i ) {
+/*function activeTabByIndex( i ) {
 
     aTab[ i ].active = true
 }
-
+*/
 describe('Array of tab :', () => {
+
+    // TODO : DEPLACER OTAB ICI ???
 
     describe('Function getIndexTabByName', () => {
 
-        aTab = aTabTemplate
+        const Editor1 = new EditorClass('editor')
+        Editor1.setData( oTab )
 
         it('should return at least 1', () => {
-            assert.isAtLeast( getIndexTabByName('test.css'), 1 )
+            assert.isAtLeast( Editor1.getIndexTabByName('test.css'), 1 )
         })
 
         it('should return -1', () => {
-            assert.strictEqual( getIndexTabByName('wrong.css'), -1 )
+            assert.strictEqual( Editor1.getIndexTabByName('wrong.css'), -1 )
         })
     })
 
     describe('Function getIndexActiveTab', () => {
 
-        aTab = aTabTemplate
+        const Editor2 = new EditorClass('editor')
+        Editor2.setData( oTab )
 
         it('should return index 0', () => {
-            assert.strictEqual( getIndexActiveTab(), 0 )
+            assert.strictEqual( Editor2.getIndexActiveTab(), 0 )
         })
     })
 
     describe('Function deleteTabByIndex', () => {
+
+        const Editor3 = new EditorClass('editor')
         
-        aTab = aTabTemplate
+        Editor3.setData( oTab )
         
-        const iTabLength = aTab.length
-        const iTab = getIndexTabByName('test.css')
+        const iTabLength = Editor3.oData.tab.length
+        const iTab = Editor3.getIndexTabByName('test.css')
 
         it('should return index 1 (function getIndexTabByName)', () => {
 
@@ -130,66 +115,69 @@ describe('Array of tab :', () => {
 
         it('delete tab and return object with length equal to '+ (iTabLength - 1), () => {
 
-            deleteTabByIndex( iTab )
+            Editor3.deleteTabByIndex( iTab )
 
-            assert.lengthOf( aTab, iTabLength - 1 )
+            assert.lengthOf( Editor3.oData.tab, iTabLength - 1 )
         })
     })
 
-    describe('Delete all tabs (function deleteTabByIndex)', () => {
+    /*describe('Delete all tabs (function deleteTabByIndex)', () => {
         
-        aTab = aTabTemplate
+        Editor.setData( oTab )
         
         const iTabLength = aTab.length
 
-        deleteTabByIndex( 2 )
-        deleteTabByIndex( 1 )
-        deleteTabByIndex( 0 )
+        Editor.deleteTabByIndex( 2 )
+        Editor.deleteTabByIndex( 1 )
+        Editor.deleteTabByIndex( 0 )
 
         it('and return length of 0', () => {
 
             assert.lengthOf( aTab, 0 )
         })
-    })
+    })*/
 
 
-    describe('Function addTabWithName', () => {
+    /*describe('Function addTabWithName', () => {
 
-        aTab = aTabTemplate
-
-        console.log( aTabTemplate );
-        console.log( aTab );
+        const Editor4 = new EditorClass('editor')
+        Editor4.setData( oTab )
         
-        const iTabLength = aTab.length
+        const iTabLength = Editor4.oData.tab.length
         const sNameNewTab = 'newTab.js';
-        const iTab = getIndexTabByName( sNameNewTab )
+        const iTab = Editor4.getIndexTabByName( sNameNewTab )
 
         it('should add tab and length increment by '+ (iTabLength + 1), () => {
 
             if( iTab !== -1 ) {
 
-                const iTabLength = aTab.length
+                const iTabLength = Editor4.oData.tab.length
 
-                unactiveTab()
+                Editor4.unactiveTab()
 
-                addTabWithName( sNameNewTab )
+                Editor4.addTabWithName( sNameNewTab )
 
-                assert.lengthOf( aTab, iTabLength + 1 )
+                assert.lengthOf( Editor4.oData.tab, iTabLength + 1 )
             }
         })            
-    })
+    })*/
 
     describe('Function activeTabByIndex', () => {
 
-        aTab = aTabTemplate 
+        const Editor5 = new EditorClass('editor')
+        Editor5.setData( oTab ) 
 
-        it('should return index 1', () => {
+        console.log( Editor5.oData.tab )
 
-            unactiveTab()
+        // Pourquoi je n'ai que 2 items, pas de problème si je copie de nouveau l'objet
 
-            activeTabByIndex( 1 )
+        /*it('should return index 1', () => {
 
-            assert.strictEqual( getIndexActiveTab(), 1 )
-        })           
+            Editor.unactiveTab()
+
+            Editor.activeTabByIndex( 1 )
+
+            assert.strictEqual( Editor.getIndexActiveTab(), 1 )
+        }) */          
     })
 })
