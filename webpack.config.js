@@ -9,10 +9,14 @@ const normalize     = require('postcss-normalize')
 
 module.exports = {
     context: __dirname,
-    entry: ['./app.js'],
-    output: {
-        filename: './app/appBundle.js'
+    entry: {
+        app: './app.js',
+        test: 'mocha!./test/test.js'
     },
+    output: {
+        filename: './[name]/[name]Bundle.js'
+    },
+
     module: {
         preLoaders: [
             {
