@@ -4,7 +4,7 @@ const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
 
-    const oTab = {
+   const oTab = {
         "tab": [
             {
                 name: "app.js",
@@ -23,17 +23,8 @@ const editorCtrl = () => {
 
     const Editor = new EditorClass('editor')
 
-    Editor.setData( oTab )
+    // Editor.setData( oTab )
 
     Editor.initTemplate()
-
-    Editor.closeEventOnLoad()
-
-    PubSub.subscribe('TAB', onTabPublish )
-
-    function onTabPublish( msg, data ) {
-
-        if( data !== undefined ) Editor.openTab( data )
-    }
 }
 export default editorCtrl

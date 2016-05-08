@@ -15,6 +15,7 @@ import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
 import appCtrl from './screens/app/appCtrl'
 import treeCtrl from './screens/tree/treeCtrl'
+import tabCtrl from './screens/tab/tabCtrl'
 import editorCtrl from './screens/editor/editorCtrl'
 import gutterCtrl from './screens/gutter/gutterCtrl'
 
@@ -46,6 +47,7 @@ else {
 
         appCtrl()
         treeCtrl()
+        tabCtrl()
         editorCtrl()
         gutterCtrl()
 

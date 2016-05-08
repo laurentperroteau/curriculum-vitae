@@ -5,7 +5,7 @@ const PubSub = require('pubsub-js')
 import debug from 'myComponents/debug/debug'
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
     
-class EditorClass extends CreateComponentClass {
+class TabClass extends CreateComponentClass {
 
     constructor( sName ) {
 
@@ -180,4 +180,4 @@ class EditorClass extends CreateComponentClass {
         this.oData.tab[ i ].active = true
     }
 }
-export default EditorClass
+export default TabClass

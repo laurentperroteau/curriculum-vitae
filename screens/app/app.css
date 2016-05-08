@@ -144,3 +144,19 @@ body {
         }
     }
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #222;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    border-radius: 10px;
+}
+
+
+.editor-ctn {
+    background-color: var( --sublime-background );
+}
