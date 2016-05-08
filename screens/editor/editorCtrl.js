@@ -27,13 +27,13 @@ const editorCtrl = () => {
 
     Editor.initTemplate()
 
-    Editor.initCloseEvent()
+    Editor.closeEventOnLoad()
 
     PubSub.subscribe('TAB', onTabPublish )
 
     function onTabPublish( msg, data ) {
 
-        if( data !== undefined ) Editor.openFile( data )
+        if( data !== undefined ) Editor.openTab( data )
     }
 }
 export default editorCtrl
