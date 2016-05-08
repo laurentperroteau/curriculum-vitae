@@ -2,10 +2,11 @@
  * Get json from async call
  * ========================
  * @param  {string} sUrl 
+ * @param  {bol} +> if want json 
  * @return {object} => promise of result
  * @thanks => http://blog.mgechev.com/2014/12/21/handling-asynchronous-calls-with-es6-javascript-generators/
  */
-const getAsyncJson = ( sUrl ) => {
+const getAsyncJson = ( sUrl, bJson ) => {
 
     'use strict'
 
@@ -17,7 +18,13 @@ const getAsyncJson = ( sUrl ) => {
         if( xhr.readyState === 4 ) {
 
             if( xhr.status === 200 ) {
-                oPromise.resolve( JSON.parse(xhr.responseText) )
+
+                if( bJson ) {
+                    oPromise.resolve( JSON.parse(xhr.responseText) )
+                }
+                else {
+                    oPromise.resolve( xhr.responseText )
+                }
             } 
             else {
                 oPromise.reject( xhr.responseText )
