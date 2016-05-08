@@ -24,7 +24,36 @@ const editorCtrl = () => {
     const Editor = new EditorClass('editor')
 
     // Editor.setData( oTab )
+    
+    // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
 
     Editor.initTemplate()
+
+    Editor.initOutpupCtn( 'jsCodeContent' )
+
+    const exemple = require('raw!myFiles/exemple.txt')
+    const exemple2 = require('raw!myFiles/exemple2.txt')
+
+    Editor.initWrite( exemple ).then( () => {
+
+        /*Editor.initWrite( exemple2 ).then( () => {
+
+            // LinkedInCtrl()
+        })*/
+    })
+
+    PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
+
+    function onDisplayFilePublish( msg, data ) {
+
+        if( data !== undefined ) Editor.showOutput( data )
+    }
+
+    PubSub.subscribe( 'DELETE_FILE', onDeleteFilePublish )
+
+    function onDeleteFilePublish( msg, data ) {
+
+        if( data !== undefined ) Editor.removeOutput()
+    }
 }
 export default editorCtrl

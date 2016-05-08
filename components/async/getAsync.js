@@ -6,7 +6,7 @@
  * @return {object} => promise of result
  * @thanks => http://blog.mgechev.com/2014/12/21/handling-asynchronous-calls-with-es6-javascript-generators/
  */
-const getAsyncJson = ( sUrl, bJson ) => {
+const getAsync = ( sUrl, bJson ) => {
 
     'use strict'
 
@@ -37,4 +37,4 @@ const getAsyncJson = ( sUrl, bJson ) => {
 
     return oPromise.promise
 }
-export default getAsyncJson
+export default getAsync

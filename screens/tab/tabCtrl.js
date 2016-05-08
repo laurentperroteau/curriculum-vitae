@@ -9,14 +9,6 @@ const tabCtrl = () => {
             {
                 name: "app.js",
                 active: true
-            },
-            {
-                name: "test.css",
-                active: false
-            },
-            {
-                name: "log.js",
-                active: false
             }
         ]
     }        
@@ -29,7 +21,7 @@ const tabCtrl = () => {
 
     Tab.closeEventOnLoad()
 
-    PubSub.subscribe('TAB', onTabPublish )
+    PubSub.subscribe('OPEN_TAB', onTabPublish )
 
     function onTabPublish( msg, data ) {
 

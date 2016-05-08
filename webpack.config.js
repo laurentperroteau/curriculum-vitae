@@ -49,10 +49,11 @@ module.exports = {
         extensions: ['', '.js', '.json'],
         alias: {
             // Alias of dir
-            // @use => import getAsyncJson from 'myComponents/...'
+            // @use => import getAsync from 'myComponents/...'
             // @use => require('myComponents/...')
             myComponents: path.resolve( __dirname, 'components'),
             myScreens: path.resolve( __dirname, 'screens'), 
+            myFiles: path.resolve( __dirname, 'tree'), 
             // Global lib
             prims: './libs/prims/prism.js'
         }

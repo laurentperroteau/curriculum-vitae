@@ -51,10 +51,10 @@ else {
         editorCtrl()
         gutterCtrl()
 
-        return false;
+        // return false;
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-/*        const bIsTecnic = false;
+        /*const bIsTecnic = false;
 
         const nOutput = document.getElementById('jsCodeContent')
 

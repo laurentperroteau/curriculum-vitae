@@ -1,4 +1,5 @@
-const _ = require('lodash') // TODO : require seulement besoin
+import WriteClass from 'myComponents/write/WriteClass'
+import getAsync from 'myComponents/async/getAsync'
 
 const PubSub = require('pubsub-js')
 
@@ -12,172 +13,57 @@ class EditorClass extends CreateComponentClass {
         super( sName )
 
         this.sName = sName
-        this.sFileName = ''
-        this.aCloseEvent = []
+        this.bIsTecnic = false
+        this.nOutputCtn = null
     }
 
-    closeEventOnLoad() {
+    initOutpupCtn( sId ) {
 
-        const self = this
+        this.nOutputCtn = document.getElementById( sId )
 
-        const nItemS = this.nComponent.querySelectorAll('.jsEventTabItemClose')
-
-        Array.from( nItemS ).forEach( ( nItem ) => {
-
-            this._bindUnbindCloseEvent( nItem, 'add' )
-        })
+        this.Write = new WriteClass( this.nOutputCtn, this.bIsTecnic )
     }
 
-    openTab( sFileName ) {
+    initWrite( sCode ) {
 
-        if( this.sFileName == sFileName ) return false
-
-        this.sFileName = sFileName
-
-        const self = this
-
-        // If tab exist yet, switch active tab        
-        if( this._getIndexTabByName( this.sFileName ) !== -1 ) {
-
-            this.oData.tab.forEach( ( item ) => {
-
-                if( !item.active && item.name == self.sFileName ) {
-
-                    item.active = true
-                    self._showFile()
-
-                    debug(`ACTIVE tab ${item.name}`)
-                }
-                else if( item.active && item.name != self.sFileName ) {
-
-                    item.active = false
-                    
-                    debug(`ACTIVE tab ${item.name}`)
-                }
-
-            })
-        }
-        // Tab doesn't exist : unactive all and add it
-        else {
-            this._unactiveAllTab()
-
-            this._addTabWithName( this.sFileName )
-
-            this._showFile()
-
-            const nElem = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
-
-            if( nElem !== null ) this._bindUnbindCloseEvent( nElem, 'add' )
-        }
+        return this.Write.initWrite( sCode )
     }
 
-    _closeTab( e ) {
+    showOutput( sFileName ) {
 
-        const self = this 
+        console.log( sFileName );
 
-        let bTabWasActive = false
-        let iLastItem = 0
+        this._getRawText( sFileName )
 
-        const nElem = e.currentTarget
-
-        const sFileName = nElem.dataset.name
-
-        this.oData.tab.forEach( ( item, i, object ) => {
-
-            if( item.name == sFileName ) {
-
-                bTabWasActive = item.active
-                iLastItem = i
-
-                debug(`DELETE tab ${item.name}`)
-
-                this._deleteTabByIndex( i )
-
-                this._bindUnbindCloseEvent( nElem, 'remove' )
-
-                return // Stop forEach
-            }
-        })
-
-        // If the tab was active, now activate the tab with the index of the closed
-        if( this.oData.tab.length > 0 && bTabWasActive ) {
-
-            if( this.oData.tab.length <= iLastItem ) {
-
-                this._activeOtherTab( this.oData.tab.length - 1 )
-            }
-            else {
-                this._activeOtherTab( iLastItem )
-            }
-        }
     }
 
-    _activeOtherTab( i ) {
+    removeOutput() {
 
-        this._unactiveAllTab()
-
-        this._activeTabByIndex( i )
+        // TODO: stop writting
+        this.nOutputCtn.innerHTML = ''
     }
-
-    _showFile() {
-
-        PubSub.publish( 'FILE', nElem.dataset.name )
-
-        debug( 'SHOW ' + this.sFileName )
-    }
-
-    _bindUnbindCloseEvent( nItem, sType ) {
-
-        if( sType == 'add' ) {
-
-            nItem.addEventListener('click', (e) => this._closeTab(e), false )
-        }
-        else {
-            nItem.removeEventListener('click', (e) => this._closeTab(e), false )
-        }
-    }
-
 
     // Array tabs method tested
     // ------------------------
+    
+    _getRawText( sPathFile ) {
 
-    _getIndexTabByName( sFileName ) {
+        console.log( `./tree/${sPathFile}.txt` );
 
-        return _.findIndex(this.oData.tab, function(o) { return o.name == sFileName })
-    }
-
-    _getIndexActiveTab() {
-
-        return _.findIndex(this.oData.tab, function(o) { return o.active == true })
-    }
-
-    _deleteTabByIndex( i ) {
-
-        this.oData.tab.splice(i, 1)
-    }
-
-    _addTabWithName( sFileName ) {
-
-        const oNewTab = {
-            name: sFileName,
-            active: true
-        }
-
-        this.oData.tab.push( oNewTab )
-    }
-
-    _unactiveAllTab() {
-
-        // TODO: voir utilise loadash
-        this.oData.tab.map((x) => { 
-            x.active = false
-            return x
+        getAsync(`./tree/${sPathFile}.txt`).then( (data) => {
+                
+            this._displayOutput( data )
         })
     }
 
-    _activeTabByIndex( i ) {
+    _displayOutput( sOutput ) {
 
-        this.oData.tab[ i ].active = true
+        // TODO: stop writting
+        this.nOutputCtn.innerHTML = sOutput
+
+        debug(`REMOVE code, no more file !`)
     }
+
+
 }
 export default EditorClass

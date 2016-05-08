@@ -110,6 +110,11 @@ class TabClass extends CreateComponentClass {
                 this._activeOtherTab( iLastItem )
             }
         }
+
+        if( !this.oData.tab.length ) {
+            
+            PubSub.publish( 'DELETE_FILE', sFileName )
+        }
     }
 
     _activeOtherTab( i ) {
@@ -121,7 +126,7 @@ class TabClass extends CreateComponentClass {
 
     _showFile() {
 
-        PubSub.publish( 'FILE', nElem.dataset.name )
+        PubSub.publish( 'DISPLAY_FILE', this.sFileName )
 
         debug( 'SHOW ' + this.sFileName )
     }
