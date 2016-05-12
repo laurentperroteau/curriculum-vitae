@@ -1,3 +1,9 @@
+import WriteClass from 'myComponents/write/WriteClass'
+import getAsync from 'myComponents/async/getAsync'
+
+const PubSub = require('pubsub-js')
+
+import debug from 'myComponents/debug/debug'
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
     
 class EditorClass extends CreateComponentClass {
@@ -7,25 +13,57 @@ class EditorClass extends CreateComponentClass {
         super( sName )
 
         this.sName = sName
+        this.bIsTecnic = false
+        this.nOutputCtn = null
     }
 
-    openFile( sFileName ) {
+    initOutpupCtn( sId ) {
 
-        console.log( sFileName )
-        console.log( this.oData )
+        this.nOutputCtn = document.getElementById( sId )
 
-        this.oData.tab.forEach(function( o ){
+        this.Write = new WriteClass( this.nOutputCtn, this.bIsTecnic )
+    }
 
-            if( o.name == sFileName ) {
-                o.class = 'jsIsActive'
-            }
+    initWrite( sCode ) {
+
+        return this.Write.initWrite( sCode )
+    }
+
+    showOutput( sFileName ) {
+
+        console.log( sFileName );
+
+        this._getRawText( sFileName )
+
+    }
+
+    removeOutput() {
+
+        // TODO: stop writting
+        this.nOutputCtn.innerHTML = ''
+    }
+
+    // Array tabs method tested
+    // ------------------------
+    
+    _getRawText( sPathFile ) {
+
+        console.log( `./tree/${sPathFile}.txt` );
+
+        getAsync(`./tree/${sPathFile}.txt`).then( (data) => {
+                
+            this._displayOutput( data )
         })
-
-        console.log( this.oData );
-        
-        /*const nTabItem = this.nComponent.querySelectorAll('.jsTabItem')
-        nTabItem[0].classList.add('jsIsVisible','jsIsActive')
-        nTabItem[1].classList.add('jsIsVisible')*/
     }
+
+    _displayOutput( sOutput ) {
+
+        // TODO: stop writting
+        this.nOutputCtn.innerHTML = sOutput
+
+        debug(`REMOVE code, no more file !`)
+    }
+
+
 }
 export default EditorClass

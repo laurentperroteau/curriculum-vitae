@@ -1,5 +1,5 @@
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
-import getAsyncJson from 'myComponents/async/getAsyncJson'
+import getAsync from 'myComponents/async/getAsync'
 
 const PubSub = require('pubsub-js')
     
@@ -13,7 +13,7 @@ class TreeClass extends CreateComponentClass {
     }
 
     load() {
-        return getAsyncJson( this.sUrl )
+        return getAsync( this.sUrl, true )
     }
 
     setClickEvent() {
@@ -22,24 +22,20 @@ class TreeClass extends CreateComponentClass {
 
         Array.from( nItemS ).forEach( ( nItem ) => {
 
-            nItem.addEventListener('click', (e) => this.triggerItem(e), false )
+            nItem.addEventListener('click', (e) => this._triggerItem(e), false )
         });
     }
 
-    triggerItem( e ) {
+    _triggerItem( e ) {
 
         const nElem = e.currentTarget
 
-        if( nElem.dataset.name !== undefined ) {
+        if( nElem.classList.contains('jsIsFolder') ) {
 
-            if( nElem.dataset.isFile !== undefined ) {
-
-                this._triggerFile( nElem )
-            }
-            else {
-                this._triggerFolder( nElem )
-            }
-
+            this._triggerFolder( nElem )
+        }
+        else {
+            this._triggerFile( nElem )
         }
     }
 
@@ -51,7 +47,7 @@ class TreeClass extends CreateComponentClass {
     _triggerFile( nElem ) {
 
         // TODO: si plusieurs folder on le même nom, il faudra ajouter une info
-        PubSub.publish('TAB', `${nElem.dataset.name}`)
+        PubSub.publish( 'OPEN_TAB', nElem.dataset.name )
     }
 }
 export default TreeClass

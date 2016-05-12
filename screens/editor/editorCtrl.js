@@ -4,7 +4,7 @@ const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
 
-    const oTab = {
+   const oTab = {
         "tab": [
             {
                 name: "app.js",
@@ -23,15 +23,37 @@ const editorCtrl = () => {
 
     const Editor = new EditorClass('editor')
 
-    Editor.setData( oTab )
+    // Editor.setData( oTab )
+    
+    // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
 
     Editor.initTemplate()
 
-    PubSub.subscribe('TAB', onTabPublish )
+    Editor.initOutpupCtn( 'jsCodeContent' )
 
-    function onTabPublish( msg, data ) {
+    const exemple = require('raw!myFiles/exemple.txt')
+    const exemple2 = require('raw!myFiles/exemple2.txt')
 
-        if( data !== undefined ) Editor.openFile( data )
+    Editor.initWrite( exemple ).then( () => {
+
+        /*Editor.initWrite( exemple2 ).then( () => {
+
+            // LinkedInCtrl()
+        })*/
+    })
+
+    PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
+
+    function onDisplayFilePublish( msg, data ) {
+
+        if( data !== undefined ) Editor.showOutput( data )
+    }
+
+    PubSub.subscribe( 'DELETE_FILE', onDeleteFilePublish )
+
+    function onDeleteFilePublish( msg, data ) {
+
+        if( data !== undefined ) Editor.removeOutput()
     }
 }
 export default editorCtrl

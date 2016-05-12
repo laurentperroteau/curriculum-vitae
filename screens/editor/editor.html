@@ -1,80 +1,8 @@
-<ul class="editor__tab">
-    <li 
-        my-each-tab="tab"
-        class="
-            jsTabItem
-            jsEventTabItem
-            editor__tab__item"
-        my-class-jsIsActive="tab.active">
-        {{ tab.name }}
-        <button
-            type="button"
-            class="
-                jsEventTabItemClose
-                btn-reset
-                editor__tab__item__close">
-            x
-        </button>
-    </li>
-</ul>
 <div class="editor__inner">
     <div id="jsGutter" class="gutter"></div>
     <div class="editor__inner__content">
         <pre style="cursor: text;"><!--
-        --><code id="jsCodeContent" class="language-js"><!--
-
---><span class="token comment" spellcheck="true">// Import des classes et controlleurs</span>
-<span class="token keyword keyword-import">import</span> WriteClass <span class="token keyword keyword-from">from</span> <span class="token string">'./components/write/WriteClass'</span>
-<span class="token keyword keyword-import">import</span> LinkedInCtrl <span class="token keyword keyword-from">from</span> <span class="token string">'./components/linkedIn/LinkedInCtrl'</span>
-
-<span class="token comment" spellcheck="true">// TODO : move in module app</span>
-<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./screens/editor/editor.css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword keyword-var">var</span> template <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./screens/editor/editor.html'</span><span class="token punctuation">)</span>
-<span class="token keyword keyword-var">var</span> html <span class="token operator">=</span> <span class="token function">template</span><span class="token punctuation">(</span> oTab <span class="token punctuation">)</span>
-document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'jsEditor'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> html<span class="token punctuation">;</span>
-
-<span class="token keyword keyword-const">const</span> nTabItem <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.jsTabItem'</span><span class="token punctuation">)</span>
-nTabItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'jsIsVisible'</span><span class="token punctuation">,</span><span class="token string">'jsIsActive'</span><span class="token punctuation">)</span>
-nTabItem<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'jsIsVisible'</span><span class="token punctuation">)</span>
-
-<span class="token keyword keyword-return">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-<span class="token keyword keyword-const">const</span> nTabItemClose <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.jsEventTabItemClose'</span><span class="token punctuation">)</span>
-
-<span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-var">var</span> i <span class="token operator">=</span> nTabItemClose<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-nTabItemClose<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>sayHello<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
-
-<span class="token keyword keyword-let">let</span> oTab <span class="token operator">=</span> <span class="token punctuation">{</span>
-<span class="token string">"tab"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span> <span class="token string">"app.js"</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token string">"line"</span><span class="token punctuation">:</span> aLine<span class="token punctuation">,</span>
-<span class="token string">"iLine"</span><span class="token punctuation">:</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword keyword-return">return</span> iLine<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span> 
-
-writingExemple<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-
-<span class="token comment" spellcheck="true">// Grâce à une "promise", quand l'écriture est fini,</span>
-<span class="token comment" spellcheck="true">//     on copie la seconde partie du code...</span>
-<span class="token keyword keyword-const">const</span> exemple2 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'raw!./content/exemple2.txt'</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">// ... et on l'écrit</span>
-<span class="token keyword keyword-const">const</span> writingExemple2 <span class="token operator">=</span> write<span class="token punctuation">.</span><span class="token function">initWrite</span><span class="token punctuation">(</span> exemple2 <span class="token punctuation">)</span>
-
-writingExemple2<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">// Quand ce dernier est fini, on appel le controller LinkedInCtrl</span>
-    <span class="token function">LinkedInCtrl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><!--
-
-            --></code>
+        --><code id="jsCodeContent" class="language-js"></code>
         </pre>
     </div>
 </div>

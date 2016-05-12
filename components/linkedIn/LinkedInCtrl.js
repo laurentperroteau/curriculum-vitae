@@ -1,7 +1,7 @@
 // const setting = require("json!../../shared/setting.json")
 // console.log( setting );
 
-import debug from '../debug/debug'
+import debug from 'myComponents/debug/debug'
 import log from '../log/LogCtrl'
 
 import LinkedInClass from './LinkedInClass'

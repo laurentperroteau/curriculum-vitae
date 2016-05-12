@@ -15,6 +15,7 @@ import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 
 import appCtrl from './screens/app/appCtrl'
 import treeCtrl from './screens/tree/treeCtrl'
+import tabCtrl from './screens/tab/tabCtrl'
 import editorCtrl from './screens/editor/editorCtrl'
 import gutterCtrl from './screens/gutter/gutterCtrl'
 
@@ -46,13 +47,14 @@ else {
 
         appCtrl()
         treeCtrl()
+        tabCtrl()
         editorCtrl()
         gutterCtrl()
 
-        return false;
+        // return false;
 
         // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-/*        const bIsTecnic = false;
+        /*const bIsTecnic = false;
 
         const nOutput = document.getElementById('jsCodeContent')
 

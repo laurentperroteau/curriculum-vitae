@@ -1,4 +1,4 @@
-import getAsyncJson from 'myComponents/async/getAsyncJson'
+import getAsync from 'myComponents/async/getAsync'
 import TreeClass from 'myScreens/tree/TreeClass'
 
 const treeCtrl = () => {
