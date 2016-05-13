@@ -47,10 +47,11 @@ const editorCtrl = () => {
 
     function onDisplayFilePublish( msg, data ) {
 
+        // Display seulement si n'existe pas encore
         if( data !== undefined ) Editor.showOutput( data )
     }
 
-    PubSub.subscribe( 'DELETE_FILE', onDeleteFilePublish )
+    PubSub.subscribe( 'EMPTY_EDITOR', onDeleteFilePublish )
 
     function onDeleteFilePublish( msg, data ) {
 

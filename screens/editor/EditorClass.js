@@ -37,9 +37,13 @@ class EditorClass extends CreateComponentClass {
 
     removeOutput() {
 
+        const self = this
+
         this.WriteClass.stop()
 
-        this.nOutputCtn.innerHTML = ''
+        setTimeout(function() {
+            self.nOutputCtn.innerHTML = ''
+        }, 100);
     }
 
     // Array tabs method tested
