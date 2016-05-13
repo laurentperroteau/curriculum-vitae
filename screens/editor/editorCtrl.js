@@ -29,10 +29,11 @@ const editorCtrl = () => {
 
     Editor.initTemplate()
 
-    Editor.initOutpupCtn( 'jsCodeContent' )
 
     const exemple = require('raw!myFiles/exemple.txt')
     const exemple2 = require('raw!myFiles/exemple2.txt')
+    
+    Editor.initOutpupCtn( 'jsCodeContent' )
 
     Editor.initWrite( exemple ).then( () => {
 

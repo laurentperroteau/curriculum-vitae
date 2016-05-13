@@ -1,10 +1,11 @@
-import WriteClass from 'myComponents/write/WriteClass'
 import getAsync from 'myComponents/async/getAsync'
 
 const PubSub = require('pubsub-js')
 
 import debug from 'myComponents/debug/debug'
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import WriteClass from 'myComponents/write/WriteClass'
+
     
 class EditorClass extends CreateComponentClass {
 
@@ -21,17 +22,15 @@ class EditorClass extends CreateComponentClass {
 
         this.nOutputCtn = document.getElementById( sId )
 
-        this.Write = new WriteClass( this.nOutputCtn, this.bIsTecnic )
+        this.WriteClass = new WriteClass( this.nOutputCtn, this.bIsTecnic )
     }
 
     initWrite( sCode ) {
 
-        return this.Write.initWrite( sCode )
+        return this.WriteClass.init( sCode )
     }
 
     showOutput( sFileName ) {
-
-        console.log( sFileName );
 
         this._getRawText( sFileName )
 
@@ -39,7 +38,8 @@ class EditorClass extends CreateComponentClass {
 
     removeOutput() {
 
-        // TODO: stop writting
+        this.WriteClass.stop()
+
         this.nOutputCtn.innerHTML = ''
     }
 
@@ -48,7 +48,7 @@ class EditorClass extends CreateComponentClass {
     
     _getRawText( sPathFile ) {
 
-        console.log( `./tree/${sPathFile}.txt` );
+        console.log( `GET ./tree/${sPathFile}.txt` );
 
         getAsync(`./tree/${sPathFile}.txt`).then( (data) => {
                 
