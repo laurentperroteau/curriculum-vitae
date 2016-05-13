@@ -4,7 +4,7 @@ const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
 
-   const oTab = {
+   /*const oTab = {
         "tab": [
             {
                 name: "app.js",
@@ -19,7 +19,7 @@ const editorCtrl = () => {
                 active: false
             }
         ]
-    }        
+    }        */
 
     const Editor = new EditorClass('editor')
 

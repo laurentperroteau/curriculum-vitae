@@ -11,9 +11,10 @@ class TabClass extends CreateComponentClass {
 
         super( sName )
 
-        this.sName = sName
-        this.sFileName = ''
-        this.aCloseEvent = []
+        this.sName         = sName
+        this.sFileName     = ''
+        this.sFileFullPath = ''
+        this.aCloseEvent   = []
     }
 
     closeEventOnLoad() {
@@ -28,11 +29,12 @@ class TabClass extends CreateComponentClass {
         })
     }
 
-    openTab( sFileName ) {
+    openTab( oDataset ) {
 
-        if( this.sFileName == sFileName ) return false
+        if( this.sFileName == oDataset.name ) return false
 
-        this.sFileName = sFileName
+        this.sFileName     = oDataset.name
+        this.sFileFullPath = oDataset.fullPath
 
         const self = this
 
@@ -44,7 +46,7 @@ class TabClass extends CreateComponentClass {
                 if( !item.active && item.name == self.sFileName ) {
 
                     item.active = true
-                    self._showFile( this.sFileName )
+                    self._showFile( this.sFileFullPath )
 
                     debug(`ACTIVE tab ${item.name}`)
                 }
@@ -61,9 +63,9 @@ class TabClass extends CreateComponentClass {
         else {
             this._unactiveAllTab()
 
-            this._addTabWithName( this.sFileName )
+            this._addTabWithName()
 
-            this._showFile( this.sFileName )
+            this._showFile( this.sFileFullPath )
 
             const nElem = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
 
@@ -115,7 +117,7 @@ class TabClass extends CreateComponentClass {
 
                     this._activeOtherTab( indexToActive )
 
-                    this._showFile( aClone[ indexToActive ].name )
+                    this._showFile( aClone[ indexToActive ].fullPath )
                 }
             }
             // If not, show newt
@@ -125,7 +127,7 @@ class TabClass extends CreateComponentClass {
 
                     this._activeOtherTab( iTabToClose + 1 )
 
-                    this._showFile( aClone[ iTabToClose + 1 ].name )
+                    this._showFile( aClone[ iTabToClose + 1 ].fullPath )
                 }
             }
         }
@@ -155,11 +157,13 @@ class TabClass extends CreateComponentClass {
         this._activeTabByIndex( i )
     }
 
-    _showFile( sFileNameToShow ) {
+    _showFile( sFileFullPath ) {
 
-        PubSub.publish( 'DISPLAY_FILE', sFileNameToShow )
+        console.log( sFileFullPath );
 
-        debug( 'SHOW ' + sFileNameToShow )
+        PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
+
+        debug( 'SHOW ' + sFileFullPath )
     }
 
     _bindUnbindCloseEvent( nItem, sType ) {
@@ -192,11 +196,12 @@ class TabClass extends CreateComponentClass {
         this.oData.tab.splice(i, 1)
     }
 
-    _addTabWithName( sFileName ) {
+    _addTabWithName() {
 
         const oNewTab = {
-            name: sFileName,
-            active: true
+            name     : this.sFileName,
+            fullPath : this.sFileFullPath,
+            active   : true
         }
 
         this.oData.tab.push( oNewTab )

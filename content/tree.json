@@ -4,37 +4,43 @@
         "isFolder": true,
         "level1": [
             {
-                "name": "debug",
-                "isFolder": true,
-                "level2": [
-                    {
-                        "name": "debug.js",
-                        "isFolder": false
-                    }
-                ]
-            },
-            {
                 "name": "log",
                 "isFolder": true,
                 "level2": [
                     {
-                        "name": "log.js",
+                        "name": "LogCtrl.js",
+                        "fullPath": "components/log/LogCtrl.js",
                         "isFolder": false
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "name": "screens",
+        "isFolder": true,
+        "level1": [
             {
-                "name": "test.js",
-                "isFolder": false
+                "name": "tree",
+                "isFolder": true,
+                "level2": [
+                    {
+                        "name": "TreeClass.js",
+                        "fullPath": "screens/tree/TreeClass.js",
+                        "isFolder": false
+                    }
+                ]
             }
         ]
     },
     {
         "name": "app.js",
+        "fullPath": "app.js",
         "isFolder": false
     },
     {
         "name": "exemple",
+        "fullPath": "exemple",
         "isFolder": false
     }
 ]

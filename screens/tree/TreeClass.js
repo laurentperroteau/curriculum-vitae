@@ -47,7 +47,7 @@ class TreeClass extends CreateComponentClass {
     _triggerFile( nElem ) {
 
         // TODO: si plusieurs folder on le même nom, il faudra ajouter une info
-        PubSub.publish( 'OPEN_TAB', nElem.dataset.name )
+        PubSub.publish( 'OPEN_TAB', nElem.dataset )
     }
 }
 export default TreeClass
