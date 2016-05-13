@@ -7,8 +7,8 @@ const tabCtrl = () => {
     const oTab = {
         "tab": [
             {
-                name    : "app.js",
-                fullPath: "app.js",
+                name    : "demo.js",
+                fullPath: "demo.js",
                 active  : true
             }
         ]
