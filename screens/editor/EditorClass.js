@@ -33,7 +33,6 @@ class EditorClass extends CreateComponentClass {
     showOutput( sFileName ) {
 
         this._getRawText( sFileName )
-
     }
 
     removeOutput() {
@@ -48,7 +47,7 @@ class EditorClass extends CreateComponentClass {
     
     _getRawText( sPathFile ) {
 
-        console.log( `GET ./tree/${sPathFile}.txt` );
+        debug( `GET ./tree/${sPathFile}.txt` );
 
         getAsync(`./tree/${sPathFile}.txt`).then( (data) => {
                 
@@ -58,12 +57,16 @@ class EditorClass extends CreateComponentClass {
 
     _displayOutput( sOutput ) {
 
-        // TODO: stop writting
+        if( this.WriteClass.isWritting ) {
+
+            this.WriteClass.stop()
+        }
+
         this.nOutputCtn.innerHTML = sOutput
 
-        debug(`REMOVE code, no more file !`)
+        Prism.highlightAll()
+
+        debug(`SHOW new fille, highlight then`)
     }
-
-
 }
 export default EditorClass

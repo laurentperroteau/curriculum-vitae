@@ -8,6 +8,7 @@ class WriteClass {
         this.nOutput = nOutput
         this.iSpeed = bSlow ? 16 : 1
         this.bPaused = false
+        this.bIsWritting = false
     }
 
 
@@ -15,24 +16,28 @@ class WriteClass {
 
         return new Promise( (resolve, reject) => {
 
-            this.writting( resolve, sText, this.nOutput, this.iSpeed )
+            this._startWritting( resolve, sText, this.nOutput, this.iSpeed )
         })
-    }
-
-    writting( resolve, sText, nOutput, iSpeed ) {
-
-        const self = this
-
-        debug('=> Start writting text ')
-
-        this.runWrite( resolve, sText, 0, 1)
     }
 
     stop() {
         this.bPaused = true
     }
 
-    runWrite( resolve, sNewText, index, charsPerInterval )  {
+    isWritting() {
+        return this.bIsWritting
+    }
+
+    _startWritting( resolve, sText, nOutput, iSpeed ) {
+
+        const self = this
+
+        debug('=> Start _startWritting text ')
+
+        this._runWrite( resolve, sText, 0, 1)
+    }
+
+    _runWrite( resolve, sNewText, index, charsPerInterval )  {
 
         const self = this
 
@@ -56,6 +61,8 @@ class WriteClass {
         
         // Schedule another write.
         if ( !this.bPaused && index < sNewText.length ) {
+
+            this.bIsWritting = true
 
             let thisInterval = this.iSpeed
             const thisSlice = sNewText.slice(index - 2, index + 1);
@@ -99,10 +106,12 @@ class WriteClass {
             // Wait specific delay
             setTimeout(function() {
 
-                self.runWrite( resolve, sNewText, index, charsPerInterval )
+                self._runWrite( resolve, sNewText, index, charsPerInterval )
             }, thisInterval);
         }
         else {
+            this.bIsWritting = false
+            
             debug('=> write end')
 
             return resolve();
