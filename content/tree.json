@@ -40,6 +40,11 @@
                         "isFolder": false
                     },
                     {
+                        "name": "tree.html",
+                        "fullPath": "screens/tree/tree.html",
+                        "isFolder": false
+                    },
+                    {
                         "name": "treeCtrl.js",
                         "fullPath": "screens/tree/treeCtrl.js",
                         "isFolder": false
