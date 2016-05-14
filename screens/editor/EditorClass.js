@@ -78,6 +78,10 @@ class EditorClass extends CreateComponentClass {
                     
                 this._displayOutput( data, sLanguage )
             })
+            .catch( (error) => {
+
+                console.warn( error )
+            })
     }
 
     /**
