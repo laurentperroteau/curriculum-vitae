@@ -1,4 +1,4 @@
-import getAsync from 'myComponents/async/getAsync'
+import $http from 'myComponents/async/http'
 
 const PubSub = require('pubsub-js')
 
@@ -72,12 +72,12 @@ class EditorClass extends CreateComponentClass {
 
         const sLanguage = this._getLanguage( sPathFile )
 
-        getAsync(`./tree/${sPathFile}.txt`).then( (data) => {
-
-            console.log( data );
-                
-            this._displayOutput( data, sLanguage )
-        })
+        $http(`./tree/${sPathFile}.txt`)
+            .get()
+            .then( (data) => {
+                    
+                this._displayOutput( data, sLanguage )
+            })
     }
 
     /**

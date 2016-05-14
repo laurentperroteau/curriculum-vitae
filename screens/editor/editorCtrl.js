@@ -1,4 +1,4 @@
-import getAsync from 'myComponents/async/getAsync'
+import $http from 'myComponents/async/http'
 
 import EditorClass from 'myScreens/editor/EditorClass'
 
@@ -14,16 +14,19 @@ const editorCtrl = () => {
 
     Editor.initOutpupCtn( 'jsCodeContent' )
 
-    /*getAsync(`./tree/demo.js.txt`).then( (data) => {
+    $http(`./tree/demo.js.txt`)
+        .get()
+        .then( (data) => {
 
-        Editor.initWrite( data ).then( () => {
+            Editor.initWrite( data ).then( () => {
 
-            // Editor.initWrite( exemple2 ).then( () => {
+                // Editor.initWrite( exemple2 ).then( () => {
 
-                // LinkedInCtrl()
-            // })
+                    // LinkedInCtrl()
+                // })
+            })
+                
         })
-    })*/
 
     PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
 

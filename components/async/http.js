@@ -46,11 +46,11 @@ const $http = ( sUrl ) => {
                 client.onload = function() {
 
                     if( this.status >= 200 && this.status < 300 ){
-                        // On utilise la fonction "resolve" lorsque this.status vaut 2xx
+                        // Performs the function "resolve" when this.status is equal to 2xx
                         resolve(this.response)
                     } 
                     else {
-                        // On utilise la fonction "reject" lorsque this.status est différent de 2xx
+                        // Performs the function "reject" when this.status is different than 2xx
                         reject(this.statusText)
                     }
                 }
@@ -65,7 +65,7 @@ const $http = ( sUrl ) => {
         }
     }
 
-    // Pattern adaptateur
+    // Adapter pattern
     return {
         'get': (args) => {
             return core.ajax('GET', sUrl, args)

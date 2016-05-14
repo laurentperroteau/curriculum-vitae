@@ -1,4 +1,3 @@
-import getAsync from 'myComponents/async/getAsync'
 import TreeClass from 'myScreens/tree/TreeClass'
 
 const treeCtrl = () => {
@@ -9,7 +8,7 @@ const treeCtrl = () => {
             
         const oTree = {
             "title": "Curriculum Vitae",
-            "tree": data
+            "tree": JSON.parse( data )
         } 
 
         Tree.setData( oTree )

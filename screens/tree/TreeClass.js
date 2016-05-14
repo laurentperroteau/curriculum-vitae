@@ -1,5 +1,5 @@
 import debug from 'myComponents/debug/debug'
-import getAsync from 'myComponents/async/getAsync'
+import $http from 'myComponents/async/http'
 
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
 
@@ -15,7 +15,7 @@ class TreeClass extends CreateComponentClass {
     }
 
     load() {
-        return getAsync( this.sUrl, true )
+        return $http( this.sUrl ).get()
     }
 
     setClickEvent() {
