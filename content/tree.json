@@ -11,6 +11,11 @@
                         "name": "LogCtrl.js",
                         "fullPath": "components/log/LogCtrl.js",
                         "isFolder": false
+                    },
+                    {
+                        "name": "alert.js",
+                        "fullPath": "components/log/alert.js",
+                        "isFolder": false
                     }
                 ]
             }
@@ -28,8 +33,29 @@
                         "name": "TreeClass.js",
                         "fullPath": "screens/tree/TreeClass.js",
                         "isFolder": false
+                    },
+                    {
+                        "name": "tree.css",
+                        "fullPath": "screens/tree/tree.css",
+                        "isFolder": false
+                    },
+                    {
+                        "name": "treeCtrl.js",
+                        "fullPath": "screens/tree/treeCtrl.js",
+                        "isFolder": false
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "name": "test",
+        "isFolder": true,
+        "level1": [
+            {
+                "name": "test.js",
+                "fullPath": "test/test.js",
+                "isFolder": false
             }
         ]
     },

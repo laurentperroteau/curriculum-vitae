@@ -49,6 +49,12 @@
                 border-bottom-color: var( --sublime-background );
             }
 
+            &__open {
+                width: 84%;
+                color: white;
+                text-align: left;
+            }
+
             &__close {
                 position: absolute;
                 top: 0;

@@ -2,7 +2,7 @@
     <li 
         class="
             tree__item
-            tree__item--arrow">
+            tree__item--root">
         <span 
             class="
                 btn-tree
@@ -12,9 +12,7 @@
         <ul>                
             <li 
                 my-each-root="tree"
-                class="
-                    tree__item
-                    tree__item--arrow">
+                class="tree__item">
                 <button
                     type="button"
                     class="
@@ -22,7 +20,8 @@
                         btn-reset
                         btn-tree"
                     my-class-btn-tree--folder="root.isFolder"
-                    my-class-jsIsFolder="root.isFolder"
+                    my-class-btn-tree--arrow="root.isFolder"
+                    my-class-jsisfolder="root.isFolder"
                     my-data-name="root.name"
                     my-data-full-path="root.fullPath">    
                     {{ root.name }}
@@ -30,9 +29,7 @@
                 <ul>                
                     <li 
                         my-each-level1="root.level1"
-                        class="
-                            tree__item
-                            tree__item--arrow">
+                        class="tree__item">
                         <button
                             type="button"
                             class="
@@ -40,6 +37,8 @@
                                 btn-reset
                                 btn-tree"
                             my-class-btn-tree--folder="level1.isFolder"
+                            my-class-btn-tree--arrow="level1.isFolder"
+                            my-class-jsisfolder="level1.isFolder"
                             my-data-name="level1.name"
                             my-data-full-path="level1.fullPath">    
                             {{ level1.name }}

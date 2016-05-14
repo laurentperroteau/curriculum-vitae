@@ -20,6 +20,7 @@ const tabCtrl = () => {
 
     Tab.initTemplate()
 
+    Tab.openEventOnLoad()
     Tab.closeEventOnLoad()
 
     PubSub.subscribe('OPEN_TAB', onTabPublish )

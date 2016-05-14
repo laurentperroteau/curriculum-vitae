@@ -17,6 +17,18 @@ class TabClass extends CreateComponentClass {
         this.aCloseEvent   = []
     }
 
+    openEventOnLoad() {
+
+        const self = this
+
+        const nItemS = this.nComponent.querySelectorAll('.jsEventTabItem')
+
+        Array.from( nItemS ).forEach( ( nItem ) => {
+
+            this._bindUnbindOpenEvent( nItem, 'add' )
+        })
+    }
+
     closeEventOnLoad() {
 
         const self = this
@@ -29,12 +41,22 @@ class TabClass extends CreateComponentClass {
         })
     }
 
-    openTab( oDataset ) {
+    /**
+     * Open tab (calling or triggring)
+     * ===============================
+     * @param  {obj} data => mouse event or dataset
+     */
+    openTab( data ) {
 
-        if( this.sFileName == oDataset.name ) return false
+        if( data.target !== undefined ) {
 
-        this.sFileName     = oDataset.name
-        this.sFileFullPath = oDataset.fullPath
+            data = data.target.dataset
+        }
+
+        if( this.sFileName == data.name ) return false
+
+        this.sFileName     = data.name
+        this.sFileFullPath = data.fullPath
 
         const self = this
 
@@ -67,9 +89,15 @@ class TabClass extends CreateComponentClass {
 
             this._showFile( this.sFileFullPath )
 
-            const nElem = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
+            // TODO: bof...
+            const nElemTab = this.nComponent.querySelector(`.jsEventTabItem[data-name="${this.sFileName}"]`)
+            const nElemBtnClose = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
 
-            if( nElem !== null ) this._bindUnbindCloseEvent( nElem, 'add' )
+            if( nElemTab !== null && nElemBtnClose !== null ) {
+
+                this._bindUnbindOpenEvent( nElemTab, 'add' )
+                this._bindUnbindCloseEvent( nElemBtnClose, 'add' )
+            }
         }
     }
 
@@ -139,6 +167,7 @@ class TabClass extends CreateComponentClass {
 
                 this._deleteTabByIndex( iTabToClose )
 
+                this._bindUnbindOpenEvent( nElem.parentElement, 'remove' )
                 this._bindUnbindCloseEvent( nElem, 'remove' )
             }
 
@@ -159,11 +188,20 @@ class TabClass extends CreateComponentClass {
 
     _showFile( sFileFullPath ) {
 
-        console.log( sFileFullPath );
-
         PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
 
         debug( 'SHOW ' + sFileFullPath )
+    }
+
+    _bindUnbindOpenEvent( nItem, sType ) {
+
+        if( sType == 'add' ) {
+
+            nItem.addEventListener('click', (e) => this.openTab(e), false )
+        }
+        else {
+            nItem.removeEventListener('click', (e) => this.openTab(e), false )
+        }
     }
 
     _bindUnbindCloseEvent( nItem, sType ) {

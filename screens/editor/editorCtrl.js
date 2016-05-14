@@ -14,16 +14,16 @@ const editorCtrl = () => {
 
     Editor.initOutpupCtn( 'jsCodeContent' )
 
-    getAsync(`./tree/demo.js.txt`).then( (data) => {
+    /*getAsync(`./tree/demo.js.txt`).then( (data) => {
 
         Editor.initWrite( data ).then( () => {
 
-            /*Editor.initWrite( exemple2 ).then( () => {
+            // Editor.initWrite( exemple2 ).then( () => {
 
                 // LinkedInCtrl()
-            })*/
+            // })
         })
-    })
+    })*/
 
     PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
 

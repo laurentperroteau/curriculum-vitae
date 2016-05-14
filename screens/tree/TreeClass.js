@@ -1,5 +1,7 @@
-import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import debug from 'myComponents/debug/debug'
 import getAsync from 'myComponents/async/getAsync'
+
+import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
 
 const PubSub = require('pubsub-js')
     
@@ -30,7 +32,8 @@ class TreeClass extends CreateComponentClass {
 
         const nElem = e.currentTarget
 
-        if( nElem.classList.contains('jsIsFolder') ) {
+        // Info : rivets.js convert class in lowercase
+        if( nElem.classList.contains('jsisfolder') ) {
 
             this._triggerFolder( nElem )
         }
@@ -41,7 +44,11 @@ class TreeClass extends CreateComponentClass {
 
     _triggerFolder( nElem ) {
 
-        console.log( `open folder ${nElem.dataset.name}` )
+        // if( nElem.classList.contains('jsIsOpen') ) {
+            nElem.classList.toggle('jsIsOpen')
+        // }
+
+        debug( `Open Folder ${nElem.dataset.name}` )
     }
 
     _triggerFile( nElem ) {
