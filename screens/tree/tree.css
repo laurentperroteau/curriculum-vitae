@@ -75,10 +75,18 @@
                 overflow: hidden;
                 transition: max-height 100ms linear;
             }
+        }
 
-            &.jsIsOpen + ul {
-                max-height: 100px;
-            }
+        &--level1 .jsisfolder.jsIsOpen + ul {
+            max-height: 700px;
+        }
+
+        &--level2 .jsisfolder.jsIsOpen + ul {
+            max-height: 300px;
+        }
+
+        &--level3 .jsisfolder.jsIsOpen + ul {
+            max-height: 200px;
         }
     }
 }

@@ -5,10 +5,13 @@ const treeCtrl = () => {
     const Tree = new TreeClass('tree', './content/tree.json')
 
     Tree.load().then( (data) => {
+
+        // Get all tree (include root)
+        const oResult = JSON.parse( data )
             
         const oTree = {
             "title": "Curriculum Vitae",
-            "tree": JSON.parse( data )
+            "tree": oResult.children
         } 
 
         Tree.setData( oTree )
