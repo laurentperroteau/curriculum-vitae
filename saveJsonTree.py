@@ -3,9 +3,30 @@
 import os
 import json
 
+# Prefix naming : d (dictionary), t (tuple)
+
 def path_to_dict( path, my_string = None ):
 
     dTree = {'name': os.path.basename(path)}
+
+    tExclude = (
+        '.git', 
+        'node_modules', 
+        'exemple', 
+        'libs', 
+        'content', 
+        'tree', 
+        'cv2.sublime-workspace', 
+        'cv2.sublime-project', 
+        '.gitignore', 
+        'webpack-production.config.js', 
+        'Article.md', 
+        'npm-debug.log', 
+        'README.md', 
+        'saveJsonTree.py', 
+        'copyTree.sh', 
+        '.eslintrc'
+    ) 
 
     if os.path.isdir(path):
 
@@ -20,7 +41,7 @@ def path_to_dict( path, my_string = None ):
             dItem = path_to_dict(sPath, my_string)
             
             # If is not one of theirs folder
-            if dItem is not None and dItem['name'] not in ('.git', 'node_modules', 'exemple', 'libs', 'content', 'tree'):
+            if dItem is not None and dItem['name'] not in tExclude:
                                 
                 dItem['fullPath'] = sPath
                 dTree['children'].append( dItem )
@@ -35,7 +56,10 @@ def path_to_dict( path, my_string = None ):
 
     return dTree
 
-resultDataJson = json.dumps( path_to_dict('./',), indent = 2 )
+resultDataJson = json.dumps( path_to_dict('./', ), indent = 2 )
 
-with open('content/tree.json', 'w') as outfile:
-    json.dump( json.JSONDecoder().decode( resultDataJson ), outfile, sort_keys = True, indent = 4, ensure_ascii = False )
+if not os.path.exists('tree'):
+    os.makedirs('tree')
+
+with open('tree/tree.json', 'w') as outfile:
+    json.dump( json.JSONDecoder().decode( resultDataJson ), outfile, sort_keys = False, indent = 4, ensure_ascii = False )
