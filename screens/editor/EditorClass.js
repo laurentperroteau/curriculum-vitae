@@ -109,6 +109,9 @@ class EditorClass extends CreateComponentClass {
         this.nOutputCtn.className = ''
         this.nOutputCtn.classList.add( sLanguage )
 
+        // Remove spellcheck
+        this._disableSpellCheck
+
         Prism.highlightAll()
 
         debug(`SHOW new fille, highlight then`)
@@ -142,6 +145,14 @@ class EditorClass extends CreateComponentClass {
     _htmlEntities( html ) {
 
         return String(html).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+    }
+
+
+    _disableSpellCheck() {
+
+        this.nOutputCtn.spellcheck = false;
+        this.nOutputCtn.focus();
+        this.nOutputCtn.blur();
     }
 }
 export default EditorClass
