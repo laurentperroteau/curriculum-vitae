@@ -45,7 +45,7 @@ else {
 
         appCtrl()
         treeCtrl()
-        tabCtrl()
+        tabCtrl.init()
         editorCtrl()
         gutterCtrl()
 

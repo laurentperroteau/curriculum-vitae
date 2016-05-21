@@ -88,6 +88,7 @@ class EditorClass extends CreateComponentClass {
             })
             .catch( (error) => {
 
+                this._displayOutput( '404 - Page not found', 'html' )
                 console.warn( error )
             })
     }

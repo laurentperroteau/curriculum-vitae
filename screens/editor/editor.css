@@ -56,7 +56,8 @@
                 }
             }
             
-            pre[class*="language-"] {
+            pre[class*="language-"],
+            code[class*="language-"] {
                 line-height: var( --editor-height-line );
             }
 
@@ -67,7 +68,7 @@
                 &.jsIsHidden {
                     display: none;
                 }
-                
+
                 ul {
                     list-style: initial;
                     margin: initial;
@@ -78,6 +79,16 @@
                         display: list-item;
                     }
                 }
+
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    margin-bottom: 0;
+                }
+
             }
         }
     }
