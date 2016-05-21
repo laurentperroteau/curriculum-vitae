@@ -6,13 +6,16 @@ const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
 
+    require( '../../node_modules/github-markdown-css/github-markdown.css' )
+
     const Editor = new EditorClass('editor')
     
     // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
 
     Editor.initTemplate()
 
-    Editor.initOutpupCtn( 'jsCodeContent' )
+    Editor.setMarkdownCtn( 'jsMarkdownContent' )
+    Editor.initCodeCtn( 'jsCodeContent' )
 
     $http(`./tree/demo.js.txt`)
         .get()

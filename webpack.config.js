@@ -55,7 +55,8 @@ module.exports = {
             myScreens: path.resolve( __dirname, 'screens'), 
             myFiles: path.resolve( __dirname, 'tree'), 
             // Global lib
-            prims: './libs/prims/prism.js'
+            prims: './libs/prims/prism.js',
+            markdown: './node_modules/markdown/lib/markdown.js'
         }
     },
     eslint: {
