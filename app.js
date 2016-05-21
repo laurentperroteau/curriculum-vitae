@@ -7,9 +7,6 @@ import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
 import log from './components/log/LogCtrl'
 
-// Classes
-import WriteClass from './components/write/WriteClass'
-
 // Controllers
 import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
 

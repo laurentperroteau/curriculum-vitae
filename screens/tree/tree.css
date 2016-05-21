@@ -3,15 +3,20 @@
 /* ---- */
 
 .btn-tree {
+    height: 24px;
+    line-height: 24px;
 
     &--folder {
         font-weight: bold;
+    }
+
+    &--arrow {
 
         &::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 5px;
+            top: 10px;
             display: block;
             width: 10px;
             height: 8px;
@@ -57,7 +62,31 @@
 
     &__item {
         position: relative;
-        margin-bottom: 5px;
-        padding-left: 15px;
+        padding-left: 10px;
+
+        &--root > ul {
+            margin-top: 3px;
+        }
+
+        .jsisfolder {
+
+            + ul {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 100ms linear;
+            }
+        }
+
+        &--level1 .jsisfolder.jsIsOpen + ul {
+            max-height: 700px;
+        }
+
+        &--level2 .jsisfolder.jsIsOpen + ul {
+            max-height: 300px;
+        }
+
+        &--level3 .jsisfolder.jsIsOpen + ul {
+            max-height: 200px;
+        }
     }
 }

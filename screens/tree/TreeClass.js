@@ -1,5 +1,7 @@
+import debug from 'myComponents/debug/debug'
+import $http from 'myComponents/async/http'
+
 import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
-import getAsync from 'myComponents/async/getAsync'
 
 const PubSub = require('pubsub-js')
     
@@ -13,7 +15,7 @@ class TreeClass extends CreateComponentClass {
     }
 
     load() {
-        return getAsync( this.sUrl, true )
+        return $http( this.sUrl ).get()
     }
 
     setClickEvent() {
@@ -30,7 +32,8 @@ class TreeClass extends CreateComponentClass {
 
         const nElem = e.currentTarget
 
-        if( nElem.classList.contains('jsIsFolder') ) {
+        // Info : rivets.js convert class in lowercase
+        if( nElem.classList.contains('jsisfolder') ) {
 
             this._triggerFolder( nElem )
         }
@@ -41,13 +44,17 @@ class TreeClass extends CreateComponentClass {
 
     _triggerFolder( nElem ) {
 
-        console.log( `open folder ${nElem.dataset.name}` )
+        // if( nElem.classList.contains('jsIsOpen') ) {
+            nElem.classList.toggle('jsIsOpen')
+        // }
+
+        debug( `Open Folder ${nElem.dataset.name}` )
     }
 
     _triggerFile( nElem ) {
 
         // TODO: si plusieurs folder on le même nom, il faudra ajouter une info
-        PubSub.publish( 'OPEN_TAB', nElem.dataset.name )
+        PubSub.publish( 'OPEN_TAB', nElem.dataset )
     }
 }
 export default TreeClass

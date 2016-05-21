@@ -1,29 +1,12 @@
+import $http from 'myComponents/async/http'
+
 import EditorClass from 'myScreens/editor/EditorClass'
 
 const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
 
-   const oTab = {
-        "tab": [
-            {
-                name: "app.js",
-                active: true
-            },
-            {
-                name: "test.css",
-                active: false
-            },
-            {
-                name: "log.js",
-                active: false
-            }
-        ]
-    }        
-
     const Editor = new EditorClass('editor')
-
-    // Editor.setData( oTab )
     
     // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
 
@@ -31,25 +14,29 @@ const editorCtrl = () => {
 
     Editor.initOutpupCtn( 'jsCodeContent' )
 
-    const exemple = require('raw!myFiles/exemple.txt')
-    const exemple2 = require('raw!myFiles/exemple2.txt')
+    $http(`./tree/demo.js.txt`)
+        .get()
+        .then( (data) => {
 
-    Editor.initWrite( exemple ).then( () => {
+            Editor.initWrite( data ).then( () => {
 
-        /*Editor.initWrite( exemple2 ).then( () => {
+                // Editor.initWrite( exemple2 ).then( () => {
 
-            // LinkedInCtrl()
-        })*/
-    })
+                    // LinkedInCtrl()
+                // })
+            })
+                
+        })
 
     PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
 
     function onDisplayFilePublish( msg, data ) {
 
+        // Display seulement si n'existe pas encore
         if( data !== undefined ) Editor.showOutput( data )
     }
 
-    PubSub.subscribe( 'DELETE_FILE', onDeleteFilePublish )
+    PubSub.subscribe( 'EMPTY_EDITOR', onDeleteFilePublish )
 
     function onDeleteFilePublish( msg, data ) {
 

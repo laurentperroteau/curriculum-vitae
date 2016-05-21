@@ -11,9 +11,22 @@ class TabClass extends CreateComponentClass {
 
         super( sName )
 
-        this.sName = sName
-        this.sFileName = ''
-        this.aCloseEvent = []
+        this.sName         = sName
+        this.sFileName     = ''
+        this.sFileFullPath = ''
+        this.aCloseEvent   = []
+    }
+
+    openEventOnLoad() {
+
+        const self = this
+
+        const nItemS = this.nComponent.querySelectorAll('.jsEventTabItem')
+
+        Array.from( nItemS ).forEach( ( nItem ) => {
+
+            this._bindUnbindOpenEvent( nItem, 'add' )
+        })
     }
 
     closeEventOnLoad() {
@@ -28,11 +41,22 @@ class TabClass extends CreateComponentClass {
         })
     }
 
-    openTab( sFileName ) {
+    /**
+     * Open tab (calling or triggring)
+     * ===============================
+     * @param  {obj} data => mouse event or dataset
+     */
+    openTab( data ) {
 
-        if( this.sFileName == sFileName ) return false
+        if( data.target !== undefined ) {
 
-        this.sFileName = sFileName
+            data = data.target.dataset
+        }
+
+        if( this.sFileName == data.name ) return false
+
+        this.sFileName     = data.name
+        this.sFileFullPath = data.fullPath
 
         const self = this
 
@@ -44,7 +68,7 @@ class TabClass extends CreateComponentClass {
                 if( !item.active && item.name == self.sFileName ) {
 
                     item.active = true
-                    self._showFile()
+                    self._showFile( this.sFileFullPath )
 
                     debug(`ACTIVE tab ${item.name}`)
                 }
@@ -61,59 +85,97 @@ class TabClass extends CreateComponentClass {
         else {
             this._unactiveAllTab()
 
-            this._addTabWithName( this.sFileName )
+            this._addTabWithName()
 
-            this._showFile()
+            this._showFile( this.sFileFullPath )
 
-            const nElem = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
+            // TODO: bof...
+            const nElemTab = this.nComponent.querySelector(`.jsEventTabItem[data-name="${this.sFileName}"]`)
+            const nElemBtnClose = this.nComponent.querySelector(`.jsEventTabItemClose[data-name="${this.sFileName}"]`)
 
-            if( nElem !== null ) this._bindUnbindCloseEvent( nElem, 'add' )
+            if( nElemTab !== null && nElemBtnClose !== null ) {
+
+                this._bindUnbindOpenEvent( nElemTab, 'add' )
+                this._bindUnbindCloseEvent( nElemBtnClose, 'add' )
+            }
         }
     }
 
+    /**
+     * On close tab
+     * ============
+     * @param  {obj} e => event on click
+     */
     _closeTab( e ) {
 
         const self = this 
 
-        let bTabWasActive = false
-        let iLastItem = 0
+        let iTabToClose = null
+        let bTabWasActive = null
 
         const nElem = e.currentTarget
 
         const sFileName = nElem.dataset.name
 
-        this.oData.tab.forEach( ( item, i, object ) => {
+        // We will perhaps remove an item, thus saving a clone to work with
+        const aClone = _.cloneDeep( this.oData.tab )
+
+        aClone.forEach( ( item, i, object ) => {
 
             if( item.name == sFileName ) {
 
                 bTabWasActive = item.active
-                iLastItem = i
+                iTabToClose = i
 
                 debug(`DELETE tab ${item.name}`)
-
-                this._deleteTabByIndex( i )
-
-                this._bindUnbindCloseEvent( nElem, 'remove' )
 
                 return // Stop forEach
             }
         })
 
-        // If the tab was active, now activate the tab with the index of the closed
-        if( this.oData.tab.length > 0 && bTabWasActive ) {
+        // If the tab was active, now activate the tab with its index
+        if( aClone.length > 0 && bTabWasActive && iTabToClose !== null ) {
 
-            if( this.oData.tab.length <= iLastItem ) {
+            // If was the last open on right, close one before
+            if( aClone.length == iTabToClose + 1 ) {
 
-                this._activeOtherTab( this.oData.tab.length - 1 )
+                const indexToActive = iTabToClose - 1
+
+                if( aClone[ indexToActive ] !== undefined ) {
+
+                    this._activeOtherTab( indexToActive )
+
+                    this._showFile( aClone[ indexToActive ].fullPath )
+                }
             }
+            // If not, show newt
             else {
-                this._activeOtherTab( iLastItem )
+
+                if( aClone[ iTabToClose + 1 ] !== undefined ) {
+
+                    this._activeOtherTab( iTabToClose + 1 )
+
+                    this._showFile( aClone[ iTabToClose + 1 ].fullPath )
+                }
             }
         }
+        
+        // Close tab to close (only after all others things)
+        if( iTabToClose !== null ) {
 
-        if( !this.oData.tab.length ) {
-            
-            PubSub.publish( 'DELETE_FILE', sFileName )
+            if( this.oData.tab[ iTabToClose ] !== undefined ) {
+
+                this._deleteTabByIndex( iTabToClose )
+
+                this._bindUnbindOpenEvent( nElem.parentElement, 'remove' )
+                this._bindUnbindCloseEvent( nElem, 'remove' )
+            }
+
+            // If after delete, no more tab, empty editor 
+            if( this.oData.tab.length === 0 ) {
+                
+                PubSub.publish( 'EMPTY_EDITOR', sFileName )
+            }
         }
     }
 
@@ -124,11 +186,22 @@ class TabClass extends CreateComponentClass {
         this._activeTabByIndex( i )
     }
 
-    _showFile() {
+    _showFile( sFileFullPath ) {
 
-        PubSub.publish( 'DISPLAY_FILE', this.sFileName )
+        PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
 
-        debug( 'SHOW ' + this.sFileName )
+        debug( 'SHOW ' + sFileFullPath )
+    }
+
+    _bindUnbindOpenEvent( nItem, sType ) {
+
+        if( sType == 'add' ) {
+
+            nItem.addEventListener('click', (e) => this.openTab(e), false )
+        }
+        else {
+            nItem.removeEventListener('click', (e) => this.openTab(e), false )
+        }
     }
 
     _bindUnbindCloseEvent( nItem, sType ) {
@@ -161,11 +234,12 @@ class TabClass extends CreateComponentClass {
         this.oData.tab.splice(i, 1)
     }
 
-    _addTabWithName( sFileName ) {
+    _addTabWithName() {
 
         const oNewTab = {
-            name: sFileName,
-            active: true
+            name     : this.sFileName,
+            fullPath : this.sFileFullPath,
+            active   : true
         }
 
         this.oData.tab.push( oNewTab )

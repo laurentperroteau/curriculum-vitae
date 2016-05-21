@@ -1,4 +1,5 @@
-import debug from '../debug/debug'
+import debug from 'myComponents/debug/debug'
+import LogCtrl from 'myComponents/log/LogCtrl'
 
 class LinkedIn {
 
@@ -47,7 +48,7 @@ class LinkedIn {
 
         function rejectData( error ) {
 
-            debug('=> error api')
+            console.warn( error );
 
             return reject( error.message )
         }

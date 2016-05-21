@@ -27,6 +27,10 @@
 
 .editor {
 
+    * {
+        outline: none;
+    }
+
     &__inner {
         display: flex;
         /*flex-wrap: wrap;

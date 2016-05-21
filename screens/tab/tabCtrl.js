@@ -7,8 +7,9 @@ const tabCtrl = () => {
     const oTab = {
         "tab": [
             {
-                name: "app.js",
-                active: true
+                name    : "demo.js",
+                fullPath: "demo.js",
+                active  : true
             }
         ]
     }        
@@ -19,6 +20,7 @@ const tabCtrl = () => {
 
     Tab.initTemplate()
 
+    Tab.openEventOnLoad()
     Tab.closeEventOnLoad()
 
     PubSub.subscribe('OPEN_TAB', onTabPublish )

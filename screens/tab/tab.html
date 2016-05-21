@@ -1,19 +1,26 @@
 <ul class="editor__tab">
     <li 
         my-each-tab="tab"
-        class="
-            jsTabItem
-            jsEventTabItem
-            editor__tab__item"
+        class="editor__tab__item"
         my-class-jsIsActive="tab.active">
-        {{ tab.name }}
+        <button
+            type="button"
+            class="
+                jsEventTabItem
+                btn-reset
+                editor__tab__item__open"
+            my-data-name="tab.name"
+            my-data-full-path="tab.fullPath">
+            {{ tab.name }}
+        </button>
         <button
             type="button"
             class="
                 jsEventTabItemClose
                 btn-reset
                 editor__tab__item__close"
-            my-data-name="tab.name">
+            my-data-name="tab.name"
+            my-data-full-path="tab.fullPath">
             x
         </button>
     </li>
