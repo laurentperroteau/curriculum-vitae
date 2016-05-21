@@ -28,13 +28,18 @@ const tabCtrl = {
         this.Tab.openEventOnLoad()
         this.Tab.closeEventOnLoad()
 
+        console.log( PubSub );
+
         PubSub.subscribe('OPEN_TAB', this.onTabPublish )
+
+        function onTabPublish( msg, data ) {
+
+            console.log( 'couuco' );
+
+            if( data !== undefined ) this.Tab.openTab( data )
+        }
     },
 
-    onTabPublish: function( msg, data ) {
-
-        if( data !== undefined ) Tab.openTab( data )
-    },
 
     openTab: function( oTab ) {
         
