@@ -148,7 +148,7 @@ class TabClass extends CreateComponentClass {
                     this._showFile( aClone[ indexToActive ].fullPath )
                 }
             }
-            // If not, show newt
+            // If not, show next
             else {
 
                 if( aClone[ iTabToClose + 1 ] !== undefined ) {

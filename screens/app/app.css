@@ -6,17 +6,6 @@
     --sublime-menu      : #E6E6E6;
 }
 
-/*@custom-media --viewport-medium (width <= 40rem);
-@custom-media --viewport-large (max-width: 50em);
-
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;*/
-
-/*@media (--viewport-medium) {
-
-    body { 
-        font-size: var(--font-base)
-    }
-}*/
 
 /* Helpers */
 /* ------- */
@@ -51,20 +40,6 @@ li {
 /* Object */
 /* ------ */
 
-/*.center-child {
-    text-align: center;
-
-    > * {
-        display: inline-block;
-    }
-}*/
-
-/*.block-center {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}*/
-
 .list {
 
     &--inline li {
@@ -86,14 +61,6 @@ li {
     }
 }
 
-/* Test */
-.sublime {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 0;
-}
 
 /* Style */
 /* ----- */
@@ -103,12 +70,7 @@ body {
     color: white;
 }
 
-
-/* Style */
-/* ----- */
-
 .app {
-    // opacity: 0.8;
     position: fixed;
     left: 0;
     top: 0;

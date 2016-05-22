@@ -5,12 +5,8 @@
 /* TODO: solve scope var, in json ? bof */
 :root {
     --sublime-background: #141414;
-    --sublime-tab       : #565656;
-    --sublime-tab-darken: #666;
 
-    --editor-tab-height     : 33px;
-    --editor-tab-padding-top : 5px;
-
+    --editor-tab-height  : 33px;
     --editor-height-line : 18px;
 }
 

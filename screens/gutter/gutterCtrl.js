@@ -1,6 +1,6 @@
 import GutterClass from 'myScreens/gutter/GutterClass'
 
-module.exports = () => {
+const gutterCtrl = () => {
 
     // Define how many line we want
     const iQtyLine = 1000
@@ -18,10 +18,10 @@ module.exports = () => {
         }
     }        
 
-
     const Gutter = new GutterClass('gutter')
 
     Gutter.setData( oLine )
 
     Gutter.initTemplate()
 }
+export default gutterCtrl

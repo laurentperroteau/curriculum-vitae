@@ -12,8 +12,6 @@ const editorCtrl = () => {
 
     const Editor = new EditorClass('editor')
     
-    // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-
     Editor.initTemplate()
 
     Editor.setMarkdownCtn( 'jsMarkdownContent' )

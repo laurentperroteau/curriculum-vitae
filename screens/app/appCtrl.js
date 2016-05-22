@@ -1,26 +1,15 @@
-const rivets = require('rivets')
-
-rivets.configure({
-    prefix: 'my',
-    templateDelimiters: ['{{', '}}']
-})
+import AppClass from 'myScreens/app/AppClass'
 
 const appCtrl = () => {
 
-    const nElem = document.getElementById('jsApp')
-
-    if( nElem === null ) return false
-
     const oApp = {
-        "fileName": "/home/laurentperroteau/www/cv/web2/css/app.css"
+        "fileName": "/home/laurentperroteau/www/cv/web/"
     }        
 
-    const template = require('./app.html')
+    const App = new AppClass('app')
 
-    require('./app.css')
+    App.setData( oApp )
 
-    nElem.innerHTML = template
-
-    rivets.bind( nElem, oApp )
+    App.initTemplate()
 }
 export default appCtrl

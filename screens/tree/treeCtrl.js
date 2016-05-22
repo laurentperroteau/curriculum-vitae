@@ -10,6 +10,7 @@ const treeCtrl = () => {
         let oResult = JSON.parse( data )
 
         // Get first children or sort alphabetically by folder and name
+        // TODO : fix order
         oResult = _.sortBy( oResult.children, function(o) {
             return [ !o.isFolder, o.name ].join("_")
         })

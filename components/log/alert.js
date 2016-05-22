@@ -17,4 +17,4 @@ const displayAlert = (sLabel,sMsg) => {
     }
 };
 
-module.exports = displayAlert
+export default displayAlert

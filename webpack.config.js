@@ -1,11 +1,11 @@
-// used to resolve absolute path to project's root directory
+// Used to resolve absolute path to project's root directory
 const path = require('path')
 
 // PostCSS plugin
 const autoprefixer = require('autoprefixer')
-const precss      = require('precss')
-const cssnext     = require('cssnext')
-const normalize     = require('postcss-normalize')
+const precss       = require('precss')
+const cssnext      = require('cssnext')
+const normalize    = require('postcss-normalize')
 
 module.exports = {
     context: __dirname,

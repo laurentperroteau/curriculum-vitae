@@ -11,6 +11,6 @@ const LogCtrl = ( sLabel, sMsg ) => {
     // TODO : add log to file with times
 
     alert( sLabel, sMsg )
-};
+}
 
-module.exports = LogCtrl;
+export default LogCtrl;
