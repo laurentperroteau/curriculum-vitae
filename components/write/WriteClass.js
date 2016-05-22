@@ -11,7 +11,6 @@ class WriteClass {
         this.bIsWritting = false
     }
 
-
     init( sText ) {
 
         return new Promise( (resolve, reject) => {
@@ -56,9 +55,6 @@ class WriteClass {
         const endOfLine     = /[^\/]\n$/
         const openMustache  = /[\{!]\s$/
 
-        // TODO : mettre des repères, caché en CSS ??? si possible 
-        // => quand détection, afficher info voulue, changer de tab etc...
-        
         // Schedule another write.
         if ( !this.bPaused && index < sNewText.length ) {
 
@@ -68,41 +64,20 @@ class WriteClass {
             const thisSlice = sNewText.slice(index - 2, index + 1);
             // let thisWords = sNewText.slice(index - 10, index + 20);
 
-            if (comma.test(thisSlice)) {
+            if( comma.test( thisSlice ) ) thisInterval = interval * 30
 
-                // console.log( 'si virgule' );
-                // thisInterval = interval * 30;  
-            } 
+            if( endOfBlock.test( thisSlice ) ) thisInterval = this.iSpeed * 50
 
-            if (endOfBlock.test(thisSlice)) {
-
-                // console.log( 'si deux saut de ligne' );
-                thisInterval = this.iSpeed * 50;  
-            } 
-
-            // TODO: ne pas ralentir non plus quand html
             if ( endOfLine.test(thisSlice) && !openMustache.test(thisSlice) ) {
 
-                // console.log( 'si fin de ligne' );
                 thisInterval = this.iSpeed * 50;  
 
                 // Ensure we stay scrolled to the bottom.
                 window.scrollTo(0, document.body.scrollHeight);
             } 
 
-            /*if (endOfSentence.test(thisSlice)) {
-
-                // console.log( 'si point, fin d une phrase' );
-                thisInterval = this.iSpeed * 70;
-            }*/
-
-            // console.log( thisWords );
-            /*if ( thisWords.indexOf('writeTo') !== -1 ) {
-
-                // Attention, la fonction est lancé 24 fois
-                console.log( '=> Lancer fonction writeTo' );
-            }*/
-
+            // if( endOfSentence.test( thisSlice ) ) thisInterval = this.iSpeed * 70
+    
             // Wait specific delay
             setTimeout(function() {
 

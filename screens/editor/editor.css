@@ -28,7 +28,7 @@
     }
 
     &__inner {
-        display: flex;
+        display: flex;  
         /*flex-wrap: wrap;
         justify-content: space-between;
         align-content: stretch;*/
@@ -36,6 +36,7 @@
         padding: 5px;
         
         &__content {
+            /* TODO: fix height when too many gutter lines */
             overflow: auto;
             flex-grow: 1;
 

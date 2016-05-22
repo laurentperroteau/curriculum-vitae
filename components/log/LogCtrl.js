@@ -13,4 +13,4 @@ const LogCtrl = ( sLabel, sMsg ) => {
     alert( sLabel, sMsg )
 }
 
-export default LogCtrl;
+export default LogCtrl
