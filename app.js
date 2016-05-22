@@ -9,8 +9,6 @@ import supportPromise from './components/support/promise'
 import log from './components/log/LogCtrl'
 
 // Controllers
-import LinkedInCtrl from './components/linkedIn/LinkedInCtrl'
-
 import appCtrl from './screens/app/appCtrl'
 import treeCtrl from './screens/tree/treeCtrl'
 import tabCtrl from './screens/tab/tabCtrl'
