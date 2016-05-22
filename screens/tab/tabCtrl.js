@@ -10,16 +10,13 @@ const tabCtrl = {
             "tab": [
                 {
                     name    : "demo.js",
-                    fullPath: "demo.js",
+                    fullPath: "./content/demo.js",
                     active  : true
                 }
             ]
         }        
 
         this.Tab = new TabClass('tab')
-
-        console.log( this.Tab );
-        console.log( typeof this.Tab );
 
         this.Tab.setData( oTab )
 
@@ -28,19 +25,22 @@ const tabCtrl = {
         this.Tab.openEventOnLoad()
         this.Tab.closeEventOnLoad()
 
-        console.log( PubSub );
 
-        PubSub.subscribe('OPEN_TAB', this.onTabPublish )
+        const onTabPublish = ( msg, data ) => {
 
-        function onTabPublish( msg, data ) {
-
-            console.log( 'couuco' );
-
+            // Arrow fonction have not this, then this is tabCtrl
             if( data !== undefined ) this.Tab.openTab( data )
         }
+
+        PubSub.subscribe('OPEN_TAB', onTabPublish )
     },
 
-
+    /**
+     * Open tab
+     * ========
+     * @param  {obj} oTab
+     */
+    // TODO : corriger, la function existe déjà dans la classe, je me répète
     openTab: function( oTab ) {
         
         this.Tab.openTab( oTab )

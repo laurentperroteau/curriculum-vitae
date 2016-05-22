@@ -22,6 +22,7 @@ def path_to_dict( path, my_string = None ):
         'Article.md', 
         'npm-debug.log', 
         'README.md', 
+        'NOTES.md', 
         'saveJsonTree.py', 
         'copyTree.sh', 
         '.eslintrc'
