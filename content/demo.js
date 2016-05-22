@@ -1,23 +1,24 @@
-/**
- * Get raw text (async call)
- * =========================
- * @param  {string} sPathFile 
- */
-_getRawText( sPathFile ) {
+// ... extrait de screens/editor/editorCtrl.js ...
 
-    debug( `GET ./${sPathFile}` );
+import $http from 'myComponents/async/http'
+import EditorClass from 'myScreens/editor/EditorClass'
+import tabCtrl from 'myScreens/tab/tabCtrl'
 
-    const sLanguage = this._getLanguage( sPathFile )
+const editorCtrl = () => {
 
-    $http(`./${sPathFile}`)
+    require( '../../node_modules/github-markdown-css/github-markdown.css' )
+
+    const Editor = new EditorClass('editor')
+
+    Editor.initTemplate()
+
+    Editor.initCodeCtn( 'jsCodeContent' )
+
+    $http('./content/demo.js')
         .get()
         .then( (data) => {
-                
-            this._displayOutput( data, sLanguage )
-        })
-        .catch( (error) => {
 
-            this._displayOutput( '404 - Page not found', 'html' )
-            console.warn( error )
-        })
-}
+            Editor.initWrite( data ).then( () => {
+
+                tabCtrl.openTab( { name: 'RESUME.md', fullPath: './content/RESUME.md' } )
+                ...
