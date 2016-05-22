@@ -1,14 +1,28 @@
+// Used to resolve absolute path to project's root directory
+const path = require('path')
+
+// PostCSS plugin
+const autoprefixer = require('autoprefixer')
+const precss       = require('precss')
+const cssnext      = require('cssnext')
+const normalize    = require('postcss-normalize')
+
 module.exports = {
-    entry: ['./app.js'],
-    output: {
-        filename: './app/appBundle.js'
+    context: __dirname,
+    entry: {
+        app: './app.js',
+        test: 'mocha!./test/test.js'
     },
+    output: {
+        filename: './[name]/[name]Bundle.js'
+    },
+
     module: {
-    preLoaders: [
+        preLoaders: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'jshint-loader'
+                test: /\.js$/, 
+                loader: "eslint-loader", 
+                exclude: /node_modules|libs/
             }
         ],
         loaders: [
@@ -20,36 +34,42 @@ module.exports = {
                     cacheDirectory: true, 
                     presets: ['es2015']
                 }
+            },
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             }
         ]
     },
     resolve: {
         extensions: ['', '.js', '.json'],
         alias: {
-            prims: './libs/prims/prism.js'
+            // Alias of dir
+            // @use => import getAsync from 'myComponents/...'
+            // @use => require('myComponents/...')
+            myComponents: path.resolve( __dirname, 'components'),
+            myScreens: path.resolve( __dirname, 'screens'), 
+            myFiles: path.resolve( __dirname, 'tree'), 
+            // Global lib
+            prims: './libs/prims/prism.js',
+            markdown: './node_modules/markdown/lib/markdown.js'
         }
     },
-    // more options in the optional jshint object
-    jshint: {
-        // any jshint option http://www.jshint.com/docs/options/
-        // i. e.
-        browser:   true,
-        esversion: 6,
-        asi:       true,
+    eslint: {
+        configFile: './.eslintrc'
+    },
+    postcss: function () {
 
-        // jshint errors are displayed by default as warnings
-        // set emitErrors to true to display them as errors
-        emitErrors: false,
-
-        // jshint to not interrupt the compilation
-        // if you want any file with jshint errors to fail
-        // set failOnHint to true
-        failOnHint: false,
-
-        // custom reporter function
-        reporter: function(errors) {
-
-            // console.log( errors );
-        }
+        // List of postcss plugin (require above)
+        return [
+            precss, 
+            cssnext,
+            autoprefixer,
+            normalize
+        ]
     }
 }

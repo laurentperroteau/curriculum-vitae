@@ -1,0 +1,74 @@
+<ul>
+    <li 
+        class="
+            tree__item
+            tree__item--root">
+        <span 
+            class="
+                btn-tree
+                btn-tree--folder">
+            {{ title }}
+        </span>
+        <ul>                
+            <li 
+                my-each-level1="tree"
+                class="
+                    tree__item
+                    tree__item--level1">
+                <button
+                    type="button"
+                    class="
+                        jsEventMenuItem
+                        btn-reset
+                        btn-tree"
+                    my-class-btn-tree--folder="level1.isFolder"
+                    my-class-btn-tree--arrow="level1.isFolder"
+                    my-class-jsisfolder="level1.isFolder"
+                    my-data-name="level1.name"
+                    my-data-full-path="level1.fullPath">    
+                    {{ level1.name }}
+                </button>
+                <ul>                
+                    <li 
+                        my-each-level2="level1.children"
+                        class="
+                            tree__item
+                            tree__item--level2">
+                        <button
+                            type="button"
+                            class="
+                                jsEventMenuItem
+                                btn-reset
+                                btn-tree"
+                            my-class-btn-tree--folder="level2.isFolder"
+                            my-class-btn-tree--arrow="level2.isFolder"
+                            my-class-jsisfolder="level2.isFolder"
+                            my-data-name="level2.name"
+                            my-data-full-path="level2.fullPath">    
+                            {{ level2.name }}
+                        </button>
+                        <ul>                
+                            <li 
+                                my-each-level3="level2.children"
+                                class="
+                                    tree__item
+                                    tree__item--level3">
+                                <button
+                                    type="button"
+                                    class="
+                                        jsEventMenuItem
+                                        btn-reset
+                                        btn-tree"
+                                    my-class-btn-tree--folder="level3.isFolder"
+                                    my-data-name="level3.name"
+                                    my-data-full-path="level3.fullPath">    
+                                    {{ level3.name }}
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul> 

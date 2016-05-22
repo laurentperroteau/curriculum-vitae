@@ -1,8 +1,11 @@
 app/
+tree/
+!screens/tree/
 exemple/
 *.sublime-project
 *.sublime-workspace
 node_modules
-README.md
+NOTES.md
 Article.md
 npm-debug.log
+test/testBundle.js

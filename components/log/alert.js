@@ -4,7 +4,7 @@
  * @param  {string} msg   => message to show
  * @return display alert
  */
-let displayAlert = ( sLabel, sMsg ) => {
+const displayAlert = (sLabel,sMsg) => {
 
     const nContent = document.getElementById('alert')
 
@@ -17,4 +17,4 @@ let displayAlert = ( sLabel, sMsg ) => {
     }
 };
 
-module.exports = displayAlert;
+export default displayAlert

@@ -2,41 +2,17 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Laurent Perroteau | Développeur Front-End</title>
         <meta name="description" content="Développeur Web depuis 5 ans, spécialisé Front-End depuis 4 ans, référent technique Front-End depuis 2 ans.">
         <meta name="robots" content="noindex,follow" />
 
-        <!-- TODO fait app node.js pour rendu serveur de ces infos -->
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
         <link href="libs/prims/prism.css" rel="stylesheet" />
-
-        <script type="text/javascript" src="https://platform.linkedin.com/in.js">
-            api_key: 77obzt52yk6tlk
-            onLoad: onLinkedInLoad
-            authorize: true
-        </script>
     </head>
-    <body>
-        <h3>Mon CV</h3>
-        <div id="jsContent"></div>
+    <body spellcheck="false">
+        <div id="jsApp"></div>
 
-        <pre style="cursor: text;"><!--
-            --><code id="jsCodeContent" class="language-js"></code>
-        </pre>
-        
-        <!-- Premier écran: deux boutons, version programmeur ou pas (version rapide avec popin info) -->
-        <!-- Voir proposer à l'utilisateur d'entrer un utilisateur -->
-        <!-- afficher les "logs" au fur et à mesure, erreur aussi -->
-        <!-- voir faire une version avec extra commentaire, qui serve de tuto -->
-        <!-- Voir possibilité de cliqué sur la classe pour voir le fichier -->
-        
-        <div id="alert" style="color: red"></div>
-        <script>
-            function onLinkedInLoad() {
-
-                window.appLinkedIn = IN;
-            }
-        </script>
         <script src="app/appBundle.js"></script>
-        <script src="libs/prims/prism.js"></script>
     </body>
 </html>
