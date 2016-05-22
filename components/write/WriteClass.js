@@ -64,7 +64,7 @@ class WriteClass {
             const thisSlice = sNewText.slice(index - 2, index + 1);
             // let thisWords = sNewText.slice(index - 10, index + 20);
 
-            if( comma.test( thisSlice ) ) thisInterval = interval * 30
+            // if( comma.test( thisSlice ) ) thisInterval = interval * 30
 
             if( endOfBlock.test( thisSlice ) ) thisInterval = this.iSpeed * 50
 
