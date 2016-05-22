@@ -1,7 +1,7 @@
 {
-  "name": "webpack",
+  "name": "Curriculum Vitae",
   "version": "0.0.0",
-  "description": "",
+  "description": "This is a personal presentation of my curriculum vitae in a Sublime Text in browser : http://laurentperroteau.com",
   "main": "app.js",
   "dependencies": {
     "babel-core": "^6.5.2",
@@ -20,7 +20,6 @@
     "css-loader": "^0.23.1",
     "cssnext": "^1.8.4",
     "cssnext-loader": "^1.0.1",
-    "eslint-config-airbnb": "^6.2.0",
     "html-loader": "^0.4.3",
     "lodash": "^4.11.2",
     "markdown": "^0.5.0",
