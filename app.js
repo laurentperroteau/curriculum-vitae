@@ -46,40 +46,5 @@ else {
         tabCtrl.init()
         editorCtrl()
         gutterCtrl()
-
-        // return false;
-
-        // const bIsTecnic = confirm('Comprenez-vous quelques à la programmation web ?');
-        /*const bIsTecnic = false;
-
-        const nOutput = document.getElementById('jsCodeContent')
-
-        const exemple = require('raw!./content/exemple.txt')
-        const exemple2 = require('raw!./content/exemple2.txt')
-
-        const write = new WriteClass( nOutput, bIsTecnic )
-
-        const writingExemple = write.initWrite( exemple )
-
-        writingExemple.then( () => {
-
-            const writingExemple2 = write.initWrite( exemple2 )
-
-            writingExemple2.then( () => {
-
-                LinkedInCtrl()
-            })
-        })*/
-
-        /*
-            TODO: version simplifier
-         write.initWrite( exemple ).then( () => {
-
-            write.initWrite( exemple2 ).then( () => {
-
-                console.log( 'ok' );
-            })
-        })*/
-
     })();
 }
