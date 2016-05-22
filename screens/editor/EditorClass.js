@@ -129,9 +129,6 @@ class EditorClass extends CreateComponentClass {
         this.nMarkdownCtn.classList.remove('jsIsHidden')
         this.nCodeCtn.parentNode.classList.add('jsIsHidden')
 
-        // Remove spellcheck
-        this._disableSpellCheck( this.nMarkdownCtn )
-
         debug(`SHOW markdown fille, highlight then`)
     }
 

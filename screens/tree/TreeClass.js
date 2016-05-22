@@ -44,9 +44,7 @@ class TreeClass extends CreateComponentClass {
 
     _triggerFolder( nElem ) {
 
-        // if( nElem.classList.contains('jsIsOpen') ) {
-            nElem.classList.toggle('jsIsOpen')
-        // }
+        nElem.classList.toggle('jsIsOpen')
 
         debug( `Open Folder ${nElem.dataset.name}` )
     }
