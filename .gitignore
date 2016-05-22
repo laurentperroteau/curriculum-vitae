@@ -8,3 +8,4 @@ node_modules
 NOTES.md
 Article.md
 npm-debug.log
+test/testBundle.js

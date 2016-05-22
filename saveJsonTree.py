@@ -25,7 +25,8 @@ def path_to_dict( path, my_string = None ):
         'NOTES.md', 
         'saveJsonTree.py', 
         'copyTree.sh', 
-        '.eslintrc'
+        '.eslintrc',
+        'testBundle.js'
     ) 
 
     if os.path.isdir(path):
