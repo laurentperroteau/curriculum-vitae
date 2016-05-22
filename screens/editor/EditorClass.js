@@ -12,9 +12,10 @@ class EditorClass extends CreateComponentClass {
     constructor( sName ) {
         super( sName )
 
-        this.sName = sName
-        this.bIsTecnic = false
-        this.nOutputCtn = null
+        this.sName        = sName
+        this.bIsTecnic    = false
+        this.nCodeCtn     = null
+        this.nMarkdownCtn = null
     }
 
     /**
@@ -22,11 +23,16 @@ class EditorClass extends CreateComponentClass {
      * =====================================
      * @param  {string} sId => elem id
      */
-    initOutpupCtn( sId ) {
+    initCodeCtn( sId ) {
 
-        this.nOutputCtn = document.getElementById( sId )
+        this.nCodeCtn = document.getElementById( sId )
 
-        this.WriteClass = new WriteClass( this.nOutputCtn, this.bIsTecnic )
+        this.WriteClass = new WriteClass( this.nCodeCtn, this.bIsTecnic )
+    }
+
+    setMarkdownCtn( sId ) {
+        
+        this.nMarkdownCtn = document.getElementById( sId )
     }
 
     /**
@@ -57,7 +63,9 @@ class EditorClass extends CreateComponentClass {
         this.WriteClass.stop()
 
         setTimeout(function() {
-            self.nOutputCtn.innerHTML = ''
+            self.nCodeCtn.innerHTML = ''
+            self.nMarkdownCtn.innerHTML = ''
+            self.nMarkdownCtn.classList.add('jsIsHidden')
         }, 100);
     }
 
@@ -68,11 +76,11 @@ class EditorClass extends CreateComponentClass {
      */
     _getRawText( sPathFile ) {
 
-        debug( `GET ./tree/${sPathFile}.txt` );
+        debug( `GET ./${sPathFile}` );
 
         const sLanguage = this._getLanguage( sPathFile )
 
-        $http(`./tree/${sPathFile}.txt`)
+        $http(`./${sPathFile}`)
             .get()
             .then( (data) => {
                     
@@ -80,6 +88,7 @@ class EditorClass extends CreateComponentClass {
             })
             .catch( (error) => {
 
+                this._displayOutput( '404 - Page not found', 'html' )
                 console.warn( error )
             })
     }
@@ -102,19 +111,50 @@ class EditorClass extends CreateComponentClass {
             sOutput = this._htmlEntities( sOutput )
         }
 
-        // Print code
-        this.nOutputCtn.innerHTML = sOutput
+        // If mardwon, convert to HTML
+        if( sLanguage == 'markdown' ) {
+            sOutput = Markdown.toHTML( sOutput )
+            this._displayMarkdown( sOutput )
+        }
+        else {
+            this._displayCode( sOutput, sLanguage )
+        }
+    }
 
-        // Switch class for Prism
-        this.nOutputCtn.className = ''
-        this.nOutputCtn.classList.add( sLanguage )
+    _displayMarkdown( sOutput ) {
+
+        // Print code
+        this.nMarkdownCtn.innerHTML = sOutput
+
+        this.nMarkdownCtn.classList.remove('jsIsHidden')
+        this.nCodeCtn.parentNode.classList.add('jsIsHidden')
 
         // Remove spellcheck
-        this._disableSpellCheck
+        this._disableSpellCheck( this.nMarkdownCtn )
 
-        Prism.highlightAll()
+        debug(`SHOW markdown fille, highlight then`)
+    }
 
-        debug(`SHOW new fille, highlight then`)
+    _displayCode( sOutput, sLanguage ) {
+
+        // Print code
+        this.nCodeCtn.innerHTML = sOutput
+
+        this.nCodeCtn.parentNode.classList.remove('jsIsHidden')
+        this.nMarkdownCtn.classList.add('jsIsHidden')
+
+        // Switch class for Prism
+        this.nCodeCtn.className = ''
+        this.nCodeCtn.classList.add( sLanguage )
+
+        // Remove spellcheck
+        this._disableSpellCheck( this.nCodeCtn )
+
+        if( sLanguage != 'markdown-body' ) {
+            Prism.highlightAll()
+        }
+
+        debug(`SHOW code fille, highlight then`)
     }
 
     /**
@@ -125,7 +165,10 @@ class EditorClass extends CreateComponentClass {
      */
     _getLanguage( sPathFile ) {
 
-        if( sPathFile.indexOf('.html') !== - 1 ) {
+        if( sPathFile.indexOf('.md') !== - 1 ) {
+            return 'markdown';
+        }
+        else if( sPathFile.indexOf('.html') !== - 1 ) {
             return 'language-html';
         }
         else if( sPathFile.indexOf('.css') !== - 1 ) {
@@ -148,11 +191,11 @@ class EditorClass extends CreateComponentClass {
     }
 
 
-    _disableSpellCheck() {
+    _disableSpellCheck( nElem ) {
 
-        this.nOutputCtn.spellcheck = false;
-        this.nOutputCtn.focus();
-        this.nOutputCtn.blur();
+        nElem.spellcheck = false;
+        nElem.focus();
+        nElem.blur();
     }
 }
 export default EditorClass

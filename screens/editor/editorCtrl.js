@@ -2,9 +2,13 @@ import $http from 'myComponents/async/http'
 
 import EditorClass from 'myScreens/editor/EditorClass'
 
+import tabCtrl from 'myScreens/tab/tabCtrl'
+
 const PubSub = require('pubsub-js')
 
 const editorCtrl = () => {
+
+    require( '../../node_modules/github-markdown-css/github-markdown.css' )
 
     const Editor = new EditorClass('editor')
     
@@ -12,18 +16,16 @@ const editorCtrl = () => {
 
     Editor.initTemplate()
 
-    Editor.initOutpupCtn( 'jsCodeContent' )
+    Editor.setMarkdownCtn( 'jsMarkdownContent' )
+    Editor.initCodeCtn( 'jsCodeContent' )
 
-    $http(`./tree/demo.js.txt`)
+    $http('./content/demo.js')
         .get()
         .then( (data) => {
 
             Editor.initWrite( data ).then( () => {
 
-                // Editor.initWrite( exemple2 ).then( () => {
-
-                    // LinkedInCtrl()
-                // })
+                tabCtrl.openTab( { name: 'RESUME.md', fullPath: './content/RESUME.md' } )
             })
                 
         })

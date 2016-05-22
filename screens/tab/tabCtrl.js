@@ -2,32 +2,48 @@ import TabClass from 'myScreens/tab/TabClass'
 
 const PubSub = require('pubsub-js')
 
-const tabCtrl = () => {
+const tabCtrl = {
 
-    const oTab = {
-        "tab": [
-            {
-                name    : "demo.js",
-                fullPath: "demo.js",
-                active  : true
-            }
-        ]
-    }        
+    init: function() {
 
-    const Tab = new TabClass('tab')
+        const oTab = {
+            "tab": [
+                {
+                    name    : "demo.js",
+                    fullPath: "./content/demo.js",
+                    active  : true
+                }
+            ]
+        }        
 
-    Tab.setData( oTab )
+        this.Tab = new TabClass('tab')
 
-    Tab.initTemplate()
+        this.Tab.setData( oTab )
 
-    Tab.openEventOnLoad()
-    Tab.closeEventOnLoad()
+        this.Tab.initTemplate()
 
-    PubSub.subscribe('OPEN_TAB', onTabPublish )
+        this.Tab.openEventOnLoad()
+        this.Tab.closeEventOnLoad()
 
-    function onTabPublish( msg, data ) {
 
-        if( data !== undefined ) Tab.openTab( data )
+        const onTabPublish = ( msg, data ) => {
+
+            // Arrow fonction have not this, then this is tabCtrl
+            if( data !== undefined ) this.Tab.openTab( data )
+        }
+
+        PubSub.subscribe('OPEN_TAB', onTabPublish )
+    },
+
+    /**
+     * Open tab
+     * ========
+     * @param  {obj} oTab
+     */
+    // TODO : corriger, la function existe déjà dans la classe, je me répète
+    openTab: function( oTab ) {
+        
+        this.Tab.openTab( oTab )
     }
 }
 export default tabCtrl

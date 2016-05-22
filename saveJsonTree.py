@@ -13,8 +13,7 @@ def path_to_dict( path, my_string = None ):
         '.git', 
         'node_modules', 
         'exemple', 
-        'libs', 
-        'content', 
+        'libs',  
         'tree', 
         'cv2.sublime-workspace', 
         'cv2.sublime-project', 
@@ -23,6 +22,7 @@ def path_to_dict( path, my_string = None ):
         'Article.md', 
         'npm-debug.log', 
         'README.md', 
+        'NOTES.md', 
         'saveJsonTree.py', 
         'copyTree.sh', 
         '.eslintrc'

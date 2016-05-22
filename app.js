@@ -1,6 +1,7 @@
 
 // Globals
 require('expose?Prims!prims');
+require('expose?Markdown!markdown');
 
 // Functions
 import debug from './components/debug/debug'
@@ -44,7 +45,7 @@ else {
 
         appCtrl()
         treeCtrl()
-        tabCtrl()
+        tabCtrl.init()
         editorCtrl()
         gutterCtrl()
 
