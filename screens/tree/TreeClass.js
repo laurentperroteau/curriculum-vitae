@@ -1,11 +1,11 @@
 import debug from 'myComponents/debug/debug'
 import $http from 'myComponents/async/http'
 
-import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
 
 const PubSub = require('pubsub-js')
     
-class TreeClass extends CreateComponentClass {
+class TreeClass extends CreateScreenClass {
 
     constructor( sName, sUrl ) {
 

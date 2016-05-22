@@ -3,9 +3,9 @@ const _ = require('lodash') // TODO : require seulement besoin
 const PubSub = require('pubsub-js')
 
 import debug from 'myComponents/debug/debug'
-import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
-class TabClass extends CreateComponentClass {
+class TabClass extends CreateScreenClass {
 
     constructor( sName ) {
 

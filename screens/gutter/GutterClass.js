@@ -1,6 +1,6 @@
-import CreateComponentClass from 'myComponents/createComponent/CreateComponentClass'
+import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
-class GutterClass extends CreateComponentClass {
+class GutterClass extends CreateScreenClass {
 
     constructor( sName ) {
 
