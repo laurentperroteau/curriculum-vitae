@@ -31,7 +31,7 @@ class WriteClass {
 
         const self = this
 
-        debug('Start writting text ')
+        log('Start writting text ')
 
         this._runWrite( resolve, sText, 0, 1)
     }
@@ -87,7 +87,7 @@ class WriteClass {
         else {
             this.bIsWritting = false
             
-            debug('Writting end')
+            log('Writting end')
 
             return resolve();
         }

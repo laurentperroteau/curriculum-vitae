@@ -18,7 +18,7 @@ import gutterCtrl from './screens/gutter/gutterCtrl'
 import test from './exemple/export'
 
 //Start app
-debug('------------------------------------------------')
+log('------------------------------------------------')
 
 if( !supportPromise() ) {
 
@@ -31,7 +31,7 @@ else {
 
     (function() {
 
-        debug('Document ready')
+        log('Document ready')
 
         // Extending Prims : add class .keyword-nameOfKeyword
         Prism.hooks.add('wrap', function(env) {

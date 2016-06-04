@@ -1,4 +1,4 @@
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import $http from 'myComponents/async/http'
 
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
@@ -46,7 +46,7 @@ class TreeClass extends CreateScreenClass {
 
         nElem.classList.toggle('jsIsOpen')
 
-        debug( `Open Folder ${nElem.dataset.name}` )
+        log( `Open Folder ${nElem.dataset.name}` )
     }
 
     _triggerFile( nElem ) {

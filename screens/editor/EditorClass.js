@@ -2,7 +2,7 @@ import $http from 'myComponents/async/http'
 
 const PubSub = require('pubsub-js')
 
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
 import WriteClass from 'myComponents/write/WriteClass'
 
@@ -76,7 +76,7 @@ class EditorClass extends CreateScreenClass {
      */
     _getRawText( sPathFile ) {
 
-        debug( `GET ./${sPathFile}` );
+        log( `GET ./${sPathFile}` );
 
         const sLanguage = this._getLanguage( sPathFile )
 
@@ -129,7 +129,7 @@ class EditorClass extends CreateScreenClass {
         this.nMarkdownCtn.classList.remove('jsIsHidden')
         this.nCodeCtn.parentNode.classList.add('jsIsHidden')
 
-        debug(`SHOW markdown fille, highlight then`)
+        log(`SHOW markdown fille, highlight then`)
     }
 
     _displayCode( sOutput, sLanguage ) {
@@ -151,7 +151,7 @@ class EditorClass extends CreateScreenClass {
             Prism.highlightAll()
         }
 
-        debug(`SHOW code fille, highlight then`)
+        log(`SHOW code fille, highlight then`)
     }
 
     /**

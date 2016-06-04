@@ -2,7 +2,7 @@ const _ = require('lodash') // TODO : require seulement besoin
 
 const PubSub = require('pubsub-js')
 
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
 class TabClass extends CreateScreenClass {
@@ -70,13 +70,13 @@ class TabClass extends CreateScreenClass {
                     item.active = true
                     self._showFile( this.sFileFullPath )
 
-                    debug(`ACTIVE tab ${item.name}`)
+                    log(`ACTIVE tab ${item.name}`)
                 }
                 else if( item.active && item.name != self.sFileName ) {
 
                     item.active = false
                     
-                    debug(`ACTIVE tab ${item.name}`)
+                    log(`ACTIVE tab ${item.name}`)
                 }
 
             })
@@ -127,7 +127,7 @@ class TabClass extends CreateScreenClass {
                 bTabWasActive = item.active
                 iTabToClose = i
 
-                debug(`DELETE tab ${item.name}`)
+                log(`DELETE tab ${item.name}`)
 
                 return // Stop forEach
             }
@@ -190,7 +190,7 @@ class TabClass extends CreateScreenClass {
 
         PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
 
-        debug( 'SHOW ' + sFileFullPath )
+        log( 'SHOW ' + sFileFullPath )
     }
 
     _bindUnbindOpenEvent( nItem, sType ) {

@@ -1,7 +1,7 @@
 // const setting = require("json!../../shared/setting.json")
 // console.log( setting );
 
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import log from '../log/LogCtrl'
 
 import LinkedInClass from './LinkedInClass'
@@ -10,7 +10,7 @@ let iCountTest = 0;
 
 const linkedInCtrl = () => {
 
-    debug(`Test call API LinkedIn n° : ${iCountTest}`)
+    log(`Test call API LinkedIn n° : ${iCountTest}`)
 
     if( window.appLinkedIn === undefined ) {
 

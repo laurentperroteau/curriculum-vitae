@@ -1,4 +1,4 @@
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 
 const _ = require('lodash') // TODO : require seulement besoin
 
@@ -48,7 +48,7 @@ class CreateComponentClass {
                 // Add data and data binding
                 rivets.bind( this.nComponent, this.oData )
 
-                debug( `Init template: ${this.sName}` )
+                log( `Init template: ${this.sName}` )
             }
             else {
                 console.warn( `The element ${this.sName} is null or empty` );
