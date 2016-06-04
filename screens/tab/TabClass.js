@@ -191,7 +191,7 @@ class TabClass extends CreateScreenClass {
 
         PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
 
-        log( 'SHOW ' + sFileFullPath )
+        log( 'PUBLISH display file event of ' + sFileFullPath )
     }
 
     _bindUnbindOpenEvent( nItem, sType ) {
@@ -261,7 +261,6 @@ class TabClass extends CreateScreenClass {
             x.active = false
             return x
         })
-        this._updateStore()
     }
 
     _activeTabByIndex( i ) {

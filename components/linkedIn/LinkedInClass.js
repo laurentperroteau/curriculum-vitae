@@ -20,7 +20,7 @@ class LinkedIn {
 
     _callAPI( resolve, reject ) {
 
-        log('=> call api ')
+        log('Call LinkedIn api ')
 
         this.oApp.API.Profile( this.sUrlProfil )
             .fields(
@@ -41,7 +41,7 @@ class LinkedIn {
 
         function resolveData( profile ) {
 
-            log('=> result api '+ profile._total )
+            log('Result LinkedIn api :'+ profile._total )
 
             return resolve( profile.values[0] )
         }

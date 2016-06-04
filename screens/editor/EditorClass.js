@@ -76,7 +76,7 @@ class EditorClass extends CreateScreenClass {
      */
     _getRawText( sPathFile ) {
 
-        log( `GET ./${sPathFile}` );
+        log( `GET content of ./${sPathFile}` );
 
         const sLanguage = this._getLanguage( sPathFile )
 
@@ -89,7 +89,7 @@ class EditorClass extends CreateScreenClass {
             .catch( (error) => {
 
                 this._displayOutput( '404 - Page not found', 'html' )
-                console.warn( error )
+                log(`Can't get ./${sPathFile}`, true)
             })
     }
 
@@ -129,7 +129,7 @@ class EditorClass extends CreateScreenClass {
         this.nMarkdownCtn.classList.remove('jsIsHidden')
         this.nCodeCtn.parentNode.classList.add('jsIsHidden')
 
-        log(`SHOW markdown fille, highlight then`)
+        log(`SHOW markdown file and highlight then`)
     }
 
     _displayCode( sOutput, sLanguage ) {
@@ -151,7 +151,7 @@ class EditorClass extends CreateScreenClass {
             Prism.highlightAll()
         }
 
-        log(`SHOW code fille, highlight then`)
+        log(`SHOW code file and highlight then`)
     }
 
     /**

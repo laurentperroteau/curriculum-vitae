@@ -9,7 +9,7 @@ import $http from 'myComponents/async/http'
  */
 const LogCtrl = ( sMsg, bError = false ) => {
 
-    if( config.ENV == 'production' ) {
+    if( config.ENV == 'development' ) {
 
         displayLog( sMsg, bError )
     }
