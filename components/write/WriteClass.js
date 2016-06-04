@@ -1,4 +1,4 @@
-import debug from '../debug/debug'
+import log from 'myComponents/log/log'
 import writeChar from './writeChar';
 
 class WriteClass {
@@ -31,7 +31,7 @@ class WriteClass {
 
         const self = this
 
-        debug('Start writting text ')
+        log('Start writting text ')
 
         this._runWrite( resolve, sText, 0, 1)
     }
@@ -73,7 +73,7 @@ class WriteClass {
                 thisInterval = this.iSpeed * 50;  
 
                 // Ensure we stay scrolled to the bottom.
-                window.scrollTo(0, document.body.scrollHeight);
+                this.nOutput.scrollTop = this.nOutput.scrollHeight
             } 
 
             // if( endOfSentence.test( thisSlice ) ) thisInterval = this.iSpeed * 70
@@ -87,7 +87,7 @@ class WriteClass {
         else {
             this.bIsWritting = false
             
-            debug('Writting end')
+            log('Writting end')
 
             return resolve();
         }

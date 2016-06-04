@@ -1,3 +1,5 @@
+const Webpack = require('webpack')
+
 // Used to resolve absolute path to project's root directory
 const path = require('path')
 
@@ -6,6 +8,7 @@ const autoprefixer = require('autoprefixer')
 const precss       = require('precss')
 const cssnext      = require('cssnext')
 const normalize    = require('postcss-normalize')
+
 
 module.exports = {
     context: __dirname,
@@ -48,6 +51,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.json'],
         alias: {
+            config: './config.js',
             // Alias of dir
             // @use => import getAsync from 'myComponents/...'
             // @use => require('myComponents/...')

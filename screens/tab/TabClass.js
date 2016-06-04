@@ -2,7 +2,8 @@ const _ = require('lodash') // TODO : require seulement besoin
 
 const PubSub = require('pubsub-js')
 
-import debug from 'myComponents/debug/debug'
+import store from 'myComponents/localStorage/store'
+import log from 'myComponents/log/log'
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
 class TabClass extends CreateScreenClass {
@@ -70,13 +71,13 @@ class TabClass extends CreateScreenClass {
                     item.active = true
                     self._showFile( this.sFileFullPath )
 
-                    debug(`ACTIVE tab ${item.name}`)
+                    log(`ACTIVE tab ${item.name}`)
                 }
                 else if( item.active && item.name != self.sFileName ) {
 
                     item.active = false
                     
-                    debug(`ACTIVE tab ${item.name}`)
+                    log(`ACTIVE tab ${item.name}`)
                 }
 
             })
@@ -127,7 +128,7 @@ class TabClass extends CreateScreenClass {
                 bTabWasActive = item.active
                 iTabToClose = i
 
-                debug(`DELETE tab ${item.name}`)
+                log(`DELETE tab ${item.name}`)
 
                 return // Stop forEach
             }
@@ -190,7 +191,7 @@ class TabClass extends CreateScreenClass {
 
         PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
 
-        debug( 'SHOW ' + sFileFullPath )
+        log( 'PUBLISH display file event of ' + sFileFullPath )
     }
 
     _bindUnbindOpenEvent( nItem, sType ) {
@@ -215,6 +216,12 @@ class TabClass extends CreateScreenClass {
         }
     }
 
+    _updateStore() {
+
+        store.setTab( this.oData )
+        log('Save tab in localStorage')
+    }
+
 
     // Array tabs method tested
     // ------------------------
@@ -232,6 +239,7 @@ class TabClass extends CreateScreenClass {
     _deleteTabByIndex( i ) {
 
         this.oData.tab.splice(i, 1)
+        this._updateStore()
     }
 
     _addTabWithName() {
@@ -243,6 +251,7 @@ class TabClass extends CreateScreenClass {
         }
 
         this.oData.tab.push( oNewTab )
+        this._updateStore()
     }
 
     _unactiveAllTab() {
@@ -257,6 +266,7 @@ class TabClass extends CreateScreenClass {
     _activeTabByIndex( i ) {
 
         this.oData.tab[ i ].active = true
+        this._updateStore()
     }
 }
 export default TabClass

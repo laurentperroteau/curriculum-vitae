@@ -1,7 +1,5 @@
-// const setting = require("json!../../shared/setting.json")
-// console.log( setting );
 
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import log from '../log/LogCtrl'
 
 import LinkedInClass from './LinkedInClass'
@@ -10,7 +8,7 @@ let iCountTest = 0;
 
 const linkedInCtrl = () => {
 
-    debug(`Test call API LinkedIn n° : ${iCountTest}`)
+    log(`Test call API LinkedIn n° : ${iCountTest}`)
 
     if( window.appLinkedIn === undefined ) {
 
@@ -19,7 +17,7 @@ const linkedInCtrl = () => {
     }
     else {
     
-        const profil = new LinkedInClass( window.appLinkedIn, 'https://www.linkedin.com/in/laurent-perroteau-15a6ab68')
+        const profil = new LinkedInClass( window.appLinkedIn, config.LINKEDIN_PERFIL_URL)
 
         const promiseAPI = profil.setPromise()
 
@@ -30,8 +28,7 @@ const linkedInCtrl = () => {
             })
             .catch( (msg) => {
 
-                // TODO : afficher les erreurs
-                log( 'Erreur LinkedIn API', msg )
+                log( 'Erreur LinkedIn API', true )
             })
     }
 }
@@ -66,7 +63,7 @@ const repeatGetLinkedIn = () => {
 
     if( iCountTest >= 4  ) {
 
-        log('Call API LinkedIn', 'Not ready after 2 secondes, abort !')
+        log('Call API LinkedIn not ready after 2 secondes, abort !', true)
     }
     else {
 

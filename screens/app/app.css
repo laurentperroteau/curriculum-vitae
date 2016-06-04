@@ -107,6 +107,36 @@ body {
     }
 }
 
+.log-terminal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 20px;
+    bottom: 20px;
+    width: 272px;
+    height: 120px;
+    padding: 5px 10px 10px;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid black;
+    font-family: 'Inconsolata', courier;
+    font-weight: 400;
+    color: green;
+
+    &.jsIsVisible {
+        display: block;
+    }
+    
+    p {
+        font-size: 12px;
+        margin: 5px 0 0;
+
+        &.error {
+            color: red;
+        }
+    }
+}
+
 .editor-ctn {
     background-color: var( --sublime-background );
 }

@@ -1,12 +1,12 @@
 
 // Globals
+require('expose?config!config');
 require('expose?Prims!prims');
 require('expose?Markdown!markdown');
 
 // Functions
-import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
-import log from './components/log/LogCtrl'
+import log from './components/log/log'
 
 // Controllers
 import appCtrl from './screens/app/appCtrl'
@@ -18,8 +18,6 @@ import gutterCtrl from './screens/gutter/gutterCtrl'
 import test from './exemple/export'
 
 //Start app
-debug('------------------------------------------------')
-
 if( !supportPromise() ) {
 
     log( 
@@ -31,7 +29,7 @@ else {
 
     (function() {
 
-        debug('Document ready')
+        log('Document ready')
 
         // Extending Prims : add class .keyword-nameOfKeyword
         Prism.hooks.add('wrap', function(env) {

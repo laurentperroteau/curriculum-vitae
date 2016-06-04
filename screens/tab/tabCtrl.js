@@ -1,3 +1,7 @@
+const _ = require('lodash')
+
+import store from 'myComponents/localStorage/store'
+
 import TabClass from 'myScreens/tab/TabClass'
 
 const PubSub = require('pubsub-js')
@@ -6,15 +10,31 @@ const tabCtrl = {
 
     init: function() {
 
+        let bShowSavedTab = false
+        
         const oTab = {
-            "tab": [
+            "tab": []
+        }  
+
+        if( config.PREVENT_TAB ) {
+
+            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la dernière session précédemente ?')
+        }
+
+        if( bShowSavedTab && store.getTab('oTab') !== null ) {
+
+            oTab.tab = _.concat( oTab.tab, store.getTab('oTab').tab )          
+        }
+        else {
+
+            oTab.tab.push( 
                 {
                     name    : "demo.js",
                     fullPath: "./content/demo.js",
                     active  : true
                 }
-            ]
-        }        
+            )
+        }
 
         this.Tab = new TabClass('tab')
 
@@ -44,6 +64,10 @@ const tabCtrl = {
     openTab: function( oTab ) {
         
         this.Tab.openTab( oTab )
+    },
+    isTabOpen: function( sName ) {
+
+        return this.Tab._getIndexActiveTab == this.Tab._getIndexTabByName( sName )
     }
 }
 export default tabCtrl

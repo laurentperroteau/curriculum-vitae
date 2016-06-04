@@ -17,16 +17,21 @@ const editorCtrl = () => {
     Editor.setMarkdownCtn( 'jsMarkdownContent' )
     Editor.initCodeCtn( 'jsCodeContent' )
 
-    $http('./content/demo.js')
-        .get()
-        .then( (data) => {
+    if( !tabCtrl.isTabOpen( 'demo.js' ) ) {
 
-            Editor.initWrite( data ).then( () => {
+        tabCtrl.openTab( { name: 'demo.js', fullPath: './content/demo.js' } )
 
-                tabCtrl.openTab( { name: 'RESUME.md', fullPath: './content/RESUME.md' } )
+        $http('./content/demo.js')
+            .get()
+            .then( (data) => {
+
+                Editor.initWrite( data ).then( () => {
+
+                    tabCtrl.openTab( { name: 'RESUME.md', fullPath: './content/RESUME.md' } )
+                })
+                    
             })
-                
-        })
+    }
 
     PubSub.subscribe( 'DISPLAY_FILE', onDisplayFilePublish )
 

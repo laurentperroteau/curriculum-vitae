@@ -1,4 +1,4 @@
-import debug from 'myComponents/debug/debug'
+import log from 'myComponents/log/log'
 import LogCtrl from 'myComponents/log/LogCtrl'
 
 class LinkedIn {
@@ -20,7 +20,7 @@ class LinkedIn {
 
     _callAPI( resolve, reject ) {
 
-        debug('=> call api ')
+        log('Call LinkedIn api ')
 
         this.oApp.API.Profile( this.sUrlProfil )
             .fields(
@@ -41,7 +41,7 @@ class LinkedIn {
 
         function resolveData( profile ) {
 
-            debug('=> result api '+ profile._total )
+            log('Result LinkedIn api :'+ profile._total )
 
             return resolve( profile.values[0] )
         }
