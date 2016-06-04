@@ -10,11 +10,16 @@ const tabCtrl = {
 
     init: function() {
 
+        let bShowSavedTab = false
+        
         const oTab = {
             "tab": []
         }  
 
-        const bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la dernière session précédemente ?')
+        if( config.PREVENT_TAB ) {
+
+            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la dernière session précédemente ?')
+        }
 
         if( bShowSavedTab && store.getTab('oTab') !== null ) {
 
