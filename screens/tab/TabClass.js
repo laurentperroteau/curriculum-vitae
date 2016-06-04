@@ -2,6 +2,7 @@ const _ = require('lodash') // TODO : require seulement besoin
 
 const PubSub = require('pubsub-js')
 
+import store from 'myComponents/localStorage/store'
 import log from 'myComponents/log/log'
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
@@ -215,6 +216,12 @@ class TabClass extends CreateScreenClass {
         }
     }
 
+    _updateStore() {
+
+        store.setTab( this.oData )
+        log('Save tab in localStorage')
+    }
+
 
     // Array tabs method tested
     // ------------------------
@@ -232,6 +239,7 @@ class TabClass extends CreateScreenClass {
     _deleteTabByIndex( i ) {
 
         this.oData.tab.splice(i, 1)
+        this._updateStore()
     }
 
     _addTabWithName() {
@@ -243,6 +251,7 @@ class TabClass extends CreateScreenClass {
         }
 
         this.oData.tab.push( oNewTab )
+        this._updateStore()
     }
 
     _unactiveAllTab() {
@@ -252,11 +261,13 @@ class TabClass extends CreateScreenClass {
             x.active = false
             return x
         })
+        this._updateStore()
     }
 
     _activeTabByIndex( i ) {
 
         this.oData.tab[ i ].active = true
+        this._updateStore()
     }
 }
 export default TabClass
