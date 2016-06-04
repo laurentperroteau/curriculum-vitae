@@ -15,10 +15,9 @@ const LogCtrl = ( sLabel, sMsg ) => {
         https://davidwalsh.name/node-environment-variables
         http://stackoverflow.com/questions/30030031/passing-environment-dependent-variables-in-webpack
         displayLog( msg )
-    }
-    else {
-        console.log('%c' + msg, 'color: '+ color);
-    }/*
+    }*/
+
+    // console.log('%c' + msg, 'color: '+ color);
 }
 
 export default LogCtrl
