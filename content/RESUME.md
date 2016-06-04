@@ -67,7 +67,7 @@ Compétences :
 * __Je suis un ninja__ : `HTML`, `CSS`, `SASS` (et autre {pre|post}processeur), `Javascript` (et ES6), `jQuery`, `GIT`, `Gulp` (et autres tasks runner)
 * __Je maîtrise très bien__ : `AngularJS`, `Agilité`
 * __Je connais bien__ : `PHP`, `Linux`,  `SVN`
-* __J'ai compris et j'utilise occasionnellement : `Node.js`, `Symfony`, `MySql`
+* __J'ai compris et j'utilise occasionnellement__ : `Node.js`, `Symfony`, `MySql`
 * __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Backbone`, `Meteor`, `Vue`, `Python`
 
 

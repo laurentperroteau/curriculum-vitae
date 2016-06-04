@@ -10,7 +10,6 @@ const cssnext      = require('cssnext')
 const normalize    = require('postcss-normalize')
 
 
-
 module.exports = {
     context: __dirname,
     entry: {
