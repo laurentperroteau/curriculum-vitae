@@ -107,6 +107,19 @@ body {
     }
 }
 
+.log-terminal {
+    position: fixed;
+    z-index: 2;
+    left: 50px;
+    bottom: 50px;
+    width: 300px;
+    height: 150px;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
 .editor-ctn {
     background-color: var( --sublime-background );
 }

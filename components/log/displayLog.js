@@ -4,15 +4,15 @@
  * @param  {string} msg   => message to show
  * @return display alert
  */
-const displayLog = (sLabel,sMsg) => {
+const displayLog = ( sMsg ) => {
 
-    const nContent = document.getElementById('alert')
+    const nContent = document.getElementById('jsLog')
 
     if( nContent !== null) {
 
         nContent.insertAdjacentHTML(
             'beforeend', 
-            `<p><strong>${sLabel}</strong> : ${sMsg}</p>`
+            `<p><strong>${sMsg}</p>`
         )
     }
 };

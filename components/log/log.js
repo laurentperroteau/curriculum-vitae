@@ -9,8 +9,8 @@ import $http from 'myComponents/async/http'
  */
 const LogCtrl = ( sMsg, color = 'green' ) => {
 
-    if( config.ENV == 'production' ) {
-        displayLog( msg )
+    if( config.ENV == 'development' ) {
+        displayLog( sMsg )
     }
     else {
         console.log('%c' + sMsg, 'color: '+ color)
