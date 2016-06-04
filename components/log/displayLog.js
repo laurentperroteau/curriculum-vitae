@@ -1,10 +1,10 @@
 /**
- * Display alert
- * =============
+ * Display log
+ * ===========
  * @param  {string} msg   => message to show
  * @return display alert
  */
-const displayAlert = (sLabel,sMsg) => {
+const displayLog = (sLabel,sMsg) => {
 
     const nContent = document.getElementById('alert')
 
@@ -17,4 +17,4 @@ const displayAlert = (sLabel,sMsg) => {
     }
 };
 
-export default displayAlert
+export default displayLog

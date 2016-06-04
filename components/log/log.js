@@ -1,4 +1,4 @@
-import displayLog from './alert'
+import displayLog from './displayLog'
 import $http from 'myComponents/async/http'
 
 /**
