@@ -6,7 +6,7 @@ import displayLog from './alert'
  * @param  {string} msg   => message to show
  * @return display alert
  */
-const LogCtrl = ( sLabel, sMsg ) => {
+const LogCtrl = ( sMsg, color = 'green' ) => {
 
     // TODO : add log to file with times
 
@@ -17,7 +17,7 @@ const LogCtrl = ( sLabel, sMsg ) => {
         displayLog( msg )
     }*/
 
-    // console.log('%c' + msg, 'color: '+ color);
+    console.log('%c' + sMsg, 'color: '+ color)
 }
 
 export default LogCtrl
