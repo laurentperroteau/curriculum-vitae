@@ -1,10 +1,10 @@
 
 // Globals
+require('expose?config!config');
 require('expose?Prims!prims');
 require('expose?Markdown!markdown');
 
 // Functions
-import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
 import log from './components/log/log'
 
