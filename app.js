@@ -6,7 +6,7 @@ require('expose?Markdown!markdown');
 // Functions
 import debug from './components/debug/debug'
 import supportPromise from './components/support/promise'
-import log from './components/log/LogCtrl'
+import log from './components/log/log'
 
 // Controllers
 import appCtrl from './screens/app/appCtrl'

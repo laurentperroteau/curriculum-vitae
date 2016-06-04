@@ -1,4 +1,4 @@
-import debug from '../debug/debug'
+import log from 'myComponents/log/log'
 import writeChar from './writeChar';
 
 class WriteClass {
