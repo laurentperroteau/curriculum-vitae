@@ -1,19 +1,27 @@
+const nContent = document.getElementById('jsLog')
+
 /**
  * Display log
  * ===========
  * @param  {string} msg   => message to show
  * @return display alert
  */
-const displayLog = ( sMsg ) => {
-
-    const nContent = document.getElementById('jsLog')
+const displayLog = ( sMsg, bError = false ) => {
 
     if( nContent !== null) {
 
-        nContent.insertAdjacentHTML(
-            'beforeend', 
-            `<p><strong>${sMsg}</p>`
-        )
+        if( !nContent.classList.contains('jsIsVisible') ) {
+
+            nContent.classList.add('jsIsVisible')
+        }
+
+        const sClass = bError ? 'error' : ''
+
+        const sText = `<p class="${sClass}"><strong>${sMsg}</p>`
+
+        nContent.insertAdjacentHTML( 'beforeend', sText )
+
+        nContent.scrollTop = nContent.scrollHeight
     }
 };
 

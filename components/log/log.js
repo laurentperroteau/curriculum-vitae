@@ -7,13 +7,20 @@ import $http from 'myComponents/async/http'
  * @param  {string} msg   => message to show
  * @return display alert
  */
-const LogCtrl = ( sMsg, color = 'green' ) => {
+const LogCtrl = ( sMsg, bError = false ) => {
 
-    if( config.ENV == 'development' ) {
-        displayLog( sMsg )
+    if( config.ENV == 'production' ) {
+
+        displayLog( sMsg, bError )
     }
     else {
-        console.log('%c' + sMsg, 'color: '+ color)
+        if( bError ) {
+
+            console.warn('%c' + sMsg, 'color: red')
+        }
+        else {
+            console.log('%c' + sMsg, 'color: green')
+        }
     }
 
 }

@@ -18,8 +18,6 @@ import gutterCtrl from './screens/gutter/gutterCtrl'
 import test from './exemple/export'
 
 //Start app
-log('------------------------------------------------')
-
 if( !supportPromise() ) {
 
     log( 

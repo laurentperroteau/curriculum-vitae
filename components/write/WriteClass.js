@@ -73,7 +73,7 @@ class WriteClass {
                 thisInterval = this.iSpeed * 50;  
 
                 // Ensure we stay scrolled to the bottom.
-                window.scrollTo(0, document.body.scrollHeight);
+                this.nOutput.scrollTop = this.nOutput.scrollHeight
             } 
 
             // if( endOfSentence.test( thisSlice ) ) thisInterval = this.iSpeed * 70
