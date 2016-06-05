@@ -5,6 +5,8 @@ const app     = express()
 
 const markdown = require( "markdown" ).markdown
 
+app.use( require('prerender-node') )
+
 app.get('/', function (req, res) {
 
     const sResumePath = __dirname + '/content/RESUME.md'
@@ -13,7 +15,11 @@ app.get('/', function (req, res) {
 
     const sDoc = markdown.toHTML( sContent )
 
-    res.send( sDoc );
+    const sMeta = `
+<title>Laurent Perroteau | Développeur Front-End</title>
+<meta name="description" content="Développeur Web depuis 5 ans, spécialisé Front-End depuis 4 ans, référent technique Front-End depuis 2 ans.">`
+
+    res.send( sMeta + '' +sDoc );
 })
 
 app.listen(3000, function () {

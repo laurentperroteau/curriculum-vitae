@@ -12,6 +12,7 @@
     "express": "^4.13.4",
     "github-markdown-css": "^2.3.0",
     "node-libs-browser": "^1.0.0",
+    "prerender-node": "^2.3.0",
     "pubsub-js": "^1.5.3",
     "webpack": "^1.12.13"
   },
