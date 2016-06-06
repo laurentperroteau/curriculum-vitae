@@ -1,25 +1,38 @@
-const express = require('express')
-const fs      = require('fs')
+'use strict'
 
-const app     = express()
+/* 
+    Use node.js, express and prerender.io
+        to this website can be crawled 
+        by search engines like Google
+    ======================================
+*/
+
+const express  = require('express')
+const fs       = require('fs')
+
+// Set express
+const app      = express()
 
 const markdown = require( "markdown" ).markdown
+const config   = require('./config.js')
 
+// Active prerender.io
 app.use( require('prerender-node') )
 
+// On home, send metas and resume
 app.get('/', function (req, res) {
 
     const sResumePath = __dirname + '/content/RESUME.md'
 
     const sContent = fs.readFileSync(sResumePath, 'utf8');
 
-    const sDoc = markdown.toHTML( sContent )
+    let sHTML = markdown.toHTML( sContent )
 
-    const sMeta = `
-<title>Laurent Perroteau | Développeur Front-End</title>
-<meta name="description" content="Développeur Web depuis 5 ans, spécialisé Front-End depuis 4 ans, référent technique Front-End depuis 2 ans.">`
+    if( config.TITLE_TAG !== undefined && config.DESCRIPTION_TAG !== undefined ) {
+        sHTML = `${config.TITLE_TAG} ${config.DESCRIPTION_TAG} ${sHTML}`
+    }
 
-    res.send( sMeta + '' +sDoc );
+    res.send( sHTML );
 })
 
 app.listen(3000, function () {
