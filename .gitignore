@@ -1,12 +1,38 @@
-app/
-tree/
-!screens/tree/
-exemple/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs and editors
+/.idea
 *.sublime-project
 *.sublime-workspace
-node_modules
-NOTES.md
-Article.md
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
 npm-debug.log
-test/testBundle.js
-config.js
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
+
+# Temp ignore (for current developpement)
+/e2e
+/config
+/public
+src/app/environment.ts
+*.clang-format
