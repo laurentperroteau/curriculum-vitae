@@ -1,10 +1,10 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { CvAppComponent, environment } from './app/';
+import { AppComponent, environment } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(CvAppComponent);
+bootstrap(AppComponent);
 
