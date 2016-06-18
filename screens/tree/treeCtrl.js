@@ -9,10 +9,27 @@ const treeCtrl = () => {
         // Get all tree (include root)
         let oResult = JSON.parse( data )
 
-        // Get first children or sort alphabetically by folder and name
-        // TODO : fix order
-        oResult = _.sortBy( oResult.children, function(o) {
-            return [ !o.isFolder, o.name ].join("_")
+        // Sort subfolder
+        oResult = _.forEach(oResult.children, function(oLevel1) {
+                
+            if( oLevel1.isFolder ) {
+
+                oLevel1.children = _.sortBy( oLevel1.children, function(o) {
+                    return o.name.toLowerCase()
+                })
+
+                _.forEach(oLevel1.children, function(oLevel2) {
+                    
+                    oLevel2.children = _.sortBy( oLevel2.children, function(o) {
+                        return o.name.toLowerCase()
+                    })
+                })
+            }
+        })
+
+        // And sort first level
+        oResult = _.sortBy( oResult, function(o) {
+            return [ !o.isFolder, o.name.toLowerCase() ].join("_")
         })
             
         const oTree = {
