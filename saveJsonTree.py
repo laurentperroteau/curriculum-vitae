@@ -28,7 +28,18 @@ def path_to_dict( path, my_string = None ):
         '.eslintrc',
         'testBundle.js',
         'test.html',
-        'appBundle.js'
+        'appBundle.js',
+        'typings.json',
+        'angular-cli-build.js',
+        'angular2.sublime-workspace',
+        'angular-cli.json',
+        'typings',
+        'config',
+        'tslint.json',
+        'public',
+        'tmp',
+        'e2e',
+        'tmp',
     ) 
 
     if os.path.isdir(path):
@@ -64,5 +75,5 @@ resultDataJson = json.dumps( path_to_dict('./', ), indent = 2 )
 if not os.path.exists('tree'):
     os.makedirs('tree')
 
-with open('tree/tree.json', 'w') as outfile:
+with open('src/content/tree.json', 'w') as outfile:
     json.dump( json.JSONDecoder().decode( resultDataJson ), outfile, sort_keys = False, indent = 4, ensure_ascii = False )
