@@ -1,74 +1,80 @@
-<ul>
-    <li 
-        class="
-            tree__item
-            tree__item--root">
-        <span 
+<div class="tree">
+    <ul>
+        <li 
             class="
-                btn-tree
-                btn-tree--folder">
-            {{ title }}
-        </span>
-        <ul>                
-            <li 
-                my-each-level1="tree"
+                tree__item
+                tree__item--root">
+            <span 
                 class="
-                    tree__item
-                    tree__item--level1">
-                <button
-                    type="button"
+                    btn
+                    btn--folder">
+                {{ title }}
+            </span>
+            <ul *ngIf="tree.children.length > 0">                
+                <li 
+                    *ngFor="let level1 of tree.children"
                     class="
-                        jsEventMenuItem
-                        btn-reset
-                        btn-tree"
-                    my-class-btn-tree--folder="level1.isFolder"
-                    my-class-btn-tree--arrow="level1.isFolder"
-                    my-class-jsisfolder="level1.isFolder"
-                    my-data-name="level1.name"
-                    my-data-full-path="level1.fullPath">    
-                    {{ level1.name }}
-                </button>
-                <ul>                
-                    <li 
-                        my-each-level2="level1.children"
+                        tree__item
+                        tree__item--level1">
+                    <button
+                        type="button"
+                        (click)="triggerItem( level1 )"
                         class="
-                            tree__item
-                            tree__item--level2">
-                        <button
-                            type="button"
+                            btn-reset
+                            btn"
+                        [ngClass]="{
+                            'btn--folder': level1.isFolder, 
+                            'btn--arrow' : level1.isFolder,
+                            'jsIsOpen'        : level1.isOpen
+                        }">    
+                        {{ level1.name }}
+                    </button>
+                    <ul>                
+                        <li 
+                            *ngFor="let level2 of level1.children"
                             class="
-                                jsEventMenuItem
-                                btn-reset
-                                btn-tree"
-                            my-class-btn-tree--folder="level2.isFolder"
-                            my-class-btn-tree--arrow="level2.isFolder"
-                            my-class-jsisfolder="level2.isFolder"
-                            my-data-name="level2.name"
-                            my-data-full-path="level2.fullPath">    
-                            {{ level2.name }}
-                        </button>
-                        <ul>                
-                            <li 
-                                my-each-level3="level2.children"
+                                tree__item
+                                tree__item--level2">
+                            <button
+                                type="button"
+                                (click)="triggerItem( level2 )"
                                 class="
-                                    tree__item
-                                    tree__item--level3">
-                                <button
-                                    type="button"
+                                    jsEventMenuItem
+                                    btn-reset
+                                    btn"
+                                [ngClass]="{
+                                    'btn--folder': level2.isFolder, 
+                                    'btn--arrow' : level2.isFolder,
+                                    'jsIsOpen'        : level2.isOpen
+                                }">    
+                                {{ level2.name }}
+                            </button>
+                            <ul>                
+                                <li 
+                                    *ngFor="let level3 of level2.children"
                                     class="
-                                        jsEventMenuItem
-                                        btn-reset
-                                        btn-tree"
-                                    my-class-btn-tree--folder="level3.isFolder"
-                                    my-data-name="level3.name"
-                                    my-data-full-path="level3.fullPath">    
-                                    {{ level3.name }}
-                                </button>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul> 
+                                        tree__item
+                                        tree__item--level3">
+                                    <button
+                                        type="button"
+                                        (click)="triggerItem( level3 )"
+                                        class="
+                                            jsEventMenuItem
+                                            btn-reset
+                                            btn"
+                                        [ngClass]="{
+                                            'btn--folder': level3.isFolder, 
+                                            'btn--arrow' : level3.isFolder,
+                                            'jsIsOpen'        : level3.isOpen
+                                        }">    
+                                        {{ level3.name }}
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul> 
+</div>

@@ -1,8 +1,10 @@
 
+$sublime-menu: #E6E6E6;
+
 /* Tree */
 /* ---- */
 
-.btn-tree {
+.btn {
     height: 24px;
     line-height: 24px;
 
@@ -39,7 +41,7 @@
     width: 246px;
     height: 100%;
     padding: 20px 10px;
-    background-color: var( --sublime-menu );
+    background-color: $sublime-menu;
     font-family: 'Inconsolata', courier;
     font-weight: 400;
     color: black;
@@ -68,7 +70,7 @@
             margin-top: 3px;
         }
 
-        .jsisfolder {
+        .btn--folder {
 
             + ul {
                 max-height: 0;
@@ -77,15 +79,15 @@
             }
         }
 
-        &--level1 .jsisfolder.jsIsOpen + ul {
+        &--level1 .btn--folder.jsIsOpen + ul {
             max-height: 700px;
         }
 
-        &--level2 .jsisfolder.jsIsOpen + ul {
+        &--level2 .btn--folder.jsIsOpen + ul {
             max-height: 300px;
         }
 
-        &--level3 .jsisfolder.jsIsOpen + ul {
+        &--level3 .btn--folder.jsIsOpen + ul {
             max-height: 200px;
         }
     }
