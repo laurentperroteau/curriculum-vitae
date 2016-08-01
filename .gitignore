@@ -36,3 +36,4 @@ Thumbs.db
 /public
 src/app/environment.ts
 *.clang-format
+src/content/tree.json
