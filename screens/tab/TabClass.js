@@ -4,6 +4,7 @@ const PubSub = require('pubsub-js')
 
 import store from 'myComponents/localStorage/store'
 import log from 'myComponents/log/log'
+
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
     
 class TabClass extends CreateScreenClass {
@@ -15,12 +16,9 @@ class TabClass extends CreateScreenClass {
         this.sName         = sName
         this.sFileName     = ''
         this.sFileFullPath = ''
-        this.aCloseEvent   = []
     }
 
     openEventOnLoad() {
-
-        const self = this
 
         const nItemS = this.nComponent.querySelectorAll('.jsEventTabItem')
 
@@ -31,8 +29,6 @@ class TabClass extends CreateScreenClass {
     }
 
     closeEventOnLoad() {
-
-        const self = this
 
         const nItemS = this.nComponent.querySelectorAll('.jsEventTabItemClose')
 
@@ -50,7 +46,6 @@ class TabClass extends CreateScreenClass {
     openTab( data ) {
 
         if( data.target !== undefined ) {
-
             data = data.target.dataset
         }
 
@@ -108,8 +103,6 @@ class TabClass extends CreateScreenClass {
      * @param  {obj} e => event on click
      */
     _closeTab( e ) {
-
-        const self = this 
 
         let iTabToClose = null
         let bTabWasActive = null

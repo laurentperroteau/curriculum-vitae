@@ -24,32 +24,32 @@ class TreeClass extends CreateScreenClass {
 
         Array.from( nItemS ).forEach( ( nItem ) => {
 
-            nItem.addEventListener('click', (e) => this._triggerItem(e), false )
+            nItem.addEventListener('click', (e) => TreeClass._triggerItem(e), false )
         });
     }
 
-    _triggerItem( e ) {
+    static _triggerItem( e ) {
 
         const nElem = e.currentTarget
 
         // Info : rivets.js convert class in lowercase
         if( nElem.classList.contains('jsisfolder') ) {
 
-            this._triggerFolder( nElem )
+            TreeClass._triggerFolder( nElem )
         }
         else {
-            this._triggerFile( nElem )
+            TreeClass._triggerFile( nElem )
         }
     }
 
-    _triggerFolder( nElem ) {
+    static _triggerFolder( nElem ) {
 
         nElem.classList.toggle('jsIsOpen')
 
         log( `Open Folder ${nElem.dataset.name}` )
     }
 
-    _triggerFile( nElem ) {
+    static _triggerFile( nElem ) {
 
         // TODO: si plusieurs folder on le même nom, il faudra ajouter une info
         PubSub.publish( 'OPEN_TAB', nElem.dataset )
