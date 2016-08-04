@@ -1,6 +1,6 @@
 import log from 'myComponents/log/log'
 
-const _ = require('lodash') // TODO : require seulement besoin
+const _fp_camelCase = require('lodash/fp/camelCase')
 
 const rivets = require('rivets')
 
@@ -43,7 +43,7 @@ class CreateScreenClass {
 
             // It's a screens, and should be once.. then use an ID
             // ex: editor => jsEditor
-            this.nComponent = document.getElementById( _.camelCase(`js ${this.sName}`) )
+            this.nComponent = document.getElementById( _fp_camelCase(`js ${this.sName}`) )
             
             if( this.nComponent !== null && html != '' ) {
 
