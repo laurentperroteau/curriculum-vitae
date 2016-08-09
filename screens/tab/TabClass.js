@@ -1,11 +1,15 @@
-const _ = require('lodash') // TODO : require seulement besoin
+// Lodash: on import method only, using param is diferent on some method
+// @info: https://github.com/lodash/lodash/wiki/FP-Guide
+const _fp_cloneDeep = require('lodash/fp/cloneDeep')
+const _fp_findIndex = require('lodash/fp/findIndex')
 
 const PubSub = require('pubsub-js')
 
 import store from 'myComponents/localStorage/store'
 import log from 'myComponents/log/log'
+
 import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
-    
+
 class TabClass extends CreateScreenClass {
 
     constructor( sName ) {
@@ -15,12 +19,9 @@ class TabClass extends CreateScreenClass {
         this.sName         = sName
         this.sFileName     = ''
         this.sFileFullPath = ''
-        this.aCloseEvent   = []
     }
 
     openEventOnLoad() {
-
-        const self = this
 
         const nItemS = this.nComponent.querySelectorAll('.jsEventTabItem')
 
@@ -31,8 +32,6 @@ class TabClass extends CreateScreenClass {
     }
 
     closeEventOnLoad() {
-
-        const self = this
 
         const nItemS = this.nComponent.querySelectorAll('.jsEventTabItemClose')
 
@@ -50,7 +49,6 @@ class TabClass extends CreateScreenClass {
     openTab( data ) {
 
         if( data.target !== undefined ) {
-
             data = data.target.dataset
         }
 
@@ -109,8 +107,6 @@ class TabClass extends CreateScreenClass {
      */
     _closeTab( e ) {
 
-        const self = this 
-
         let iTabToClose = null
         let bTabWasActive = null
 
@@ -119,7 +115,7 @@ class TabClass extends CreateScreenClass {
         const sFileName = nElem.dataset.name
 
         // We will perhaps remove an item, thus saving a clone to work with
-        const aClone = _.cloneDeep( this.oData.tab )
+        const aClone = _fp_cloneDeep( this.oData.tab )
 
         aClone.forEach( ( item, i, object ) => {
 
@@ -228,12 +224,12 @@ class TabClass extends CreateScreenClass {
 
     _getIndexTabByName( sFileName ) {
 
-        return _.findIndex(this.oData.tab, function(o) { return o.name == sFileName })
+        return _fp_findIndex( function(o) { return o.name == sFileName } )( this.oData.tab )
     }
 
     _getIndexActiveTab() {
 
-        return _.findIndex(this.oData.tab, function(o) { return o.active == true })
+        return _fp_findIndex( function(o) { return o.active == true } )( this.oData.tab )
     }
 
     _deleteTabByIndex( i ) {

@@ -3,7 +3,8 @@ const nContent = document.getElementById('jsLog')
 /**
  * Display log
  * ===========
- * @param  {string} msg   => message to show
+ * @param  {string} sMsg   => message to show
+ * @param  {boolean} bError   => if is error
  * @return display alert
  */
 const displayLog = ( sMsg, bError = false ) => {
@@ -15,9 +16,9 @@ const displayLog = ( sMsg, bError = false ) => {
             nContent.classList.add('jsIsVisible')
         }
 
-        const sClass = bError ? 'error' : ''
+        let sClass = bError ? 'error' : ''
 
-        const sText = `<p class="${sClass}"><strong>${sMsg}</p>`
+        let sText = `<p class="${sClass}"><strong>${sMsg}</p>`
 
         nContent.insertAdjacentHTML( 'beforeend', sText )
 

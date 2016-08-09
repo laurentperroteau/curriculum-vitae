@@ -4,7 +4,8 @@ import $http from 'myComponents/async/http'
 /**
  * Display alert
  * =============
- * @param  {string} msg   => message to show
+ * @param  {string} sMsg   => message to show
+ * @param  {boolean} bError   => if is error
  * @return display alert
  */
 const LogCtrl = ( sMsg, bError = false ) => {
@@ -22,7 +23,6 @@ const LogCtrl = ( sMsg, bError = false ) => {
             console.log('%c' + sMsg, 'color: green')
         }
     }
-
 }
 
 export default LogCtrl
