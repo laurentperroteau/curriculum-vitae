@@ -1,4 +1,4 @@
-const _ = require('lodash')
+const _fp_concat = require('lodash/fp/concat')
 
 import store from 'myComponents/localStorage/store'
 
@@ -18,12 +18,12 @@ const tabCtrl = {
 
         if( config.PREVENT_TAB ) {
 
-            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la dernière session précédemente ?')
+            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la session précédemente ?')
         }
 
         if( bShowSavedTab && store.getTab('oTab') !== null ) {
 
-            oTab.tab = _.concat( oTab.tab, store.getTab('oTab').tab )          
+            oTab.tab = _fp_concat( oTab.tab, store.getTab('oTab').tab )
         }
         else {
 

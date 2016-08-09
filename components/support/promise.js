@@ -1,6 +1,12 @@
 const supportPromise = () => {
 
-    return typeof Promise !== undefined && Promise.toString().indexOf("[native code]") !== -1
+    if( typeof Promise !== 'undefined' ) {
+
+        return Promise.toString().indexOf("[native code]") !== -1
+    }
+    else {
+        return false;
+    }
 };
 
 export default supportPromise;

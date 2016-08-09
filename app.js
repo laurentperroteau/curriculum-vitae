@@ -15,8 +15,6 @@ import tabCtrl from './screens/tab/tabCtrl'
 import editorCtrl from './screens/editor/editorCtrl'
 import gutterCtrl from './screens/gutter/gutterCtrl'
 
-import test from './exemple/export'
-
 //Start app
 if( !supportPromise() ) {
 

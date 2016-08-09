@@ -1,6 +1,6 @@
 import log from 'myComponents/log/log'
 
-const _ = require('lodash') // TODO : require seulement besoin
+const _fp_camelCase = require('lodash/fp/camelCase')
 
 const rivets = require('rivets')
 
@@ -9,7 +9,12 @@ rivets.configure({
     templateDelimiters: ['{{', '}}']
 })
 
-class CreateComponentClass {
+/**
+ * Helper to create screen
+ *
+ * @param string sName normalise name of screen
+ */
+class CreateScreenClass {
 
     constructor( sName ) {
 
@@ -27,25 +32,25 @@ class CreateComponentClass {
         // Get path screens
         const sPath = `${this.sName}/${this.sName}`
 
-        // Get template
+        // Get template htlm
         const html = require( 'myScreens/'+ sPath + '.html' )
 
         // Add CSS
         require( 'myScreens/'+ sPath + '.css' )
-
         
         // Insert HTML
         if( this.nComponent === null ) {
 
             // It's a screens, and should be once.. then use an ID
-            this.nComponent = document.getElementById( _.camelCase(`js ${this.sName}`) )
+            // ex: editor => jsEditor
+            this.nComponent = document.getElementById( _fp_camelCase(`js ${this.sName}`) )
             
             if( this.nComponent !== null && html != '' ) {
 
                 // Insert template
                 this.nComponent.innerHTML = html
 
-                // Add data and data binding
+                // Add node and data binding
                 rivets.bind( this.nComponent, this.oData )
 
                 log( `Init template: ${this.sName}` )
@@ -56,4 +61,4 @@ class CreateComponentClass {
         }
     }
 }
-export default CreateComponentClass
+export default CreateScreenClass

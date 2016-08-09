@@ -65,6 +65,10 @@
                 cursor: default;
                 outline: none;
             }
+
+            .btn-reset {
+                height: var( --editor-tab-height );
+            }
         }
     }    
 }
