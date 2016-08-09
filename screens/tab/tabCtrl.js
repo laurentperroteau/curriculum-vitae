@@ -18,7 +18,7 @@ const tabCtrl = {
 
         if( config.PREVENT_TAB ) {
 
-            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la dernière session précédemente ?')
+            bShowSavedTab = confirm('Voulez-vous restaurez les onglets de la session précédemente ?')
         }
 
         if( bShowSavedTab && store.getTab('oTab') !== null ) {

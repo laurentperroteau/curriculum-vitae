@@ -27,7 +27,7 @@ const editorCtrl = () => {
 
                 Editor.initWrite( data ).then( () => {
 
-                    tabCtrl.openTab( { name: 'RESUME.md', fullPath: './content/RESUME.md' } )
+                    tabCtrl.openTab( { name: 'README.md', fullPath: './README-fr.md' } )
                 })
                     
             })
