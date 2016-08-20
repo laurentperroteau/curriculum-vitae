@@ -1,3 +1,9 @@
+
+/**
+ * Developement webpack config
+ * ===========================
+ */
+
 const Webpack = require('webpack')
 
 // Parts of config
@@ -13,8 +19,7 @@ const normalize    = require('postcss-normalize')
 module.exports = {
     context: __dirname,
     entry: {
-        app: './app.js'/*,
-        test: 'mocha!./test.js'*/
+        app: './app.js'
     },
     output: {
         filename: './[name]/[name]Bundle.js'

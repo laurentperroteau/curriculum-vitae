@@ -8,17 +8,6 @@ module.exports = function(config) {
     
     config.set({
         browsers: ['Chrome'],
-        coverageReporter: {
-            reporters: [
-                {
-                    type: 'html',
-                    subdir: 'html'
-                }, {
-                    type: 'lcovonly',
-                    subdir: '.'
-                }
-            ]
-        },
         files: [
             '../webpack.test.config.js',
         ],
@@ -31,7 +20,7 @@ module.exports = function(config) {
                 'sourcemap'
             ]
         },
-        reporters: ['mocha', 'coverage'],
+        reporters: ['mocha'],
         webpack: {
             cache: true,
             devtool: 'inline-source-map',
