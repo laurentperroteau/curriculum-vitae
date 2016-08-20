@@ -7,6 +7,6 @@
  * @description : this config is using by karma config to watch all test files
  */
 
-const testsContext = require.context('./', true, /-test\.js$/)
+const testsContext = require.context('./screens', true, /-test\.js$/)
 
 testsContext.keys().forEach( testsContext )

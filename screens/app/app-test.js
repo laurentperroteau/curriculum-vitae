@@ -3,7 +3,7 @@ const assert = require('chai').assert
 
 import appCtrl from 'myScreens/app/appCtrl'
 
-describe('Init app :', () => {
+describe('Screen APP => init app :', () => {
 
     // inject the HTML fixture for the tests
     beforeEach(function() {

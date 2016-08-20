@@ -28,7 +28,7 @@ const oTab = {
     ]
 }
 
-describe('Array of tab :', () => {
+describe('Screen TAB => functions used for array of tab :', () => {
 
     describe('Function getIndexTabByName', () => {
 
@@ -134,6 +134,10 @@ describe('Array of tab :', () => {
         })          
     })
 
+})
+
+describe('Screen TAB => event :', () => {
+    
     describe('Function showFile', () => {
 
         const Tab = new TabClass('tab')
