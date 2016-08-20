@@ -183,13 +183,6 @@ class TabClass extends CreateScreenClass {
         this._activeTabByIndex( i )
     }
 
-    _showFile( sFileFullPath ) {
-
-        PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
-
-        log( 'PUBLISH display file event of ' + sFileFullPath )
-    }
-
     _bindUnbindOpenEvent( nItem, sType ) {
 
         if( sType == 'add' ) {
@@ -219,8 +212,19 @@ class TabClass extends CreateScreenClass {
     }
 
 
-    // Array tabs method tested
-    // ------------------------
+    // Tabs event tested
+    // -----------------
+
+    _showFile( sFileFullPath ) {
+
+        PubSub.publish( 'DISPLAY_FILE', sFileFullPath )
+
+        log( 'PUBLISH display file event of ' + sFileFullPath )
+    }
+    
+
+    // Array tabs method (tested)
+    // --------------------------
 
     _getIndexTabByName( sFileName ) {
 
