@@ -18,7 +18,7 @@ module.exports = function (config) {
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap'],
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['mocha', 'coverage'],
     webpack: {
       cache: true,
       devtool: 'inline-source-map',
@@ -53,8 +53,31 @@ module.exports = function (config) {
                     presets: ['es2015']
                 }
             },
-        ],
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            }
+        ]
       },
+      resolve: {
+        extensions: ['', '.js', '.json'],
+        alias: {
+            config: './config.js',
+            // Alias of dir
+            // @use => import getAsync from 'myComponents/...'
+            // @use => require('myComponents/...')
+            myComponents: path.resolve( __dirname, 'components'),
+            myScreens: path.resolve( __dirname, 'screens'), 
+            myFiles: path.resolve( __dirname, 'tree'), 
+            // Global lib
+            prims: './libs/prims/prism.js',
+            markdown: './node_modules/markdown/lib/markdown.js'
+        }
+    },
     },
   });
 };

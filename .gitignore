@@ -2,6 +2,7 @@ app/
 tree/
 !screens/tree/
 exemple/
+coverage
 *.sublime-project
 *.sublime-workspace
 node_modules

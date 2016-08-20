@@ -22,17 +22,16 @@
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "cssnext": "^1.8.4",
-    "eslint": "^3.0.1",
-    "eslint-loader": "^1.4.0",
     "cssnext-loader": "^1.0.1",
     "eslint": "^3.0.1",
     "eslint-loader": "^1.4.0",
     "html-loader": "^0.4.3",
-    "jasmine-core": "^2.4.1", 
+    "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^2.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "lodash": "^4.11.2",
@@ -48,7 +47,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "karma start --single-run --no-auto-watch karma.config.js"
+    "test": "karma start karma.config.js"
   },
   "author": "",
   "license": "ISC"

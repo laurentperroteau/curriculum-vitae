@@ -9,7 +9,7 @@ const precss       = require('precss')
 const cssnext      = require('cssnext')
 const normalize    = require('postcss-normalize')
 
-
+// TODO : déplacer dans dossier config, faire un fichier avec config global (utile à karma)
 module.exports = {
     context: __dirname,
     entry: {

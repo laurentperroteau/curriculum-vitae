@@ -1,4 +1,3 @@
-'use strict'
 
 const assert = require('chai').assert
 const _ = require('lodash')
@@ -140,12 +139,12 @@ describe('Array of tab :', () => {
         const Tab = new TabClass('tab')
         Tab.setData( _.cloneDeep( oTab ) ) 
 
-        it('should publish fullPath of file on DISPLAY_FILE subscription', () => {
-
+        it('should publish fullPath of file on DISPLAY_FILE subscription', (done) => {
 
             PubSub.subscribe( 'DISPLAY_FILE', function ( msg, data ) {
 
                 assert.strictEqual( data, oTab.tab[0].fullPath )
+                done()
             })
 
             Tab._showFile( oTab.tab[0].fullPath )

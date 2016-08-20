@@ -32,9 +32,9 @@ else {
         // Extending Prims : add class .keyword-nameOfKeyword
         Prism.hooks.add('wrap', function(env) {
             if (env.type !== "keyword") {
-                return;
+                return
             }
-            env.classes.push('keyword-' + env.content);
+            env.classes.push('keyword-' + env.content)
         });
 
         appCtrl()
@@ -42,5 +42,5 @@ else {
         tabCtrl.init()
         editorCtrl()
         gutterCtrl()
-    })();
+    })()
 }
