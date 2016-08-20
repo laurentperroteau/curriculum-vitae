@@ -5,7 +5,7 @@ const path = require('path')
 module.exports =  {
     extensions: ['', '.js', '.json'],
     alias: {
-        config: './config.js',
+        config: path.resolve( __dirname, 'global.config.js'),
         // Alias of dir
         // @use => import getAsync from 'myComponents/...'
         // @use => require('myComponents/...')
