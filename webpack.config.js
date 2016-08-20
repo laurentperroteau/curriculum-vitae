@@ -1,7 +1,8 @@
 const Webpack = require('webpack')
 
-// Used to resolve absolute path to project's root directory
-const path = require('path')
+// Parts of config
+const myWebpackModule = require('./config/webpack.module.js')
+const myWebpackResolve = require('./config/webpack.resolve.js')
 
 // PostCSS plugin
 const autoprefixer = require('autoprefixer')
@@ -9,60 +10,17 @@ const precss       = require('precss')
 const cssnext      = require('cssnext')
 const normalize    = require('postcss-normalize')
 
-// TODO : déplacer dans dossier config, faire un fichier avec config global (utile à karma)
 module.exports = {
     context: __dirname,
     entry: {
-        app: './app.js',
-        test: 'mocha!./test.js'
+        app: './app.js'/*,
+        test: 'mocha!./test.js'*/
     },
     output: {
         filename: './[name]/[name]Bundle.js'
     },
-
-    module: {
-        preLoaders: [
-            {
-                test: /\.js$/, 
-                loader: "eslint-loader", 
-                exclude: /node_modules|libs/
-            }
-        ],
-        loaders: [
-            {
-                test: /\.js/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    cacheDirectory: true, 
-                    presets: ['es2015']
-                }
-            },
-            {
-                test:   /\.css$/,
-                loader: "style-loader!css-loader!postcss-loader"
-            },
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['', '.js', '.json'],
-        alias: {
-            config: './config.js',
-            // Alias of dir
-            // @use => import getAsync from 'myComponents/...'
-            // @use => require('myComponents/...')
-            myComponents: path.resolve( __dirname, 'components'),
-            myScreens: path.resolve( __dirname, 'screens'), 
-            myFiles: path.resolve( __dirname, 'tree'), 
-            // Global lib
-            prims: './libs/prims/prism.js',
-            markdown: './node_modules/markdown/lib/markdown.js'
-        }
-    },
+    module: myWebpackModule,
+    resolve: myWebpackResolve,
     eslint: {
         configFile: './.eslintrc'
     },
