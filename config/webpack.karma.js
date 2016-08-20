@@ -1,8 +1,8 @@
 const path = require('path')
 
 // Parts of config
-const myWebpackModule = require('./config/webpack.module.js')
-const myWebpackResolve = require('./config/webpack.resolve.js')
+const myWebpackModule = require('./webpack.module.js')
+const myWebpackResolve = require('./webpack.resolve.js')
 
 module.exports = function(config) {
     
@@ -20,13 +20,16 @@ module.exports = function(config) {
             ]
         },
         files: [
-            'tests.webpack.js',
+            '../webpack.test.config.js',
         ],
         frameworks: [
             'jasmine',
         ],
         preprocessors: {
-            'tests.webpack.js': ['webpack', 'sourcemap'],
+            '../webpack.test.config.js': [
+                'webpack', 
+                'sourcemap'
+            ]
         },
         reporters: ['mocha', 'coverage'],
         webpack: {
