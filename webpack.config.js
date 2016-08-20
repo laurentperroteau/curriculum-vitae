@@ -14,7 +14,7 @@ module.exports = {
     context: __dirname,
     entry: {
         app: './app.js',
-        test: 'mocha!./test/test.js'
+        test: 'mocha!./test.js'
     },
     output: {
         filename: './[name]/[name]Bundle.js'

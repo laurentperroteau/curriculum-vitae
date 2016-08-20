@@ -1,8 +1,8 @@
 
 // Globals
-require('expose?config!config');
-require('expose?Prims!prims');
-require('expose?Markdown!markdown');
+require('expose?config!config')
+require('expose?Prims!prims')
+require('expose?Markdown!markdown')
 
 // Functions
 import supportPromise from './components/support/promise'

@@ -8,6 +8,8 @@ require('expose?config!config');
 require('expose?Prims!prims');
 require('expose?Markdown!markdown');
 
+import tabCtrl from './screens/tab/tabCtrl'
+
 import TabClass from 'myScreens/tab/TabClass'
 
 const oTab = {
