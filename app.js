@@ -9,11 +9,11 @@ import supportPromise from './components/support/promise'
 import log from './components/log/log'
 
 // Controllers
-import appCtrl from './screens/app/appCtrl'
-import treeCtrl from './screens/tree/treeCtrl'
-import tabCtrl from './screens/tab/tabCtrl'
-import editorCtrl from './screens/editor/editorCtrl'
-import gutterCtrl from './screens/gutter/gutterCtrl'
+import appCtrl from 'myScreens/app/appCtrl'
+import treeCtrl from 'myScreens/tree/treeCtrl'
+import tabCtrl from 'myScreens/tab/tabCtrl'
+import editorCtrl from 'myScreens/editor/editorCtrl'
+import gutterCtrl from 'myScreens/gutter/gutterCtrl'
 
 //Start app
 if( !supportPromise() ) {
