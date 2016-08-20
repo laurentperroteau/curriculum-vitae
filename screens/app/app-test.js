@@ -1,6 +1,8 @@
 
 const assert = require('chai').assert
 
+require('expose?config!config')
+
 import appCtrl from 'myScreens/app/appCtrl'
 
 describe('Screen APP => init app :', () => {
