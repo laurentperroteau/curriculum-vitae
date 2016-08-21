@@ -10,13 +10,15 @@ import $http from 'myComponents/async/http'
  */
 const LogCtrl = ( sMsg, bError = false ) => {
 
-    if( config.ENV == 'development' ) {
-
+    if( typeof config == 'undefined'  ) {
+        displayLog( sMsg, bError )
+    }
+    else if( config.ENV == 'development' ) {
         displayLog( sMsg, bError )
     }
     else {
-        if( bError ) {
 
+        if( bError ) {
             console.warn('%c' + sMsg, 'color: red')
         }
         else {

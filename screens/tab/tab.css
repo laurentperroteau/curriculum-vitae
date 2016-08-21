@@ -67,6 +67,7 @@
             }
 
             .btn-reset {
+                overflow: hidden;
                 height: var( --editor-tab-height );
             }
         }
