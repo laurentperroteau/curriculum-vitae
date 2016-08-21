@@ -49,13 +49,13 @@
     ul ul ul {
         padding-left: 8px;
         
-        ul {
+        /*ul {
             padding-left: 16px;
             
             ul {
                 padding-left: 24px;
             }
-        }
+        }*/
     }
 
     &__item {

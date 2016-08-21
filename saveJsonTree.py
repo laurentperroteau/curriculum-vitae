@@ -28,7 +28,9 @@ def path_to_dict( path, my_string = None ):
         '.eslintrc',
         'testBundle.js',
         'test.html',
-        'appBundle.js'
+        'appBundle.js',
+        'webpack.production.config.js',
+        'webpack.test.config.js'
     ) 
 
     if os.path.isdir(path):

@@ -5,7 +5,6 @@ import appCtrl from 'myScreens/app/appCtrl'
 
 describe('Screen APP => init app :', () => {
 
-    // inject the HTML fixture for the tests
     beforeEach(function() {
 
         document.body.insertAdjacentHTML(

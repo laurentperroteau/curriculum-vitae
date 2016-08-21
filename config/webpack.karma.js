@@ -8,7 +8,11 @@ module.exports = function(config) {
     
     config.set({
         basePath: '.',
-        browsers: ['Chrome'],
+        browsers: [
+            'Chrome'
+            'Firefox',
+            'IE'
+        ],
         files: [
             '../webpack.test.config.js'
         ],

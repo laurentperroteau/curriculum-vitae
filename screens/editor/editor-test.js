@@ -9,7 +9,6 @@ import EditorClass from 'myScreens/editor/EditorClass'
 
 describe('Screen EDITOR :', () => {
 
-    // Inject the HTML fixture for the tests
     beforeEach( function() {
 
         document.body.insertAdjacentHTML(
