@@ -51,12 +51,12 @@ const $http = ( sUrl ) => {
                     } 
                     else {
                         // Performs the function "reject" when this.status is different than 2xx
-                        reject(this.statusText)
+                        reject( this.status +' - '+ this.statusText)
                     }
                 }
 
                 client.onerror = function() {
-                    reject(this.statusText)
+                    reject( this.status +' - '+ this.statusText)
                 }
             })
 
