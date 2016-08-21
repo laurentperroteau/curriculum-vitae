@@ -1,5 +1,4 @@
 
-const assert = require('chai').assert
 const _ = require('lodash')
 
 const PubSub = require('pubsub-js')
@@ -35,12 +34,12 @@ describe('Screen TAB => functions used for array of tab :', () => {
         const Tab = new TabClass('tab')
         Tab.setData( _.cloneDeep( oTab ) )
 
-        it('should return at least 1', () => {
-            assert.isAtLeast( Tab._getIndexTabByName('test.css'), 1 )
+        it('on existing tab, should return index 1', () => {
+            expect( Tab._getIndexTabByName('test.css') ).toBe( 1 )
         })
 
-        it('should return -1', () => {
-            assert.strictEqual( Tab._getIndexTabByName('wrong.css'), -1 )
+        it('on not existing tab, should return -1', () => {
+            expect( Tab._getIndexTabByName('wrong.css') ).toBe( -1 )
         })
     })
 
@@ -50,7 +49,7 @@ describe('Screen TAB => functions used for array of tab :', () => {
         Tab.setData( _.cloneDeep( oTab ) )
 
         it('should return index 0', () => {
-            assert.strictEqual( Tab._getIndexActiveTab(), 0 )
+            expect( Tab._getIndexActiveTab() ).toBe( 0 )
         })
     })
 
@@ -63,20 +62,20 @@ describe('Screen TAB => functions used for array of tab :', () => {
         const iTabLength = Tab.oData.tab.length
         const iTab = Tab._getIndexTabByName('test.css')
 
-        it('should return index 1 (function getIndexTabByName)', () => {
+        it('before delete, should return index 1 (function getIndexTabByName)', () => {
 
-            assert.isAtLeast( iTab, 1 )
+            expect( iTab ).toBe( 1 )
         })
 
-        it('delete tab and return object with length equal to '+ (iTabLength - 1), () => {
+        it('after delete tab, should return object with length equal to '+ (iTabLength - 1), () => {
 
             Tab._deleteTabByIndex( iTab )
 
-            assert.lengthOf( Tab.oData.tab, iTabLength - 1 )
+            expect( Tab.oData.tab.length ).toBe( iTabLength - 1 )
         })
     })
 
-    describe('Delete all tabs (function deleteTabByIndex)', () => {
+    describe('Function deleteTabByIndex (delete all tabs)', () => {
         
         const Tab = new TabClass('tab')
 
@@ -88,9 +87,9 @@ describe('Screen TAB => functions used for array of tab :', () => {
         Tab._deleteTabByIndex( 1 )
         Tab._deleteTabByIndex( 0 )
 
-        it('and return length of 0', () => {
+        it('after delete all tabs, should return length of 0', () => {
 
-            assert.lengthOf( Tab.oData.tab, 0 )
+            expect( Tab.oData.tab.length).toBe( 0 )
         })
     })
 
@@ -104,7 +103,7 @@ describe('Screen TAB => functions used for array of tab :', () => {
         const sNameNewTab = 'newTab.js';
         const iTab = Tab._getIndexTabByName( sNameNewTab )
 
-        it('should add tab and length increment by '+ (iTabLength + 1), () => {
+        it('should add tab and length increment to '+ (iTabLength + 1), () => {
 
             if( iTab !== -1 ) {
 
@@ -114,7 +113,7 @@ describe('Screen TAB => functions used for array of tab :', () => {
 
                 Tab._addTabWithName( sNameNewTab )
 
-                assert.lengthOf( Tab.oData.tab, iTabLength + 1 )
+                expect( Tab.oData.tab.length ).toBe( iTabLength + 1 )
             }
         })            
     })
@@ -130,7 +129,7 @@ describe('Screen TAB => functions used for array of tab :', () => {
 
             Tab._activeTabByIndex( 2 )
 
-            assert.strictEqual( Tab._getIndexActiveTab(), 2 )
+            expect( Tab._getIndexActiveTab() ).toBe( 2 )
         })          
     })
 
@@ -147,7 +146,7 @@ describe('Screen TAB => event :', () => {
 
             PubSub.subscribe( 'DISPLAY_FILE', function ( msg, data ) {
 
-                assert.strictEqual( data, oTab.tab[0].fullPath )
+                expect( data ).toBe( oTab.tab[0].fullPath )
                 done()
             })
 

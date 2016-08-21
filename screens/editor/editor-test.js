@@ -1,6 +1,4 @@
 
-const assert = require('chai').assert
-
 require('expose?config!config')
 
 import editorCtrl from 'myScreens/editor/editorCtrl'
@@ -31,8 +29,10 @@ describe('Screen EDITOR => init editor :', () => {
 
             Editor.initCodeCtn( 'jsCodeContent' )
             
-            assert.notEqual( document.getElementById('jsCodeContent'), null )
+            expect( document.getElementById('jsCodeContent') ).not.toBeNull()
         })
+
+        it('should not empty when adding code')
 
         /*it('should not empty when adding code', (done) => {
 
@@ -51,7 +51,7 @@ describe('Screen EDITOR => init editor :', () => {
                 })
         })*/
 
-        /*it('should not empty when adding code', () => {
+        xit('should not empty when adding code', () => {
 
             const Editor = new EditorClass('editor')
     
@@ -60,6 +60,8 @@ describe('Screen EDITOR => init editor :', () => {
             Editor.initCodeCtn( 'jsCodeContent' )
 
             assert.notEqual( document.getElementById('jsCodeContent').innerHTML, '' )
-        })*/
+
+            pending()
+        })
     })
 })

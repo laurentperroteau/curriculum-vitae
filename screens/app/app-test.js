@@ -1,6 +1,4 @@
 
-const assert = require('chai').assert
-
 require('expose?config!config')
 
 import appCtrl from 'myScreens/app/appCtrl'
@@ -21,11 +19,12 @@ describe('Screen APP => init app :', () => {
     describe('Bar on top', () => {
 
         it('should be exist', () => {
-            assert.notEqual( document.querySelector('.app__bar__top'), null )
+            expect( document.querySelector('.app__bar__top') ).not.toBeNull()
         })
 
         it('should have path text', () => {
-            assert.equal( document.querySelector('.app__bar__top').innerHTML.trim(), '/home/laurentperroteau/www/cv/web/' )
+            expect( document.querySelector('.app__bar__top').innerHTML.trim() )
+            .toBe('/home/laurentperroteau/www/cv/web/')
         })
     })
 })
