@@ -1,67 +1,47 @@
 
 require('expose?config!config')
 
-import editorCtrl from 'myScreens/editor/editorCtrl'
 import $http from 'myComponents/async/http'
 
 import tabCtrl from 'myScreens/tab/tabCtrl'
 
 import EditorClass from 'myScreens/editor/EditorClass'
 
-describe('Screen EDITOR => init editor :', () => {
+describe('Screen EDITOR :', () => {
 
     // Inject the HTML fixture for the tests
-    beforeEach(function() {
+    beforeEach( function() {
 
         document.body.insertAdjacentHTML(
             'afterbegin', 
             '<div id="jsEditor" class="editor"></div>'
         )
-    });
 
-    describe('Code container', () => {
+        this.Editor = new EditorClass('editor')
 
-        it('should be exist', () => {
+        this.Editor.initTemplate()
 
-            const Editor = new EditorClass('editor')
-    
-            Editor.initTemplate()
+        this.Editor.setMarkdownCtn( 'jsMarkdownContent' )
+        this.Editor.initCodeCtn( 'jsCodeContent' )
 
-            Editor.initCodeCtn( 'jsCodeContent' )
-            
-            expect( document.getElementById('jsCodeContent') ).not.toBeNull()
-        })
+    })
 
-        it('should not empty when adding code')
+    it('code container should be exist', function() {
+        
+        expect( document.getElementById('jsCodeContent') ).not.toBeNull()
+    })
 
-        /*it('should not empty when adding code', (done) => {
+    it('and should be setting to class', function() {
+        
+        expect( this.Editor.nCodeCtn ).not.toBeNull()
+    })
 
-            const Editor = new EditorClass('editor')
-    
-            Editor.initTemplate()
+    it('setting HTML string using Editor._displayOutput should insert HTML to container', function() {
 
-            Editor.initCodeCtn( 'jsCodeContent' )
+        let exHTML = '<div>Coucou</div>'
 
-            $http('./content/demo.js')
-                .get()
-                .then( (data) => {
+        this.Editor._displayOutput( exHTML, 'language-js' )
 
-                    assert.notEqual( data, '' )
-                    done()                        
-                })
-        })*/
-
-        xit('should not empty when adding code', () => {
-
-            const Editor = new EditorClass('editor')
-    
-            Editor.initTemplate()
-
-            Editor.initCodeCtn( 'jsCodeContent' )
-
-            assert.notEqual( document.getElementById('jsCodeContent').innerHTML, '' )
-
-            pending()
-        })
+        expect( this.Editor.nCodeCtn.innerHTML ).toBe( exHTML )               
     })
 })

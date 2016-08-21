@@ -147,7 +147,7 @@ class EditorClass extends CreateScreenClass {
         // Remove spellcheck
         this._disableSpellCheck( this.nCodeCtn )
 
-        if( sLanguage != 'markdown-body' ) {
+        if( typeof Prism != 'undefined' && sLanguage != 'markdown-body' ) {
             Prism.highlightAll()
         }
 
