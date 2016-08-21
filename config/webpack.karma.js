@@ -20,7 +20,7 @@ module.exports = function(config) {
                 'sourcemap'
             ]
         },
-        reporters: ['mocha'],
+        reporters: ['spec'],
         webpack: {
             cache: true,
             devtool: 'inline-source-map',
