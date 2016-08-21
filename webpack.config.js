@@ -38,5 +38,8 @@ module.exports = {
             autoprefixer,
             normalize
         ]
+    },
+    devServer: {
+        stats: 'errors-only'
     }
 }
