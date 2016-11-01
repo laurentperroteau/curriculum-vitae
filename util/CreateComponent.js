@@ -14,7 +14,7 @@ rivets.configure({
  *
  * @param string sName normalise name of screen
  */
-class CreateScreenClass {
+class CreateComponent {
 
     constructor( sName ) {
 
@@ -60,5 +60,15 @@ class CreateScreenClass {
             }
         }
     }
+
+    setEventOnNodeList(event, selector, method) {
+
+        const nItemS = this.nComponent.querySelectorAll( selector )
+
+        Array.from( nItemS ).forEach( ( nItem ) => {
+
+            nItem.addEventListener(event, (e) => this[ method ](e), false )
+        });
+    }
 }
-export default CreateScreenClass
+export default CreateComponent

@@ -3,11 +3,11 @@ import $http from 'myService/async/http'
 const PubSub = require('pubsub-js')
 
 import log from 'myService/log/log'
-import CreateScreenClass from 'myUtil/CreateScreenClass'
+import CreateComponent from 'myUtil/CreateComponent'
 import WriteClass from 'myService/write/WriteClass'
 
     
-class EditorClass extends CreateScreenClass {
+class EditorClass extends CreateComponent {
 
     constructor( sName ) {
         super( sName )

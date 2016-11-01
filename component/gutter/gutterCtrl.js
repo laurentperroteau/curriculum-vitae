@@ -1,4 +1,4 @@
-import GutterClass from 'myComponent/gutter/GutterClass'
+import GutterComponent from 'myComponent/gutter/GutterComponent'
 
 const gutterCtrl = () => {
 
@@ -18,7 +18,7 @@ const gutterCtrl = () => {
         }
     }        
 
-    const Gutter = new GutterClass('gutter')
+    const Gutter = new GutterComponent('gutter')
 
     Gutter.setData( oLine )
 
