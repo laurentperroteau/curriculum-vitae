@@ -1,5 +1,5 @@
-import log from 'myComponents/log/log'
-import LogCtrl from 'myComponents/log/LogCtrl'
+import log from 'myService/log/log'
+import LogCtrl from 'myService/log/LogCtrl'
 
 class LinkedIn {
 

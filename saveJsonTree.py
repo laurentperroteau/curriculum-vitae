@@ -11,7 +11,8 @@ def path_to_dict( path, my_string = None ):
 
     tExclude = (
         '.git', 
-        'node_modules', 
+        '.idea',
+        'node_modules',
         'exemple', 
         'libs',  
         'tree', 

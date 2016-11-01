@@ -5,8 +5,8 @@ require('expose?Prims!prims')
 require('expose?Markdown!markdown')
 
 // Functions
-import supportPromise from './components/support/promise'
-import log from './components/log/log'
+import supportPromise from './service/support/promise'
+import log from './service/log/log'
 
 // Controllers
 import appCtrl from 'myScreens/app/appCtrl'

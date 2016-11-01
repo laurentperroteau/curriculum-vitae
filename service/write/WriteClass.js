@@ -1,4 +1,4 @@
-import log from 'myComponents/log/log'
+import log from 'myService/log/log'
 import writeChar from './writeChar';
 
 class WriteClass {

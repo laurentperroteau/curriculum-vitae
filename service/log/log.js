@@ -1,5 +1,5 @@
 import displayLog from './displayLog'
-import $http from 'myComponents/async/http'
+import $http from 'myService/async/http'
 
 /**
  * Display alert

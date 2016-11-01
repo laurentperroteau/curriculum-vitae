@@ -5,10 +5,10 @@ const _fp_findIndex = require('lodash/fp/findIndex')
 
 const PubSub = require('pubsub-js')
 
-import store from 'myComponents/localStorage/store'
-import log from 'myComponents/log/log'
+import store from 'myService/localStorage/store'
+import log from 'myService/log/log'
 
-import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
+import CreateScreenClass from 'myUtil/CreateScreenClass'
 
 class TabClass extends CreateScreenClass {
 

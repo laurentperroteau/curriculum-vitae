@@ -1,6 +1,6 @@
 // ... extract of screens/editor/editorCtrl.js ...
 
-import $http from 'myComponents/async/http'
+import $http from 'myService/async/http'
 import EditorClass from 'myScreens/editor/EditorClass'
 import tabCtrl from 'myScreens/tab/tabCtrl'
 

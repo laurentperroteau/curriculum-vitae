@@ -1,4 +1,4 @@
-import $http from 'myComponents/async/http'
+import $http from 'myService/async/http'
 
 import EditorClass from 'myScreens/editor/EditorClass'
 

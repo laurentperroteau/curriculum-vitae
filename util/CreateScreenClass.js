@@ -1,4 +1,4 @@
-import log from 'myComponents/log/log'
+import log from 'myService/log/log'
 
 const _fp_camelCase = require('lodash/fp/camelCase')
 

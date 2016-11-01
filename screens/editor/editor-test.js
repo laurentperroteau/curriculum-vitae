@@ -1,7 +1,7 @@
 
 require('expose?config!config')
 
-import $http from 'myComponents/async/http'
+import $http from 'myService/async/http'
 
 import tabCtrl from 'myScreens/tab/tabCtrl'
 

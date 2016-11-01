@@ -1,4 +1,4 @@
-import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
+import CreateScreenClass from 'myUtil/CreateScreenClass'
     
 class GutterClass extends CreateScreenClass {
 

@@ -1,10 +1,10 @@
-import $http from 'myComponents/async/http'
+import $http from 'myService/async/http'
 
 const PubSub = require('pubsub-js')
 
-import log from 'myComponents/log/log'
-import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
-import WriteClass from 'myComponents/write/WriteClass'
+import log from 'myService/log/log'
+import CreateScreenClass from 'myUtil/CreateScreenClass'
+import WriteClass from 'myService/write/WriteClass'
 
     
 class EditorClass extends CreateScreenClass {

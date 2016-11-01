@@ -1,7 +1,7 @@
-import log from 'myComponents/log/log'
-import $http from 'myComponents/async/http'
+import log from 'myService/log/log'
+import $http from 'myService/async/http'
 
-import CreateScreenClass from 'myComponents/createScreen/CreateScreenClass'
+import CreateScreenClass from 'myUtil/CreateScreenClass'
 
 const PubSub = require('pubsub-js')
     

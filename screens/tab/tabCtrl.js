@@ -1,6 +1,6 @@
 const _fp_concat = require('lodash/fp/concat')
 
-import store from 'myComponents/localStorage/store'
+import store from 'myService/localStorage/store'
 
 import TabClass from 'myScreens/tab/TabClass'
 
