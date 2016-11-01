@@ -13,8 +13,8 @@ const fs       = require('fs')
 // Set express
 const app      = express()
 
-const markdown = require( "markdown" ).markdown
-const config   = require('./config.js')
+const markdown = require('markdown').markdown
+const config   = require('./config/global.config')
 
 // Active prerender.io
 app.use( require('prerender-node') )

@@ -4,6 +4,7 @@ tree/
 exemple/
 *.sublime-project
 *.sublime-workspace
+.idea
 node_modules
 NOTES.md
 Article.md
