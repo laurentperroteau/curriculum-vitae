@@ -2,7 +2,7 @@ const _fp_concat = require('lodash/fp/concat')
 
 import store from 'myService/localStorage/store'
 
-import TabClass from 'myComponent/tab/TabClass'
+import TabComponent from 'myComponent/tab/TabComponent'
 
 const PubSub = require('pubsub-js')
 
@@ -36,13 +36,14 @@ const tabCtrl = {
             )
         }
 
-        this.Tab = new TabClass('tab')
+        this.Tab = new TabComponent('tab')
 
         this.Tab.setData( oTab )
 
         this.Tab.initTemplate()
 
-        this.Tab.openEventOnLoad()
+        // this.Tab.openEventOnLoad()
+        this.Tab.setEventOnNodeList('click', '.jsEventTabItem', 'openTab')
         this.Tab.closeEventOnLoad()
 
 
