@@ -3,9 +3,9 @@ const _ = require('lodash')
 
 const PubSub = require('pubsub-js')
 
-import tabCtrl from 'myScreens/tab/tabCtrl'
+import tabCtrl from 'myComponent/tab/tabCtrl'
 
-import TabClass from 'myScreens/tab/TabClass'
+import TabClass from 'myComponent/tab/TabClass'
 
 const oTab = {
     "tab": [

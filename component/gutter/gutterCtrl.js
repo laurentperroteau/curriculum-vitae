@@ -1,4 +1,4 @@
-import GutterClass from 'myScreens/gutter/GutterClass'
+import GutterClass from 'myComponent/gutter/GutterClass'
 
 const gutterCtrl = () => {
 

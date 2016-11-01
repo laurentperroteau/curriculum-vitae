@@ -5,15 +5,15 @@ require('expose?Prims!prims')
 require('expose?Markdown!markdown')
 
 // Functions
-import supportPromise from './service/support/promise'
-import log from './service/log/log'
+import supportPromise from 'myService/support/promise'
+import log from 'myService/log/log'
 
 // Controllers
-import appCtrl from 'myScreens/app/appCtrl'
-import treeCtrl from 'myScreens/tree/treeCtrl'
-import tabCtrl from 'myScreens/tab/tabCtrl'
-import editorCtrl from 'myScreens/editor/editorCtrl'
-import gutterCtrl from 'myScreens/gutter/gutterCtrl'
+import appCtrl from 'myComponent/app/appCtrl'
+import treeCtrl from 'myComponent/tree/treeCtrl'
+import tabCtrl from 'myComponent/tab/tabCtrl'
+import editorCtrl from 'myComponent/editor/editorCtrl'
+import gutterCtrl from 'myComponent/gutter/gutterCtrl'
 
 //Start app
 if( !supportPromise() ) {

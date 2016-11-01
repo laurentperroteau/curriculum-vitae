@@ -9,9 +9,8 @@ module.exports =  {
 
         // Alias of dir
         // @use => import getAsync from 'myService/...'
-        // @use => require('myComponents/...')
-        myComponents: path.resolve( '${__dirname}/..', 'components'),
-        myScreens: path.resolve( '${__dirname}/..', 'screens'), 
+        // @use => require('myComponent/...')
+        myComponent: path.resolve( '${__dirname}/..', 'component'),
         myService: path.resolve( '${__dirname}/..', 'service'),
         myUtil: path.resolve( '${__dirname}/..', 'util'),
 

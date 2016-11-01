@@ -1,8 +1,8 @@
 // ... extract of screens/editor/editorCtrl.js ...
 
 import $http from 'myService/async/http'
-import EditorClass from 'myScreens/editor/EditorClass'
-import tabCtrl from 'myScreens/tab/tabCtrl'
+import EditorClass from 'myComponent/editor/EditorClass'
+import tabCtrl from 'myComponent/tab/tabCtrl'
 
 const editorCtrl = () => {
 

@@ -33,10 +33,10 @@ class CreateScreenClass {
         const sPath = `${this.sName}/${this.sName}`
 
         // Get template htlm
-        const html = require( 'myScreens/'+ sPath + '.html' )
+        const html = require( 'myComponent/'+ sPath + '.html' )
 
         // Add CSS
-        require( 'myScreens/'+ sPath + '.css' )
+        require( 'myComponent/'+ sPath + '.css' )
         
         // Insert HTML
         if( this.nComponent === null ) {

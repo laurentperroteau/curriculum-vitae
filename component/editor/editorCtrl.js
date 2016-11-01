@@ -1,8 +1,8 @@
 import $http from 'myService/async/http'
 
-import EditorClass from 'myScreens/editor/EditorClass'
+import EditorClass from 'myComponent/editor/EditorClass'
 
-import tabCtrl from 'myScreens/tab/tabCtrl'
+import tabCtrl from 'myComponent/tab/tabCtrl'
 
 const PubSub = require('pubsub-js')
 

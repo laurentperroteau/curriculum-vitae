@@ -3,9 +3,9 @@ require('expose?config!config')
 
 import $http from 'myService/async/http'
 
-import tabCtrl from 'myScreens/tab/tabCtrl'
+import tabCtrl from 'myComponent/tab/tabCtrl'
 
-import EditorClass from 'myScreens/editor/EditorClass'
+import EditorClass from 'myComponent/editor/EditorClass'
 
 describe('Screen EDITOR :', () => {
 
