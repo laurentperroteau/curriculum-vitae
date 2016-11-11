@@ -1,12 +1,14 @@
 
 module.exports = {
-    preLoaders: [
+
+    // TODO: fix error in node_modules on production
+    /*preLoaders: [
         {
             test: /\.js$/, 
             loader: "eslint-loader", 
             exclude: /node_modules|libs/
         }
-    ],
+    ],*/
     loaders: [
         {
             test: /\.js/,
