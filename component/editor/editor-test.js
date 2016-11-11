@@ -5,7 +5,7 @@ import $http from 'myService/async/http'
 
 import tabCtrl from 'myComponent/tab/tabCtrl'
 
-import EditorClass from 'myComponent/editor/EditorClass'
+import EditorClass from 'myComponent/editor/EditorComponent'
 
 describe('Screen EDITOR :', () => {
 

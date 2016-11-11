@@ -21,16 +21,6 @@ class TabClass extends CreateComponent {
         this.sFileFullPath = ''
     }
 
-    openEventOnLoad() {
-
-        const nItemS = this.nComponent.querySelectorAll('.jsEventTabItem')
-
-        Array.from( nItemS ).forEach( ( nItem ) => {
-
-            this._bindUnbindOpenEvent( nItem, 'add' )
-        })
-    }
-
     closeEventOnLoad() {
 
         const nItemS = this.nComponent.querySelectorAll('.jsEventTabItemClose')

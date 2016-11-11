@@ -1,13 +1,10 @@
 import $http from 'myService/async/http'
 
-const PubSub = require('pubsub-js')
-
 import log from 'myService/log/log'
 import CreateComponent from 'myUtil/CreateComponent'
 import WriteClass from 'myService/write/WriteClass'
 
-    
-class EditorClass extends CreateComponent {
+class EditorComponent extends CreateComponent {
 
     constructor( sName ) {
         super( sName )
@@ -39,7 +36,7 @@ class EditorClass extends CreateComponent {
      * Init writting
      * =============
      * @param  {string} sCode => code to display
-     * @return {$promise}       
+     * @return {Promise}
      */
     initWrite( sCode ) {
 
@@ -187,7 +184,6 @@ class EditorClass extends CreateComponent {
         return String(html).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
     }
 
-
     _disableSpellCheck( nElem ) {
 
         nElem.spellcheck = false;
@@ -195,4 +191,4 @@ class EditorClass extends CreateComponent {
         nElem.blur();
     }
 }
-export default EditorClass
+export default EditorComponent

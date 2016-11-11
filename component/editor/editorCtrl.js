@@ -1,6 +1,6 @@
 import $http from 'myService/async/http'
 
-import EditorClass from 'myComponent/editor/EditorClass'
+import EditorClass from 'myComponent/editor/EditorComponent'
 
 import tabCtrl from 'myComponent/tab/tabCtrl'
 
