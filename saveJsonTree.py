@@ -37,7 +37,7 @@ def path_to_dict( path, my_string = None ):
 
     if os.path.isdir(path):
 
-        dTree['isFolder'] = Tr
+        dTree['isFolder'] = True
         dTree['children'] = []
 
         dPaths = [os.path.join(path,x) for x in os.listdir(path)]
