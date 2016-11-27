@@ -60,11 +60,11 @@
 
         .jsisfolder {
 
-            + ul {
+            /*+ ul {
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 100ms linear;
-            }
+            }*/
         }
 
         &--level1 .jsisfolder.jsIsOpen + ul {

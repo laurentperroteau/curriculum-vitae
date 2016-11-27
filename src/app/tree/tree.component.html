@@ -1,3 +1,79 @@
-<p>
-  tree works!
-</p>
+<ul>
+    <li
+        class="
+          tree__item
+          tree__item--root">
+        <span
+            class="
+                btn-tree
+                btn-tree--folder">
+            {{ tree.title }}
+        </span>
+        <ul>
+            <li
+                *ngFor="let level1 of tree.tree?.children"
+                class="
+                    tree__item
+                    tree__item--level1">
+                {{ level1.name }}
+                <button
+                    type="button"
+                    class="
+                        jsEventMenuItem
+                        btn-reset
+                        btn-tree"
+                    [ngClass]="{
+                        'btn-tree--folder': level1.isFolder,
+                        'btn-tree--arrow': level1.isFolder,
+                        'jsisfolder': level1.isFolder
+                    }"
+                    data-name="level1.name"
+                    data-full-path="level1.fullPath">
+                    {{ level1.name }}
+                </button>
+                <ul>
+                    <li
+                        *ngFor="let level2 of level1.children"
+                        class="
+                            tree__item
+                            tree__item--level2">
+                        <button
+                            type="button"
+                            class="
+                                jsEventMenuItem
+                                btn-reset
+                                btn-tree"
+                            [ngClass]="{
+                                'btn-tree--folder': level2.isFolder,
+                                'btn-tree--arrow': level2.isFolder,
+                                'jsisfolder': level2.isFolder
+                            }"
+                            data-name="level2.name"
+                            data-full-path="level2.fullPath">
+                            {{ level2.name }}
+                        </button>
+                        <!--<ul>
+                            <li
+                                my-each-level3="level2.children"
+                                    class="
+                                    tree__item
+                                    tree__item--level3">
+                                <button
+                                    type="button"
+                                    class="
+                                        jsEventMenuItem
+                                        btn-reset
+                                        btn-tree"
+                                    my-class-btn-tree--folder="level3.isFolder"
+                                    my-data-name="level3.name"
+                                    my-data-full-path="level3.fullPath">
+                                    {{ level3.name }}
+                                </button>
+                            </li>
+                        </ul>-->
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
