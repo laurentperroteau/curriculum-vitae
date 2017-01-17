@@ -19,8 +19,11 @@ Développeur Web depuis 5 ans, spécialisé Front-End depuis 4 ans, référent t
 Expérience :
 ------------
 
+### Développeur Front-End (AngularJS) - [Proximedia](https://www.proximedia.fr/)
+_Lyon - France — septembre 2016 - aujourd’hui_ 
+
 ### Référent et développeur Front-End - [Agence Interactive](http://agenceinteractive.com/)
-_Lyon - France — septembre 2014 - aujourd’hui_  
+_Lyon - France — septembre 2014 - août 2016_  
 
 #### Références : 
 
@@ -66,14 +69,13 @@ Projets personnels :
 Compétences :
 -------------
 
-* __Je suis un ninja__ : `HTML`, `CSS`, `SASS` (et autre {pre|post}processeur), `Javascript` (et ES6), `jQuery`, `GIT`, `Gulp` (et autres tasks runner)
-* __Je maîtrise très bien__ : `AngularJS`, `Agilité`
-* __Je connais bien__ : `PHP`, `Linux`,  `SVN`
-* __J'ai compris et j'utilise occasionnellement__ : `Node.js`, `Symfony`, `MySql`
-* __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Backbone`, `Meteor`, `Vue`, `Python`
+* __Je suis un ninja__ : `Javascript` (et ES6), `AngularJS`, `CSS/SASS` (et autre {pre|post}processeur), `GIT`, `Gulp` (et autres tasks runner)
+* __Je maîtrise très bien__ : `Agilité`, `Test e2e (Protractor/Cucumber)`, `Test unitaire (Karma/Mocha/Chai)`, `PHP`
+* __Je connais bien__ : `Symfony`, `Linux`,  `Node.js`, `SVN/Mercurial`
+* __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Vue`, `Backbone`, `Meteor`, `Python`
 
 
-Dîplomes  :
+Diplômes  :
 -----------
 
 __Certificat de développeur web__ - Espaï - Barcelone - Espagne  — 2010 - 2011
