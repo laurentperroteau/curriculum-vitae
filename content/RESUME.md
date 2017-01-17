@@ -69,7 +69,7 @@ Projets personnels :
 Compétences :
 -------------
 
-* __Je suis un ninja__ : `Javascript` (et ES6), `AngularJS`, `CSS/SASS` (et autre {pre|post}processeur), `GIT`, `Gulp` (et autres tasks runner)
+* __Je suis un ninja__ : `Javascript (et ES6)`, `AngularJS`, `CSS/SASS (et autre {pre|post}processeur)`, `GIT`, `Gulp (et autres tasks runner)`
 * __Je maîtrise très bien__ : `Agilité`, `Test e2e (Protractor/Cucumber)`, `Test unitaire (Karma/Mocha/Chai)`, `PHP`
 * __Je connais bien__ : `Symfony`, `Linux`,  `Node.js`, `SVN/Mercurial`
 * __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Vue`, `Backbone`, `Meteor`, `Python`
