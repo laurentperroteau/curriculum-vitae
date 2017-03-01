@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import PeopleContainer from './components/PeopleContainer';
+import BarContainer from './components/Bar/BarContainer';
 import TreeContainer from './components/Tree/TreeContainer';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    console.log( this );
 
     this.state = {
       fileName: 'nom du fichier'
@@ -18,10 +22,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="app__bar">   
-            <div 
-                className="app__bar__top">  
-                { this.state.fileName }
-            </div>
+            <BarContainer />
             <div>   
                 <ul className="list list--inline">
                     <li>File</li>
@@ -41,6 +42,7 @@ class App extends Component {
             <TreeContainer />
             <div className="app__main__content">   
                 <div className="editor-ctn">
+                  <PeopleContainer />
                     {/*<div id="jsTab" className="tab"></div>
                     <div id="jsEditor" className="editor"></div>
                     <TreeContainer />*/}

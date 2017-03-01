@@ -4,39 +4,38 @@ import {bindActionCreators} from 'redux';
 
 import './Tree.css';
 
-import * as peopleActions from '../../actions/people-actions';
+import * as treeActions from '../../actions/tree-actions';
 
-import PeopleList from './PeopleList';
-import PersonInput from './PersonInput';
+import TreeButton from './TreeButton';
+// import PersonInput from './PersonInput';
 
 class TreeContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: 'title'
-      // people: []
-    };
+    console.log( props );
   }
 
-  render() {
+  render() {   
     return (
-      <div id="jsTree" className="tree">
+      <div className="tree">
         <ul>
-            <li 
-                className="
-                    tree__item
-                    tree__item--root">
-                <span 
-                    className="
-                        btn-tree
-                        btn-tree--folder">
-                    { this.state.title }
-                </span>
-                <ul>                
-                    <li>level 1</li>
-                </ul>
-            </li>
+          <li 
+            className="
+              tree__item
+              tree__item--root">
+            <span 
+              className="
+                btn-tree
+                btn-tree--folder">
+              { this.props.tree }
+            </span>
+            <ul>                
+              <li>
+                <TreeButton showFile={this.props.actions.showFile} />
+              </li>
+            </ul>
+          </li>
         </ul>
       </div> 
     );
@@ -44,19 +43,21 @@ class TreeContainer extends Component {
 }
 
 TreeContainer.propTypes = {
-  // title: PropTypes.string.isRequired
-  // people: PropTypes.array.isRequired,
+  tree: PropTypes.string.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
+// @notes: subscribe component to Redux store updates
 function mapStateToProps(state, props) {
   return {
-    people: state.people
+    tree: state.tree
   };
 }
 
+// @notes: list of "action creator" (factory that creates an action)
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(peopleActions, dispatch)
+    actions: bindActionCreators(treeActions, dispatch)
   }
 }
 
