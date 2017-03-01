@@ -1,9 +1,12 @@
 import * as types from './action-types';
 
-export const addPerson = (person) => {
+import $http from '../service/async/http'
+
+export const fetchTree = () => {
   return {
-    type: types.ADD_PERSON,
-    person
+    type: types.FETCH_TREE,
+    status: 'success',
+    response: $http('../tree/tree.json').get()
   };
 }
 

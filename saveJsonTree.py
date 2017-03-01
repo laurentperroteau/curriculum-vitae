@@ -63,10 +63,10 @@ def path_to_dict( path, my_string = None ):
 
     return dTree
 
-resultDataJson = json.dumps( path_to_dict('./', ), indent = 2 )
+resultDataJson = json.dumps( path_to_dict('./src/', ), indent = 2 )
 
-if not os.path.exists('tree'):
-    os.makedirs('tree')
+if not os.path.exists('public/tree'):
+    os.makedirs('public/tree')
 
-with open('tree/tree.json', 'w') as outfile:
+with open('public/tree/tree.json', 'w') as outfile:
     json.dump( json.JSONDecoder().decode( resultDataJson ), outfile, sort_keys = False, indent = 4, ensure_ascii = False )

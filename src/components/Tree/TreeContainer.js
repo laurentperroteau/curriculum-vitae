@@ -14,6 +14,8 @@ class TreeContainer extends Component {
     super(props);
 
     console.log( props );
+
+    this.props.actions.fetchTree()
   }
 
   render() {   
@@ -28,7 +30,7 @@ class TreeContainer extends Component {
               className="
                 btn-tree
                 btn-tree--folder">
-              { this.props.tree }
+              { this.props.activeFile }
             </span>
             <ul>                
               <li>
@@ -43,13 +45,15 @@ class TreeContainer extends Component {
 }
 
 TreeContainer.propTypes = {
-  tree: PropTypes.string.isRequired,
+  activeFile: PropTypes.string.isRequired,
+  tree: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 // @notes: subscribe component to Redux store updates
 function mapStateToProps(state, props) {
   return {
+    activeFile: state.activeFile,
     tree: state.tree
   };
 }

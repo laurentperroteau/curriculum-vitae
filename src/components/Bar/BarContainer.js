@@ -3,23 +3,29 @@ import {connect} from 'react-redux';
 
 class BarContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    
+    console.log(props);
+  }
+
   render() {   
     return (
       <div 
           className="app__bar__top">  
-          { this.props.tree }
+          { this.props.activeFile }
       </div>    
     );
   }
 }
 
 BarContainer.propTypes = {
-  tree: PropTypes.string.isRequired
+  activeFile: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state, props) {
   return {
-    tree: state.tree
+    activeFile: state.activeFile
   };
 }
 
