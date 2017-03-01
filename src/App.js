@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import './App.css';
-import PeopleContainer from './components/PeopleContainer';
+
+import TreeContainer from './components/Tree/TreeContainer';
 
 class App extends Component {
   constructor(props) {
@@ -36,12 +38,12 @@ class App extends Component {
             </div>
         </div>
         <div className="app__main">   
-            <div id="jsTree" className="tree"></div>
+            <TreeContainer />
             <div className="app__main__content">   
                 <div className="editor-ctn">
-                    <div id="jsTab" className="tab"></div>
-                    {/*<div id="jsEditor" className="editor"></div>
-                    <PeopleContainer />*/}
+                    {/*<div id="jsTab" className="tab"></div>
+                    <div id="jsEditor" className="editor"></div>
+                    <TreeContainer />*/}
                 </div>
             </div>
         </div>

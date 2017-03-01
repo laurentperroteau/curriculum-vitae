@@ -1,0 +1,76 @@
+
+/* Tree */
+/* ---- */
+
+.btn-tree {
+    height: 24px;
+    line-height: 24px;
+}
+
+.btn-tree--folder {
+    font-weight: bold;
+}
+
+.btn-tree--arrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #666666 transparent transparent transparent;
+    transform: rotate(-90deg);
+    transition: transform 100ms linear;
+}
+
+.btn-tree--arrow.jsIsOpen::before {
+    transform: rotate(0);
+}
+
+.tree {
+    width: 246px;
+    height: 100%;
+    padding: 20px 10px;
+    background-color: #E6E6E6;
+    font-family: 'Inconsolata', courier;
+    font-weight: 400;
+    color: black;
+}
+
+.tree strong {
+    font-weight: 700;
+}
+
+.tree ul ul ul {
+    padding-left: 8px;        
+}
+
+.tree__item {
+    position: relative;
+    padding-left: 10px;
+}
+
+.tree__item--root > ul {
+    margin-top: 3px;
+}
+
+.tree__item .jsisfolder + ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 100ms linear;
+}
+
+.tree__item--level1 .jsisfolder.jsIsOpen + ul {
+    max-height: 700px;
+}
+
+.tree__item--level2 .jsisfolder.jsIsOpen + ul {
+    max-height: 300px;
+}
+
+.tree__item--level3 .jsisfolder.jsIsOpen + ul {
+    max-height: 200px;
+}
