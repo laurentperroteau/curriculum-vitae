@@ -4,7 +4,9 @@ import {
   OnInit,
   ElementRef,
   Input,
-  HostBinding
+  HostBinding,
+  Output,
+  EventEmitter
 } from '@angular/core';
 
 import * as _ from "lodash";
@@ -34,8 +36,9 @@ import { Menu, MenuItem } from '../../interface/Menu';
 })
 export class TreeItemComponent implements OnInit {
 
-  @Input()
-  item: MenuItem;
+  @Input() item: MenuItem;
+
+  @Output() onClickFile = new EventEmitter<MenuItem>();
 
   @HostBinding('class') componentClass = 'app-tree-item';
   @HostBinding('class.jsisfolder') isFolder: boolean = false;
@@ -49,6 +52,8 @@ export class TreeItemComponent implements OnInit {
     if (this.isFolder) {
       this.isOpen = !this.isOpen;
     }
-    console.log(this.item);
+    else {
+      this.onClickFile.emit(this.item);
+    }
   }
 }

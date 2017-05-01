@@ -15,7 +15,10 @@
                 class="
                     tree__item
                     tree__item--level1">
-                <app-tree-item [item]="level1"></app-tree-item>
+                <app-tree-item
+                  [item]="level1"
+                  (onClickFile)="openFile($event)">
+                </app-tree-item>
                 <ul>
                     <li
                         *ngFor="let level2 of level1.children"

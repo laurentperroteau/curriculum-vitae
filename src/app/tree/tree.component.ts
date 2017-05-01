@@ -31,7 +31,7 @@ export class TreeComponent implements OnInit {
 
   ngOnInit() {
 
-    this._load().then( (data: any) => {
+    this.treeService.getTree().then( (data: any) => {
 
       // Get all tree (include root)
       // let oResult = JSON.parse( data )
@@ -67,15 +67,7 @@ export class TreeComponent implements OnInit {
     })
   }
 
-  public open(item: MenuItem, button: Element) {
-    if (item.isFolder) {
-      button.classList.toggle('jsIsOpen');
-    }
-    console.log(item);
-  }
-
-  private _load() {
-
-    return this.treeService.getTree()
+  public openFile(item: MenuItem) {
+     console.log('OPEN_TAB', item);
   }
 }
