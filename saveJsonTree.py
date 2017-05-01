@@ -5,6 +5,7 @@ import json
 
 # Prefix naming : d (dictionary), t (tuple)
 
+# TODO: adapt with new directories and new file (now ts, import etc...)
 def path_to_dict( path, my_string = None ):
 
     dTree = {'name': os.path.basename(path)}
@@ -33,7 +34,7 @@ def path_to_dict( path, my_string = None ):
         'webpack.production.config.js',
         'webpack.test.config.js',
         'blog',
-	'yupik'
+	      'yupik'
     )
 
     if os.path.isdir(path):
