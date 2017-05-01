@@ -1,12 +1,15 @@
 import {
   Component,
   ViewEncapsulation,
-  OnInit
+  OnInit,
+  ElementRef
 } from '@angular/core';
 
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
-import { TreeService } from "../tree.service";
+import { Menu, MenuItem } from '../interface/Menu';
+import { TreeService } from '../tree.service';
+
 
 @Component({
   selector: 'app-tree',
@@ -15,7 +18,12 @@ import { TreeService } from "../tree.service";
   encapsulation: ViewEncapsulation.None // ??
 })
 export class TreeComponent implements OnInit {
-    tree: any = {}
+    tree: Menu = {
+      title: "Curriculum Vitae",
+      tree : {
+        children: []
+      }
+    }
 
   constructor(private treeService: TreeService) {
       this.treeService = treeService
@@ -23,7 +31,7 @@ export class TreeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.load().then( (data: any) => {
+    this._load().then( (data: any) => {
 
       // Get all tree (include root)
       // let oResult = JSON.parse( data )
@@ -31,7 +39,7 @@ export class TreeComponent implements OnInit {
       console.log(data);
 
       // Sort subfolder
-      let oResult = _.forEach(data.children, function(oLevel1) {
+      let oResult: MenuItem[] = _.forEach(data.children, function(oLevel1) {
 
           if( oLevel1.isFolder ) {
 
@@ -53,21 +61,21 @@ export class TreeComponent implements OnInit {
           return [ !o.isFolder, o.name.toLowerCase() ].join("_")
       });
 
-      console.log(oResult);
-
-
-      this.tree = {
-        "title": "Curriculum Vitae",
-        "tree": {children: oResult}
-      }
+      this.tree.tree = {children: oResult};
 
       console.log( this.tree );
     })
   }
 
-  private load() {
+  public open(item: MenuItem, button: Element) {
+    if (item.isFolder) {
+      button.classList.toggle('jsIsOpen');
+    }
+    console.log(item);
+  }
+
+  private _load() {
 
     return this.treeService.getTree()
   }
-
 }

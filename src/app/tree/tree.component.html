@@ -1,4 +1,4 @@
-<ul>
+<ul class="tree">
     <li
         class="
           tree__item
@@ -15,22 +15,7 @@
                 class="
                     tree__item
                     tree__item--level1">
-                {{ level1.name }}
-                <button
-                    type="button"
-                    class="
-                        jsEventMenuItem
-                        btn-reset
-                        btn-tree"
-                    [ngClass]="{
-                        'btn-tree--folder': level1.isFolder,
-                        'btn-tree--arrow': level1.isFolder,
-                        'jsisfolder': level1.isFolder
-                    }"
-                    data-name="level1.name"
-                    data-full-path="level1.fullPath">
-                    {{ level1.name }}
-                </button>
+                <app-tree-item [item]="level1"></app-tree-item>
                 <ul>
                     <li
                         *ngFor="let level2 of level1.children"

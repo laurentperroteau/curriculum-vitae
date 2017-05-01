@@ -26,11 +26,11 @@
             transform: rotate(-90deg);
             transition: transform 100ms linear;
         }
-
-        &.jsIsOpen::before {
-            transform: rotate(0);
-        }
     }
+}
+
+.app-tree-item.jsIsOpen .btn-tree--arrow::before {
+    transform: rotate(0);
 }
 
 .tree {
@@ -60,11 +60,11 @@
 
         .jsisfolder {
 
-            /*+ ul {
+            + ul {
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 100ms linear;
-            }*/
+            }
         }
 
         &--level1 .jsisfolder.jsIsOpen + ul {
