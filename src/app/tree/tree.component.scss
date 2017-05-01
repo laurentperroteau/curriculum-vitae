@@ -29,8 +29,18 @@
     }
 }
 
-.app-tree-item.jsIsOpen .btn-tree--arrow::before {
-    transform: rotate(0);
+.app-tree-item.jsIsOpen {
+    .btn-tree {
+
+        // TODO: set sublime style
+        &:not(.btn-tree--folder) {
+          text-decoration: underline;
+        }
+
+        &--arrow::before {
+            transform: rotate(0);
+        }
+    }
 }
 
 .tree {

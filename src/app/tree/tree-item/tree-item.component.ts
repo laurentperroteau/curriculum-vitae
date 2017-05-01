@@ -53,6 +53,7 @@ export class TreeItemComponent implements OnInit {
       this.isOpen = !this.isOpen;
     }
     else {
+      this.isOpen = true;
       this.onClickFile.emit(this.item);
     }
   }
