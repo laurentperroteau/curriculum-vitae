@@ -4,11 +4,10 @@ import {
   OnInit,
   ElementRef
 } from '@angular/core';
-
 import * as _ from 'lodash';
 
-import { Menu, MenuItem } from '../interface/Menu';
-import { TreeService } from '../tree.service';
+import { Menu, MenuItem } from '../shared/interface/Menu';
+import { TreeService } from './tree.service';
 
 
 @Component({

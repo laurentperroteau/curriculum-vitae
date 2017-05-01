@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TreeComponent } from './tree/tree.component';
 import { TreeItemComponent } from './tree/tree-item/tree-item.component';
 
-import { TreeService} from "./tree.service";
+import { TreeService} from './tree/tree.service';
 import { KeyValuesPipe } from './key-values.pipe'; // ??
 
 @NgModule({
