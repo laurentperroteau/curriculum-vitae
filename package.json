@@ -24,6 +24,7 @@
     "@angular/platform-server": "^4.1.0",
     "@angular/router": "^4.1.0",
     "core-js": "^2.4.1",
+    "lodash": "^4.17.4",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "typescript": "^2.3.2",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@angular/cli": "^1.0.1",
     "@types/jasmine": "2.5.38",
+    "@types/lodash": "^4.14.63",
     "@types/node": "^6.0.71",
     "codelyzer": "~1.0.0-beta.3",
     "jasmine-core": "2.5.2",
