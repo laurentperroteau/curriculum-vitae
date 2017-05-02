@@ -1,0 +1,29 @@
+<ul class="editor__tab">
+    <li
+        *ngFor="let tab of oTab.tab"
+        class="editor__tab__item"
+        my-class-jsIsActive="tab.active">
+        <button
+            type="button"
+            (click)="openTab(tab.name, tab.fullPath)"
+            class="
+                jsEventTabItem
+                btn-reset
+                editor__tab__item__open"
+            my-data-name="tab.name"
+            my-data-full-path="tab.fullPath">
+            {{ tab.name }}
+        </button>
+        <button
+            type="button"
+            (click)="closeTab(tab.name)"
+            class="
+                jsEventTabItemClose
+                btn-reset
+                editor__tab__item__close"
+            my-data-name="tab.name"
+            my-data-full-path="tab.fullPath">
+            x
+        </button>
+    </li>
+</ul>

@@ -11,7 +11,7 @@ import {
 
 import * as _ from "lodash";
 
-import { Menu, MenuItem } from '../../shared/interface/Menu';
+import { Menu, MenuItem } from '../../core/interface/Menu';
 
 @Component({
   selector: 'app-tree-item',

@@ -1,0 +1,73 @@
+
+/* Editor */
+/* ------ */
+
+$sublime-background: #141414;
+$sublime-tab       : #565656;
+$sublime-tab-darken: #666;
+
+$editor-tab-height     : 33px;
+$editor-tab-padding-top : 5px;
+
+$editor-height-line : 18px;
+
+
+.editor {
+    background-color: $sublime-background;
+
+    &__tab {
+        display: flex;
+        width: 100%;
+        height: $editor-tab-height;
+        padding: $editor-tab-padding-top 0 0 50px;
+        background-color: $sublime-tab;
+
+        &__item {
+            position: relative;
+            z-index: 1;
+
+            /* Sizes */
+            max-width: 175px;
+            flex-grow: 1;
+            margin-left: -12px;
+            padding: 0 10px;
+
+            /* Trapezoid */
+            height: 0;
+            line-height: calc($editor-tab-height - $editor-tab-padding-top);
+            border-bottom: calc($editor-tab-height - $editor-tab-padding-top) solid $sublime-tab-darken;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+
+            font-size: 13px;
+            cursor: default;
+
+            &.jsIsActive {
+                z-index: 2;
+                border-bottom-color: $sublime-background;
+            }
+
+            &__open {
+                width: 84%;
+                color: white;
+                text-align: left;
+            }
+
+            &__close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 30px;
+                height: calc($editor-tab-height - $editor-tab-padding-top);
+                color: white;
+                cursor: default;
+                outline: none;
+            }
+
+            .btn-reset {
+                overflow: hidden;
+                height: $editor-tab-height;
+            }
+        }
+    }
+}
