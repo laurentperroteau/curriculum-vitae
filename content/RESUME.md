@@ -9,7 +9,6 @@ Développeur Front-End
 * [Viadeo](http://www.viadeo.com/p/0021c8r36v60dr57)
 * [Linkedin](https://www.linkedin.com/in/laurent-perroteau-15a6ab68)
 * [Twitter](https://twitter.com/LaurentPeroteau)
-* [Old blog](http://laurentperroteau.com/blog)
 
 Résumé :
 --------
