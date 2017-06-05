@@ -6,47 +6,26 @@ Développeur Front-End
 ---------------------
 
 * [GitHub](https://github.com/laurentperroteau)
-* [Twitter](https://twitter.com/LaurentPeroteau)
 * [Viadeo](http://www.viadeo.com/p/0021c8r36v60dr57)
 * [Linkedin](https://www.linkedin.com/in/laurent-perroteau-15a6ab68)
-* [Old blog](http://laurentperroteau.com/blog)
+* [Twitter](https://twitter.com/LaurentPeroteau)
 
 Résumé :
 --------
 
-Développeur Web depuis 5 ans, spécialisé Front-End depuis 4 ans, référent technique Front-End depuis 2 ans.
+Développeur web avec 6 ans d’expérience spécialisé JavaScript et AngularJS, travaillant communément sur un environnement Linux, PHP/Symfony, JavaScript/AngularJS, CSS/SASS, test unitaire et/ou E2E, le tout en mode agile.
 
 Expérience :
 ------------
 
+### Développeur Front-End (AngularJS) - [Proximedia](https://www.proximedia.fr/)
+_Lyon - France — septembre 2016 - aujourd’hui_ 
+
 ### Référent et développeur Front-End - [Agence Interactive](http://agenceinteractive.com/)
-_Lyon - France — septembre 2014 - aujourd’hui_  
-
-#### Références : 
-
-* [jeanlain.com](http://jeanlain.com/) : refonte responsive (création du prototype avec AngularJS et maintenance de l’application avec RubedoCMS, donc AngularJS aussi)
-* Xerox : création de module/composant HTML/CSS destiné à une suite d’application SAAS
-* lesventesdudimanche.fr (maintenant hors-ligne) : création responsive  (création du prototype avec AngularJS et maintenant de l’application avec RubedoCMS, donc AngularJS aussi)
-* [tourisme-nordpasdecalais.fr](http://www.tourisme-nordpasdecalais.fr/) : refonte responsive (création du prototype)
-* [montpellier-tourisme.fr](http://www.montpellier-tourisme.fr/) : refonte responsive (création du prototype)
-* [cotedazur-card.com](https://cotedazur-card.com/) : refonte responsive (création du prototype)
-* [bordeaux-events.com](http://bordeaux-events.com/) : refonte responsive (création du prototype)
-* [charente-maritime.mobi](http://charente-maritime.mobi/) : refonte responsive (création du prototype avec AngularJS)
-* Nespresso : intranet générateur de newsletter sur Symfony 2 (Back)
-* (en cours) : Développement application mobile avec Ionic Framework, donc AngularJs (lead sur ce projet)
+_Lyon - France — septembre 2014 - août 2016_  
 
 ### Développeur Front-End / Intégrateur - [Altima](http://www.altima-agency.com)
 _Lyon - France — novembre 2012 - août 2014_
-
-#### Références : 
-
-* [salomon.com](http://www.salomon.com/) : refonte responsive (création du prototype)
-* [grandfrais.com](http://www.grandfrais.com/) : refonte responsive (création du prototype)
-* Voyage privé : prototype/test utilisateur (création du prototype)
-* [skimium.fr](http://www.skimium.fr/) : TMA sur partie Front de l’application
-* [probikeshop.fr](http://www.probikeshop.fr/) : A/B testing gagnant  (création du prototype)
-* [nocibe.fr](http://www.nocibe.fr/) : refonte responsive (création du prototype)
-
 
 ### Intégrateur / Développeur Web - Enfusión
 _Barcelone - Espagne — septembre 2011 - octobre 2012_
@@ -66,14 +45,13 @@ Projets personnels :
 Compétences :
 -------------
 
-* __Je suis un ninja__ : `HTML`, `CSS`, `SASS` (et autre {pre|post}processeur), `Javascript` (et ES6), `jQuery`, `GIT`, `Gulp` (et autres tasks runner)
-* __Je maîtrise très bien__ : `AngularJS`, `Agilité`
-* __Je connais bien__ : `PHP`, `Linux`,  `SVN`
-* __J'ai compris et j'utilise occasionnellement__ : `Node.js`, `Symfony`, `MySql`
-* __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Backbone`, `Meteor`, `Vue`, `Python`
+* __Je suis un ninja__ : `Javascript (et ES6)`, `AngularJS`, `CSS/SASS (et autre {pre|post}processeur)`, `GIT`, `Gulp (et autres tasks runner)`
+* __Je maîtrise très bien__ : `Agilité`, `Test e2e (Protractor/Cucumber)`, `Test unitaire (Karma/Mocha/Chai)`, `PHP`
+* __Je connais bien__ : `Symfony`, `Linux`,  `Node.js`, `SVN/Mercurial`
+* __J'ai testé, compris et au moins fait un "Hello World"__ : `React`, `Vue`, `Backbone`, `Meteor`, `Python`
 
 
-Dîplomes  :
+Diplômes  :
 -----------
 
 __Certificat de développeur web__ - Espaï - Barcelone - Espagne  — 2010 - 2011
