@@ -45,7 +45,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "karma start --browsers Chrome ./config/webpack.karma.js"
+    "test": "karma start ./config/webpack.karma.js"
   },
   "author": "",
   "license": "ISC"
