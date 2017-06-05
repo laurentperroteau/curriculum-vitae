@@ -32,7 +32,8 @@ def path_to_dict( path, my_string = None ):
         'appBundle.js',
         'webpack.production.config.js',
         'webpack.test.config.js',
-        'blog'
+        'blog',
+	'yupik'
     ) 
 
     if os.path.isdir(path):
