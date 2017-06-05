@@ -5,7 +5,7 @@ const PubSub = require('pubsub-js')
 
 import tabCtrl from 'myComponent/tab/tabCtrl'
 
-import TabClass from 'myComponent/tab/TabClass'
+import TabClass from 'myComponent/tab/TabComponent'
 
 const oTab = {
     "tab": [
