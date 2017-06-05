@@ -10,8 +10,6 @@ module.exports = function(config) {
         basePath: '.',
         browsers: [
             'Chrome'
-            'Firefox',
-            'IE'
         ],
         files: [
             '../webpack.test.config.js'
