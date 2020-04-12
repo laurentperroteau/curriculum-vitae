@@ -1,0 +1,355 @@
+{
+    "isFolder": true, 
+    "name": "", 
+    "children": [
+        {
+            "fullPath": "./config", 
+            "isFolder": true, 
+            "name": "config", 
+            "children": [
+                {
+                    "fullPath": "./config/global.config.js", 
+                    "isFolder": false, 
+                    "name": "global.config.js"
+                }, 
+                {
+                    "fullPath": "./config/webpack.karma.js", 
+                    "isFolder": false, 
+                    "name": "webpack.karma.js"
+                }, 
+                {
+                    "fullPath": "./config/webpack.resolve.js", 
+                    "isFolder": false, 
+                    "name": "webpack.resolve.js"
+                }, 
+                {
+                    "fullPath": "./config/webpack.module.js", 
+                    "isFolder": false, 
+                    "name": "webpack.module.js"
+                }
+            ]
+        }, 
+        {
+            "fullPath": "./server.js", 
+            "isFolder": false, 
+            "name": "server.js"
+        }, 
+        {
+            "fullPath": "./service", 
+            "isFolder": true, 
+            "name": "service", 
+            "children": [
+                {
+                    "fullPath": "./service/write", 
+                    "isFolder": true, 
+                    "name": "write", 
+                    "children": [
+                        {
+                            "fullPath": "./service/write/WriteClass.js", 
+                            "isFolder": false, 
+                            "name": "WriteClass.js"
+                        }, 
+                        {
+                            "fullPath": "./service/write/writeChar.js", 
+                            "isFolder": false, 
+                            "name": "writeChar.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./service/log", 
+                    "isFolder": true, 
+                    "name": "log", 
+                    "children": [
+                        {
+                            "fullPath": "./service/log/log.js", 
+                            "isFolder": false, 
+                            "name": "log.js"
+                        }, 
+                        {
+                            "fullPath": "./service/log/displayLog.js", 
+                            "isFolder": false, 
+                            "name": "displayLog.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./service/async", 
+                    "isFolder": true, 
+                    "name": "async", 
+                    "children": [
+                        {
+                            "fullPath": "./service/async/http.js", 
+                            "isFolder": false, 
+                            "name": "http.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./service/localStorage", 
+                    "isFolder": true, 
+                    "name": "localStorage", 
+                    "children": [
+                        {
+                            "fullPath": "./service/localStorage/store.js", 
+                            "isFolder": false, 
+                            "name": "store.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./service/linkedIn", 
+                    "isFolder": true, 
+                    "name": "linkedIn", 
+                    "children": [
+                        {
+                            "fullPath": "./service/linkedIn/LinkedInClass.js", 
+                            "isFolder": false, 
+                            "name": "LinkedInClass.js"
+                        }, 
+                        {
+                            "fullPath": "./service/linkedIn/LinkedInCtrl.js", 
+                            "isFolder": false, 
+                            "name": "LinkedInCtrl.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./service/support", 
+                    "isFolder": true, 
+                    "name": "support", 
+                    "children": [
+                        {
+                            "fullPath": "./service/support/promise.js", 
+                            "isFolder": false, 
+                            "name": "promise.js"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "fullPath": "./index.html", 
+            "isFolder": false, 
+            "name": "index.html"
+        }, 
+        {
+            "fullPath": "./package.json", 
+            "isFolder": false, 
+            "name": "package.json"
+        }, 
+        {
+            "fullPath": "./content", 
+            "isFolder": true, 
+            "name": "content", 
+            "children": [
+                {
+                    "fullPath": "./content/demo.js", 
+                    "isFolder": false, 
+                    "name": "demo.js"
+                }, 
+                {
+                    "fullPath": "./content/RESUME.md", 
+                    "isFolder": false, 
+                    "name": "RESUME.md"
+                }
+            ]
+        }, 
+        {
+            "fullPath": "./tree", 
+            "isFolder": true, 
+            "name": "tree", 
+            "children": [
+                {
+                    "fullPath": "./tree/tree.json", 
+                    "isFolder": false, 
+                    "name": "tree.json"
+                }
+            ]
+        }, 
+        {
+            "fullPath": "./README-fr.md", 
+            "isFolder": false, 
+            "name": "README-fr.md"
+        }, 
+        {
+            "fullPath": "./util", 
+            "isFolder": true, 
+            "name": "util", 
+            "children": [
+                {
+                    "fullPath": "./util/CreateComponent.js", 
+                    "isFolder": false, 
+                    "name": "CreateComponent.js"
+                }
+            ]
+        }, 
+        {
+            "fullPath": "./app.js", 
+            "isFolder": false, 
+            "name": "app.js"
+        }, 
+        {
+            "fullPath": "./webpack.config.js", 
+            "isFolder": false, 
+            "name": "webpack.config.js"
+        }, 
+        {
+            "fullPath": "./component", 
+            "isFolder": true, 
+            "name": "component", 
+            "children": [
+                {
+                    "fullPath": "./component/gutter", 
+                    "isFolder": true, 
+                    "name": "gutter", 
+                    "children": [
+                        {
+                            "fullPath": "./component/gutter/gutter.html", 
+                            "isFolder": false, 
+                            "name": "gutter.html"
+                        }, 
+                        {
+                            "fullPath": "./component/gutter/GutterComponent.js", 
+                            "isFolder": false, 
+                            "name": "GutterComponent.js"
+                        }, 
+                        {
+                            "fullPath": "./component/gutter/gutter.css", 
+                            "isFolder": false, 
+                            "name": "gutter.css"
+                        }, 
+                        {
+                            "fullPath": "./component/gutter/gutterCtrl.js", 
+                            "isFolder": false, 
+                            "name": "gutterCtrl.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./component/app", 
+                    "isFolder": true, 
+                    "name": "app", 
+                    "children": [
+                        {
+                            "fullPath": "./component/app/AppComponent.js", 
+                            "isFolder": false, 
+                            "name": "AppComponent.js"
+                        }, 
+                        {
+                            "fullPath": "./component/app/appCtrl.js", 
+                            "isFolder": false, 
+                            "name": "appCtrl.js"
+                        }, 
+                        {
+                            "fullPath": "./component/app/app.css", 
+                            "isFolder": false, 
+                            "name": "app.css"
+                        }, 
+                        {
+                            "fullPath": "./component/app/app-test.js", 
+                            "isFolder": false, 
+                            "name": "app-test.js"
+                        }, 
+                        {
+                            "fullPath": "./component/app/app.html", 
+                            "isFolder": false, 
+                            "name": "app.html"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./component/tab", 
+                    "isFolder": true, 
+                    "name": "tab", 
+                    "children": [
+                        {
+                            "fullPath": "./component/tab/tab.css", 
+                            "isFolder": false, 
+                            "name": "tab.css"
+                        }, 
+                        {
+                            "fullPath": "./component/tab/tabCtrl.js", 
+                            "isFolder": false, 
+                            "name": "tabCtrl.js"
+                        }, 
+                        {
+                            "fullPath": "./component/tab/TabComponent.js", 
+                            "isFolder": false, 
+                            "name": "TabComponent.js"
+                        }, 
+                        {
+                            "fullPath": "./component/tab/tab.html", 
+                            "isFolder": false, 
+                            "name": "tab.html"
+                        }, 
+                        {
+                            "fullPath": "./component/tab/tab-test.js", 
+                            "isFolder": false, 
+                            "name": "tab-test.js"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./component/tree", 
+                    "isFolder": true, 
+                    "name": "tree", 
+                    "children": [
+                        {
+                            "fullPath": "./component/tree/TreeComponent.js", 
+                            "isFolder": false, 
+                            "name": "TreeComponent.js"
+                        }, 
+                        {
+                            "fullPath": "./component/tree/tree.css", 
+                            "isFolder": false, 
+                            "name": "tree.css"
+                        }, 
+                        {
+                            "fullPath": "./component/tree/treeCtrl.js", 
+                            "isFolder": false, 
+                            "name": "treeCtrl.js"
+                        }, 
+                        {
+                            "fullPath": "./component/tree/tree.html", 
+                            "isFolder": false, 
+                            "name": "tree.html"
+                        }
+                    ]
+                }, 
+                {
+                    "fullPath": "./component/editor", 
+                    "isFolder": true, 
+                    "name": "editor", 
+                    "children": [
+                        {
+                            "fullPath": "./component/editor/editor.css", 
+                            "isFolder": false, 
+                            "name": "editor.css"
+                        }, 
+                        {
+                            "fullPath": "./component/editor/EditorComponent.js", 
+                            "isFolder": false, 
+                            "name": "EditorComponent.js"
+                        }, 
+                        {
+                            "fullPath": "./component/editor/editor.html", 
+                            "isFolder": false, 
+                            "name": "editor.html"
+                        }, 
+                        {
+                            "fullPath": "./component/editor/editorCtrl.js", 
+                            "isFolder": false, 
+                            "name": "editorCtrl.js"
+                        }, 
+                        {
+                            "fullPath": "./component/editor/editor-test.js", 
+                            "isFolder": false, 
+                            "name": "editor-test.js"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

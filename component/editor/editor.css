@@ -1,0 +1,93 @@
+
+/* Editor */
+/* ------ */
+
+/* TODO: solve scope var, in json ? bof */
+:root {
+    --sublime-background: #141414;
+
+    --editor-tab-height  : 33px;
+    --editor-height-line : 18px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #222;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #565656;
+    border-radius: 10px;
+}
+
+.editor {
+
+    * {
+        outline: none;
+    }
+
+    &__inner {
+        display: flex;  
+        /*flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: stretch;*/
+        height: calc( 100% - var( --editor-tab-height ) -  48px ); /* TODO: top bar, get var*/
+        padding: 5px;
+        
+        &__content {
+            /* TODO: fix height when too many gutter lines */
+            overflow: auto;
+            flex-grow: 1;
+
+            pre {
+                margin: 0;
+                padding: 0;
+                background-color: var( --sublime-background );
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+
+                &.jsIsHidden {
+                    display: none;
+                }
+            }
+            
+            pre[class*="language-"],
+            code[class*="language-"] {
+                line-height: var( --editor-height-line );
+            }
+
+            .markdown-body {
+                padding: 45px;
+                background-color: white;
+
+                &.jsIsHidden {
+                    display: none;
+                }
+
+                ul {
+                    list-style: initial;
+                    margin: initial;
+                    padding: 0 0 0 40px;
+
+                    li {
+                        list-style: initial;
+                        display: list-item;
+                    }
+                }
+
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    margin-bottom: 0;
+                }
+
+            }
+        }
+    }
+    
+}
