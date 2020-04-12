@@ -14,9 +14,20 @@ jobs:
           npm install
           npm run build
           mkdir build
-          ls
           mv ./app ./build/app
           cp ./index.html ./build/index.html
+          cp -r ./libs ./build/libs
+          cp -r ./content ./build/content
+          cp -r ./tree ./build/tree
+          cp -r ./component ./build/component
+          cp -r ./config ./build/config
+          cp -r ./service ./build/service
+          cp -r ./util ./build/util
+          cp app.js ./build/app.js
+          cp package.json ./build/package.json
+          cp server.js ./build/server.js
+          cp README-fr.md ./build/README-fr.md
+          cp webpack.config.js ./build/webpack.config.js
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
