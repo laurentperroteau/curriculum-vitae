@@ -41,12 +41,14 @@
     "precss": "^1.4.0",
     "rivets": "^0.8.1",
     "strip-loader": "^0.1.2",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "webpack-dev-server": "^1.16.3"
   },
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start ./config/webpack.karma.js --single-run ",
-    "testWatch": "karma start ./config/webpack.karma.js"
+    "testWatch": "karma start ./config/webpack.karma.js",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC"
