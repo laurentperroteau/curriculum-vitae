@@ -1,5 +1,4 @@
 app/*
-tree/*
 !screens/tree/
 exemple/
 *.sublime-project
